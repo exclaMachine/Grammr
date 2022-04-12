@@ -15,6 +15,6 @@ def seed_albums():
 
     db.session.commit()
 
-def undo_pics():
+def undo_albums():
     db.session.execute('TRUNCATE albums RESTART IDENTITY CASCADE;')
     db.session.commit()
