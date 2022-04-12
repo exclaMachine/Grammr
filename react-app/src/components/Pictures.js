@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 
 const PicturesPage = () => {
     const dispatch = useDispatch()
+
     return (
         <>
         <div>
