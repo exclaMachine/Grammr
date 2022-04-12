@@ -6,7 +6,7 @@ class Picture(db.Model):
     id = db.Column(db.Integer, primary_key=True, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     album_id = db.Column(db.Integer, db.ForeignKey("albums.id"), nullable=True)
-    content = db.Column(db.Text(255), nullable=False)
+    content = db.Column(db.String(255), nullable=False)
     image = db.Column(db.String(), nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.now(), nullable=False)
     updated_at = db.Column(db.DateTime, default=datetime.now(), nullable=False)
