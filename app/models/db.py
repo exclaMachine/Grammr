@@ -28,7 +28,6 @@ class Album(db.Model):
     updated_at = db.Column(db.DateTime, default=datetime.now(), nullable=False)
 
     pictures = db.relationship("Picture", backref='albums', cascade="all, delete")
-    comments = db.relationship("Comment", backref='albums', cascade="all, delete")
 
 class Comment(db.Model):
     __tablename__ = 'comments'
