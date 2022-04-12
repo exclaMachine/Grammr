@@ -3,7 +3,7 @@ const GET_PICTURES = 'picture/GET_PICTURES'
 export const getAllPictures = (pictures) => {
     return {
         type: GET_PICTURES,
-        pictures
+        payload: pictures
     }
 }
 
