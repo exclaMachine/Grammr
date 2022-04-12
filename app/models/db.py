@@ -17,6 +17,15 @@ class Picture(db.Model):
     users = db.relationship("User", backref="pictures")
     comments = db.relationship("Comment", backref="pictures", cascade="all, delete", order_by="Comment.created_at")
 
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'user_id': self.user_id,
+            'album_id': self.album_id,
+            'content': self.content,
+            'image': self.image
+        }
+
 
 class Album(db.Model):
     __tablename__ = 'albums'
