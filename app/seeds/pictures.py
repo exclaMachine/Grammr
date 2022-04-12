@@ -1,4 +1,5 @@
 from app.models import db, Picture
+
 from datetime import date
 
 today = date.today()
