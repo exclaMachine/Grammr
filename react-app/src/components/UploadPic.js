@@ -10,6 +10,10 @@ const UploadPicture = () => {
         e.preventDefault();
         const formData = new FormData();
         formData.append("image", picture);
+        console.log('pic', picture.name)
+        // formData.append("content", picture.name)
+        // formData.append("album_id", 1)
+        console.log('formdata', formData)
 
         setPicLoading(true);
 

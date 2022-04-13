@@ -24,30 +24,34 @@ def upload_picture():
     # album_id = None
     # content = image.filename
 
-    if not allowed_file(image.filename):
-        return {"errors": "file type not permitted"}, 400
+    # if not allowed_file(image.filename):
+    #     return {"errors": "file type not permitted"}, 400
 
-    image.filename = get_unique_filename(image.filename)
+    # image.filename = get_unique_filename(image.filename)
 
-    upload = upload_file_to_s3(image)
+    # upload = upload_file_to_s3(image)
 
-    if "url" not in upload:
-        # if the dictionary doesn't have a url key
-        # it means that there was an error when we tried to upload
-        # so we send back that error message
-        return upload, 400
+    # if "url" not in upload:
+    #     # if the dictionary doesn't have a url key
+    #     # it means that there was an error when we tried to upload
+    #     # so we send back that error message
+    #     return upload, 400
 
-    console.log('currUser', current_user)
+    # print('currUser', current_user.id)
+    # print('filename!!!!!!!!!!', image.filename)
+    print('image!!!!!!', image)
 
-    url = upload["url"]
+    # url = upload["url"]
     # flask_login allows us to get the current user from the request
     new_image = Picture(
-        user_id=current_user,
-        album_id=None,
+        user_id=current_user.id,
+        album_id="1",
         content=image.filename,
         # url=url,
-        image=image
+        image=image.filename
         )
+    # print("new_image", new_image)
+    # print("DictImage!!!!!!", new_image.to_dict())
 
     db.session.add(new_image)
     db.session.commit()
