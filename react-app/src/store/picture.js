@@ -49,8 +49,8 @@ const pictureReducer = (state = initialState, action) => {
             return action.payload
         case POST_PICTURE:
             newState = {...state}
-            newState[action.payload.picture?.id] = action.payload.picture
-            console.log('here', action.payload.picture)
+            newState[action.payload.id] = action.payload
+            // console.log('here', action.payload.picture)
             return newState;
 
         default:

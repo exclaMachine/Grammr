@@ -1,11 +1,15 @@
 import React, {useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getAllPicturesThunk, postPictureThunk } from "../store/picture";
 
 const UploadPicture = () => {
     const history = useHistory();
     const dispatch = useDispatch();
+
+
+    const sessionUser = useSelector(state => state.session.user)
+    const pictureObj = useSelector(state => state.pictureReducer)
 
     const [pic, setPic] = useState(null);
     const [picLoading, setPicLoading] = useState(false);
@@ -14,8 +18,10 @@ const UploadPicture = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const formData = new FormData();
+        const formData = new FormData()
         formData.append("image", pic);
+        formData.append("user_id", sessionUser?.id)
+        // formData.append("content", "hello")
         // console.log('pic', pic.name)
         // formData.append("content", image.name)
         // formData.append("album_id", 1)
