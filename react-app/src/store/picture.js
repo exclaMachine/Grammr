@@ -19,13 +19,13 @@ export const getAllPicturesThunk = () => async dispatch => {
     const res = await fetch('/api/pictures')
 
     if (res.ok) {
-        const data = await res.json()
-        dispatch(getAllPictures(data))
+        const pictures_obj = await res.json()
+        dispatch(getAllPictures(pictures_obj))
     }
 }
 
 export const postPictureThunk = (data) => async dispatch => {
-    const res = await fetch('/api/pictures', {
+    const res = await fetch('/api/pictures/new', {
         method: "POST",
         body: data
     })
@@ -44,12 +44,13 @@ const pictureReducer = (state = initialState, action) => {
     switch(action.type) {
         case GET_PICTURES:
             newState = { ...state };
-            action.payload.pictures?.forEach((picture) => newState[picture.id] = picture)
-            return newState;
-
+            // action.payload.pictures?.forEach((picture) => newState[picture.id] = picture)
+            // return newState;
+            return action.payload
         case POST_PICTURE:
             newState = {...state}
             newState[action.payload.picture?.id] = action.payload.picture
+            console.log('here', action.payload.picture)
             return newState;
 
         default:

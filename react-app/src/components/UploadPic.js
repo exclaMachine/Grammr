@@ -10,6 +10,7 @@ const UploadPicture = () => {
     const [pic, setPic] = useState(null);
     const [picLoading, setPicLoading] = useState(false);
 
+    console.log('pic1', pic)
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -23,6 +24,7 @@ const UploadPicture = () => {
         // setPicLoading(true);
 
         dispatch(postPictureThunk(formData))
+
         // const res = await fetch('/api/pictures', {
         //     method: 'POST',
         //     body: formData
@@ -30,7 +32,7 @@ const UploadPicture = () => {
         // if (res.ok) {
         //     await res.json();
         //     setPicLoading(false);
-            history.push("/pictures");
+            // history.push("/pictures");
         // }
         // else {
         //     setPicLoading(false);
@@ -39,8 +41,10 @@ const UploadPicture = () => {
         // }
     }
 
+    console.log('pic2', pic)
+
     const updatePic = (e) => {
-        const file = e.target.files[0].name;
+        const file = e.target.files[0];
         console.log('target!!!', e.target.files[0])
         setPic(file);
     }
