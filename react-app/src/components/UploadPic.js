@@ -1,10 +1,17 @@
-import React, {useState} from "react";
+import React, {useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { getAllPicturesThunk } from "../store/picture";
 
 const UploadPicture = () => {
     const history = useHistory();
+    const dispatch = useDispatch();
+
     const [pic, setPic] = useState(null);
     const [picLoading, setPicLoading] = useState(false);
+
+
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
