@@ -24,7 +24,6 @@ def upload_picture():
     # album_id = None
     # content = image.filename
 
-
     if not allowed_file(image.filename):
         return {"errors": "file type not permitted"}, 400
 
@@ -38,9 +37,19 @@ def upload_picture():
         # so we send back that error message
         return upload, 400
 
+    console.log('currUser', current_user)
+
     url = upload["url"]
     # flask_login allows us to get the current user from the request
-    new_image = Picture(user=current_user, url=url)
+    new_image = Picture(
+        user_id=current_user,
+        album_id=None,
+        content=image.filename,
+        # url=url,
+        image=image
+        )
+
     db.session.add(new_image)
     db.session.commit()
-    return {"url": url}
+    return new_image.to_dict()
+    # return {"url": url}
