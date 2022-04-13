@@ -30,7 +30,7 @@ const PicturesPage = () => {
                         {usersPictures.map(({ id, content, image}) => (
                             <li key={id}>
                                 <h1>{content}</h1>
-                                <div>{image}</div>
+                                <img alt='' src={image}></img>
                             </li>
                         ))}
                     </ul>
