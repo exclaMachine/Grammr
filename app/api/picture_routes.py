@@ -1,7 +1,7 @@
 from flask import Blueprint, request
 from app.models import db, Picture
 from flask_login import current_user, login_required
-from app.s3_helpers import (
+from app.s3_funcs import (
     upload_file_to_s3, allowed_file, get_unique_filename)
 
 picture_routes = Blueprint('pictures', __name__)
@@ -16,10 +16,14 @@ def get_pictures():
 @picture_routes.route("", methods=["POST"])
 @login_required
 def upload_picture():
-    if "picture" not in request.files:
+    if "image" not in request.files:
         return {"errors": "image required"}, 400
 
-    image = request.files["picture"]
+    # user_id = request.json['user_id']
+    image = request.files["image"]
+    # album_id = None
+    # content = image.filename
+
 
     if not allowed_file(image.filename):
         return {"errors": "file type not permitted"}, 400

@@ -9,7 +9,7 @@ const UploadPicture = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const formData = new FormData();
-        formData.append("picture", picture);
+        formData.append("image", picture);
 
         setPicLoading(true);
 
