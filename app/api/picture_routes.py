@@ -52,7 +52,7 @@ def upload_picture():
     # flask_login allows us to get the current user from the request
     new_image = Picture(
         user_id=current_user.id,
-        album_id="1",
+        album_id=None,
         content=picName,
         # url=url,
         image=url
