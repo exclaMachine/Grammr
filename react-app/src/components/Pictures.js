@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
 import { getAllPicturesThunk } from '../store/picture'
 
 
@@ -31,7 +30,7 @@ const PicturesPage = () => {
                         {usersPictures.map(({ id, content, image}) => (
                             <li key={id}>
                                 <h1>{content}</h1>
-                                <div>{image}</div>
+                                <img alt='' src={image}></img>
                             </li>
                         ))}
                     </ul>

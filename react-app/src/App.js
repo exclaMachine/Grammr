@@ -5,6 +5,7 @@ import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar';
 import PicturesPage from './components/Pictures'
+import UploadPicture from './components/UploadPic';
 
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
@@ -47,6 +48,7 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/pictures' exact={true}>
           <PicturesPage/>
+          <UploadPicture/>
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>
