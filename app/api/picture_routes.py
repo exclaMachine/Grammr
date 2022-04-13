@@ -5,5 +5,6 @@ picture_routes = Blueprint('pictures', __name__)
 
 @picture_routes.route('')
 def getPictures():
+    print('in the route')
     pictures = Picture.query.all()
     return {'pictures': [picture.to_dict() for picture in pictures]}
