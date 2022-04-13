@@ -3,15 +3,15 @@ import { useHistory } from "react-router-dom";
 
 const UploadPicture = () => {
     const history = useHistory();
-    const [picture, setPicture] = useState(null);
+    const [pic, setPic] = useState(null);
     const [picLoading, setPicLoading] = useState(false);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         const formData = new FormData();
-        formData.append("image", picture);
-        console.log('pic', picture.name)
-        // formData.append("content", picture.name)
+        formData.append("image", pic);
+        // console.log('pic', pic.name)
+        // formData.append("content", image.name)
         // formData.append("album_id", 1)
         console.log('formdata', formData)
 
@@ -35,7 +35,7 @@ const UploadPicture = () => {
 
     const updatePic = (e) => {
         const file = e.target.files[0];
-        setPicture(file);
+        setPic(file);
     }
 
         return (
