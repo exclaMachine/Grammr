@@ -17,7 +17,7 @@ def get_pictures():
 @login_required
 def upload_picture():
     if "image" not in request.files:
-        print("not in request.files!!!!!!!!")
+        # print("not in request.files!!!!!!!!")
         return {"errors": "image required"}, 400
 
     # user_id = request.json['user_id']
@@ -26,17 +26,19 @@ def upload_picture():
     # content = image.filename
 
     if not allowed_file(pic.filename):
-        print("file type!!!!!")
+        # print("file type!!!!!")
         return {"errors": "file type not permitted"}, 400
+
+    picName = pic.filename
 
     pic.filename = get_unique_filename(pic.filename)
 
     upload = upload_file_to_s3(pic)
 
-    print('upload!!!!!!!!', upload)
+    # print('upload!!!!!!!!', upload)
 
     if "image" not in upload:
-        print("image not in upload!!!!!!!!")
+        # print("image not in upload!!!!!!!!")
         # if the dictionary doesn't have a url key
         # it means that there was an error when we tried to upload
         # so we send back that error message
@@ -51,12 +53,12 @@ def upload_picture():
     new_image = Picture(
         user_id=current_user.id,
         album_id="1",
-        content=pic.filename,
+        content=picName,
         # url=url,
         image=url
         )
-    print("new_image", new_image)
-    print("DictImage!!!!!!", new_image.to_dict())
+    # print("new_image", new_image)
+    # print("DictImage!!!!!!", new_image.to_dict())
 
     db.session.add(new_image)
     db.session.commit()
