@@ -4,16 +4,33 @@ from datetime import date
 
 today = date.today()
 
-def seed_pics():
-    first_pic = Picture(
-        user_id = 1,
-        content = "Punctuation superheroes!",
-        image = "https://media.istockphoto.com/photos/conceptual-2-letter-exclamation-mark-and-question-mark-by-handwriting-picture-id1321914943?s=612x612",
-        created_at = today.strftime("%B %d, %Y"),
-        updated_at = today.strftime("%B %d, %Y")
-    )
+pict_dict = [
+    {
+        "id": 1,
+        "cont": "What!?",
+        "img": "https://images.unsplash.com/photo-1633613286848-e6f43bbafb8d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+        "created": today.strftime("%B %d, %Y"),
+        "updated": today.strftime("%B %d, %Y")
+    },
+    {
+        "id": 1,
+        "cont": "Ampersand",
+        "img": "https://images.unsplash.com/photo-1608536212673-d604ad47eced?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
+        "created": today.strftime("%B %d, %Y"),
+        "updated": today.strftime("%B %d, %Y")
+    }
+]
 
-    db.session.add(first_pic)
+def seed_pics():
+    pics = [Picture(
+        user_id = ele["id"],
+        content = ele["cont"],
+        image = ele["img"],
+        created_at = ele["created"],
+        updated_at = ele["updated"]
+    ) for ele in pict_dict]
+
+    db.session.add_all(pics)
 
     db.session.commit()
 
