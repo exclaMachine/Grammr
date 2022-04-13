@@ -31,6 +31,7 @@ const PicturesPage = () => {
                         {usersPictures.map(({ id, content, image}) => (
                             <li key={id}>
                                 <h1>{content}</h1>
+                                <div>{image}</div>
                             </li>
                         ))}
                     </ul>
