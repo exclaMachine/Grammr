@@ -1,7 +1,7 @@
 import React, {useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { getAllPicturesThunk } from "../store/picture";
+import { getAllPicturesThunk, postPictureThunk } from "../store/picture";
 
 const UploadPicture = () => {
     const history = useHistory();
@@ -9,8 +9,6 @@ const UploadPicture = () => {
 
     const [pic, setPic] = useState(null);
     const [picLoading, setPicLoading] = useState(false);
-
-
 
 
     const handleSubmit = async (e) => {
@@ -22,26 +20,28 @@ const UploadPicture = () => {
         // formData.append("album_id", 1)
         console.log('formdata', formData)
 
-        setPicLoading(true);
+        // setPicLoading(true);
 
-        const res = await fetch('/api/pictures', {
-            method: 'POST',
-            body: formData
-        })
-        if (res.ok) {
-            await res.json();
-            setPicLoading(false);
+        dispatch(postPictureThunk(formData))
+        // const res = await fetch('/api/pictures', {
+        //     method: 'POST',
+        //     body: formData
+        // })
+        // if (res.ok) {
+        //     await res.json();
+        //     setPicLoading(false);
             history.push("/pictures");
-        }
-        else {
-            setPicLoading(false);
+        // }
+        // else {
+        //     setPicLoading(false);
 
-            console.log("Pic failed to load")
-        }
+        //     console.log("Pic failed to load")
+        // }
     }
 
     const updatePic = (e) => {
-        const file = e.target.files[0];
+        const file = e.target.files[0].name;
+        console.log('target!!!', e.target.files[0])
         setPic(file);
     }
 
