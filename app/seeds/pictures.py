@@ -8,7 +8,7 @@ pict_dict = [
     {
         "id": 1,
         "cont": "What!?",
-        "img": "https://images.unsplash.com/photo-1633613286848-e6f43bbafb8d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+        "img": "https://i0.wp.com/awsymbols.com/wp-content/uploads/2019/05/The_Punctuators_Super-Powered_Punctuation_Page-01-1.png",
         "created": today.strftime("%B %d, %Y"),
         "updated": today.strftime("%B %d, %Y")
     },
