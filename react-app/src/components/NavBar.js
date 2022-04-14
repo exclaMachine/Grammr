@@ -14,36 +14,43 @@ const NavBar = () => {
       <div>
         {!sessionUser && (
         <div>
-        <li>
-          <NavLink to='/' exact={true} activeClassName='active'>
-            Home
-          </NavLink>
-        </li>
-        <li>
+          <div>
+            <NavLink to='/' exact={true} activeClassName='active'>
+              Home
+            </NavLink>
+          </div>
+
           <NavLink to='/login' exact={true} activeClassName='active'>
             Login
           </NavLink>
-        </li>
-        <li>
+
+
           <NavLink to='/sign-up' exact={true} activeClassName='active'>
             Sign Up
           </NavLink>
-        </li>
-        <li>
+
+
           <NavLink to='/users' exact={true} activeClassName='active'>
             Users
           </NavLink>
-        </li>
+
         </div>
         )}
         {sessionUser && (
         <div>
-          <li>
+
             <LogoutButton />
-          </li>
-          <NavLink to='/pictures' exact={true} activeClassName='active'>
-            Pictures
-          </NavLink>
+
+          <div>
+            <NavLink to='/pictures' exact={true} activeClassName='active'>
+              Pictures
+            </NavLink>
+          </div>
+          <div>
+            <NavLink to='/' exact={true} activeClassName='active'>
+                Home
+            </NavLink>
+          </div>
         </div>
         )}
     </div>
