@@ -79,3 +79,7 @@ def delete(id):
     return {
         'deleted_pic': deletedPic.to_dict()
     }
+
+@picture_routes.route('/<int:id>', methods=['PUT'])
+def update(id):
+    pass

@@ -1,6 +1,7 @@
 const GET_PICTURES = 'picture/GET_PICTURES'
 const POST_PICTURE = 'picture/POST_PICTURES'
 const DELETE_PICTURE = 'picture/DELETE_PICTURE'
+const EDIT_PICTURE = 'picture/EDIT_PICTURE'
 
 export const getAllPictures = (pictures) => {
     return {
@@ -20,6 +21,14 @@ export const deletePicture = (id) => {
     return {
         type: DELETE_PICTURE,
         payload: id
+    }
+}
+
+export const editPicture = (id, updatedPic) => {
+    return {
+        type: EDIT_PICTURE,
+        id,
+        updatedPic
     }
 }
 
@@ -56,6 +65,19 @@ export const deletePictureThunk = (id) => async dispatch => {
     }
 }
 
+export const editPictureThunk = (id, data) => async dispatch => {
+    const res = await fetch(`/api/pictures/${id}`, {
+        method: 'PUT',
+        headers: {'Content-Type': "application/json"},
+        body: JSON.stringify(data)
+    })
+    if (res.ok) {
+        const updatedPic = await res.json()
+        dispatch(editPicture(id, updatedPic))
+        return updatedPic
+    }
+}
+
 const initialState = {};
 
 const pictureReducer = (state = initialState, action) => {
@@ -77,6 +99,11 @@ const pictureReducer = (state = initialState, action) => {
         case DELETE_PICTURE:
             newState = {...state}
             delete newState[action.payload]
+            return newState
+
+        case EDIT_PICTURE:
+            newState = {...state}
+            newState[action.updatedPic.id] = action.updatedPic
             return newState
 
         default:
