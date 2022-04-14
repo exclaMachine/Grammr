@@ -73,8 +73,9 @@ export const editPictureThunk = (id, data) => async dispatch => {
     })
     if (res.ok) {
         const updatedPic = await res.json()
-        dispatch(editPicture(id, updatedPic))
-        return updatedPic
+        console.log('updatedPic', updatedPic.updated_pic)
+        dispatch(editPicture(id, updatedPic.updated_pic))
+        return updatedPic.updated_pic
     }
 }
 

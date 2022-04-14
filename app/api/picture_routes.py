@@ -105,5 +105,5 @@ def update(id):
     db.session.commit()
 
     return {
-        'updatedPic': foundPic.to_dict()
+        'updated_pic': foundPic.to_dict()
     }
