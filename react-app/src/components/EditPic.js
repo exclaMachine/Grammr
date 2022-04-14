@@ -30,13 +30,15 @@ const EditPicture = ({id}) => {
             updatedPicture = {
                 user_id: sessionUser?.id,
                 album_id: idObj[0].album_id,
-                content
+                content,
+                image: idObj[0].image
             }
         } else {
             updatedPicture = {
                 user_id: sessionUser?.id,
                 album_id: null,
-                content
+                content,
+                image: idObj[0].image
             }
         }
 
