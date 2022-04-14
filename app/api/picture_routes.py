@@ -79,3 +79,31 @@ def delete(id):
     return {
         'deleted_pic': deletedPic.to_dict()
     }
+
+@picture_routes.route('/<int:id>', methods=['PUT'])
+def update(id):
+    # print('\n\nid\n\n', id)
+    foundPic = Picture.query.get(id)
+    # foundPic = Picture.query.filter(Picture.id == id)
+    # print('\n\nFOUND!!!!!\n\n', foundPic)
+    # print('\n\nrequest.body\n\n', request)
+    # updated = foundPic.update(request)
+    user_id = request.json['user_id']
+    album_id = request.json['album_id']
+    content = request.json['content']
+    image = request.json['image']
+
+    foundPic.user_id = user_id
+    foundPic.album_id = album_id
+    foundPic.content = content
+    foundPic.image = image
+
+    # print('\n\ncontent\n\n', foundPic.image)
+
+    db.session.add(foundPic)
+
+    db.session.commit()
+
+    return {
+        'updated_pic': foundPic.to_dict()
+    }
