@@ -1,5 +1,5 @@
-import React, {useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import React, {useState } from "react";
+// import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { editPictureThunk } from "../store/picture";
 
@@ -13,7 +13,7 @@ const EditPicture = ({id}) => {
     const pictures = Object.values(pictureObj)
 
     const idObj = pictures.filter(picture => picture?.id === id)
-    const idToEdit = idObj[0].id
+    // const idToEdit = idObj[0].id
     // console.log('id to edit', idToEdit)
 
     const [content, setContent] = useState(idObj[0].content)

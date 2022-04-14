@@ -1,18 +1,18 @@
-import React, {useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import React, {useState } from "react";
+// import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllPicturesThunk, postPictureThunk } from "../store/picture";
+import { postPictureThunk } from "../store/picture";
 
 const UploadPicture = () => {
-    const history = useHistory();
+    // const history = useHistory();
     const dispatch = useDispatch();
 
 
     const sessionUser = useSelector(state => state.session.user)
-    const pictureObj = useSelector(state => state.pictureReducer)
+    // const pictureObj = useSelector(state => state.pictureReducer)
 
     const [pic, setPic] = useState(null);
-    const [picLoading, setPicLoading] = useState(false);
+    // const [picLoading, setPicLoading] = useState(false);
 
 
     const handleSubmit = async (e) => {
@@ -65,7 +65,7 @@ const UploadPicture = () => {
                   onChange={updatePic}
                 />
                 <button type="submit">Submit</button>
-                {(picLoading)&& <p>Loading...</p>}
+                {/* {(picLoading)&& <p>Loading...</p>} */}
             </form>
         )
 
