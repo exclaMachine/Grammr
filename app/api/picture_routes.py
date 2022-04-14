@@ -11,9 +11,12 @@ def get_pictures():
     # print('in the route')
     # pictures = Picture.query.order_by(Picture.id.desc()).all()
     pictures = Picture.query.all()
-    return {'pictures': [picture.to_dict() for picture in pictures]}
+    # return {'pictures': [picture.to_dict() for picture in pictures]}
+    return {
+        picture.id: picture.to_dict() for picture in pictures
+    }
 
-@picture_routes.route("", methods=["POST"])
+@picture_routes.route("/new", methods=["POST"])
 @login_required
 def upload_picture():
     if "image" not in request.files:
@@ -62,5 +65,5 @@ def upload_picture():
 
     db.session.add(new_image)
     db.session.commit()
-    # return new_image.to_dict()
-    return {"image": url}
+    return new_image.to_dict()
+    # return {"image": url}
