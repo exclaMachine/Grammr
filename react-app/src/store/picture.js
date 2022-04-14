@@ -46,12 +46,13 @@ export const postPictureThunk = (data) => async dispatch => {
 }
 
 export const deletePictureThunk = (id) => async dispatch => {
-    const res = await fetch(`/api/picture/${id}`,{
+    const res = await fetch(`/api/pictures/${id}`,{
         method: 'DELETE'
     })
     if (res.ok) {
-        const idToDelete = await res.json()
-        dispatch(deletePicture(idToDelete))
+        const delObj = await res.json()
+        // console.log('deletedpic', delObj.deleted_pic.id)
+        dispatch(deletePicture(delObj.deleted_pic.id))
     }
 }
 
@@ -75,7 +76,7 @@ const pictureReducer = (state = initialState, action) => {
 
         case DELETE_PICTURE:
             newState = {...state}
-            delete newState[action.payload.id]
+            delete newState[action.payload]
             return newState
 
         default:
