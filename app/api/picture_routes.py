@@ -65,5 +65,5 @@ def upload_picture():
 
     db.session.add(new_image)
     db.session.commit()
-    # return new_image.to_dict()
-    return {"image": url}
+    return new_image.to_dict()
+    # return {"image": url}

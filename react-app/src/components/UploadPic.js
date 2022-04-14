@@ -14,18 +14,21 @@ const UploadPicture = () => {
     const [pic, setPic] = useState(null);
     const [picLoading, setPicLoading] = useState(false);
 
-    console.log('pic1', pic)
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         const formData = new FormData()
         formData.append("image", pic);
         formData.append("user_id", sessionUser?.id)
-        // formData.append("content", "hello")
+
         // console.log('pic', pic.name)
         // formData.append("content", image.name)
         // formData.append("album_id", 1)
-        console.log('formdata', formData)
+        // for (let pair of formData.entries()) {
+        //        console.log(`${pair[0]}, ${pair[1]}`);
+
+        //      }
+        // console.log('formdata', formData)
 
         // setPicLoading(true);
 
@@ -47,7 +50,6 @@ const UploadPicture = () => {
         // }
     }
 
-    console.log('pic2', pic)
 
     const updatePic = (e) => {
         const file = e.target.files[0];
