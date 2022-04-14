@@ -9,7 +9,7 @@ const PicturesPage = () => {
     const sessionUser = useSelector(state => state.session.user)
     const pictureObj = useSelector(state => state.pictureReducer)
 
-    console.log('obj', pictureObj)
+    // console.log('obj', pictureObj)
     let pictures = Object.values(pictureObj)
 
     let usersPictures = pictures.filter(picture => picture?.user_id === sessionUser?.id)

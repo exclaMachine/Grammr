@@ -53,7 +53,7 @@ const UploadPicture = () => {
 
     const updatePic = (e) => {
         const file = e.target.files[0];
-        console.log('target!!!', e.target.files[0])
+        // console.log('target!!!', e.target.files[0])
         setPic(file);
     }
 
