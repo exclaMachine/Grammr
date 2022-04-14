@@ -67,3 +67,15 @@ def upload_picture():
     db.session.commit()
     return new_image.to_dict()
     # return {"image": url}
+
+@picture_routes.route('/<int:id>', methods=['DELETE'])
+def delete(id):
+    # print('routID', id)
+    deletedPic = Picture.query.filter(Picture.id == id).first()
+    # print('delPIc', deletedPic)
+    Picture.query.filter(Picture.id == id).delete()
+    db.session.commit()
+    # print('\n\n\n\ndeletedPicTo dic!!!!!\n\n\n\n', deletedPic.to_dict())
+    return {
+        'deleted_pic': deletedPic.to_dict()
+    }

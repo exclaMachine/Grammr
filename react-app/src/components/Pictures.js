@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getAllPicturesThunk } from '../store/picture'
-
+import DeletePicture from './DeletePic';
 
 const PicturesPage = () => {
     const dispatch = useDispatch()
@@ -31,6 +31,7 @@ const PicturesPage = () => {
                             <li key={id}>
                                 <h1>{content}</h1>
                                 <img alt='' src={image}></img>
+                                <DeletePicture id={id}/>
                             </li>
                         ))}
                     </ul>
