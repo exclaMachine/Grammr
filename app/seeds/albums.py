@@ -19,14 +19,23 @@ albums_dict = [
 ]
 
 def seed_albums():
-    first_album = Album(
-        user_id = 1,
-        title = 'Superheroes',
-        created_at = today.strftime("%B %d, %Y"),
-        updated_at = today.strftime("%B %d, %Y")
-    )
+    # first_album = Album(
+    #     user_id = 1,
+    #     title = 'Superheroes',
+    #     created_at = today.strftime("%B %d, %Y"),
+    #     updated_at = today.strftime("%B %d, %Y")
+    # )
 
-    db.session.add(first_album)
+    # db.session.add(first_album)
+
+    albums = [Album(
+         user_id = ele['user_id'],
+         title = ele['title'],
+         created_at = ele["created"],
+        updated_at = ele["updated"]
+    ) for ele in albums_dict]
+
+    db.session.add_all(albums)
 
     db.session.commit()
 

@@ -18,6 +18,20 @@ pict_dict = [
         "img": "https://images.unsplash.com/photo-1608536212673-d604ad47eced?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
         "created": today.strftime("%B %d, %Y"),
         "updated": today.strftime("%B %d, %Y")
+    },
+    {
+        "id": 2,
+        "cont": "Block Letters",
+        "img": "https://images.unsplash.com/reserve/uZYSV4nuQeyq64azfVIn_15130980706_64134efc6e_o.jpg?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Z3JhbW1hcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60",
+        "created": today.strftime("%B %d, %Y"),
+        "updated": today.strftime("%B %d, %Y")
+    },
+    {
+        "id": 3,
+        "cont": "English",
+        "img": "https://images.unsplash.com/photo-1543109740-4bdb38fda756?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8Z3JhbW1hcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60",
+        "created": today.strftime("%B %d, %Y"),
+        "updated": today.strftime("%B %d, %Y")
     }
 ]
 
