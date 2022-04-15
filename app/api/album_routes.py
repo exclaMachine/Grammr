@@ -25,6 +25,7 @@ def post_album():
     print('\n\ntitle!!!\n\n', title)
 
     new_album = Album(
+        #this needs the = can't just list user_id like javascript
         user_id=user_id,
         title=title
     )
