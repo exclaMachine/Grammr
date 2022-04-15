@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getAllAlbumsThunk } from '../../store/album'
 import CreateAlbum from './CreateAlbum';
 import EditAlbum from './EditAlbum';
+import AlbumsPicturesPage from '../albumsPics/AlbumsPics';
 
 const AlbumsPage = () => {
     const dispatch = useDispatch()
@@ -34,6 +35,7 @@ const AlbumsPage = () => {
                                 <h1>{title}</h1>
                                 {/* <DeletePicture id={id}/> */}
                                 <EditAlbum id={id} title={title}/>
+                                <AlbumsPicturesPage id={id}/>
                             </li>
                         ))}
                     </ul>

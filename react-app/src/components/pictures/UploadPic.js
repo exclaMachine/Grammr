@@ -3,7 +3,7 @@ import React, {useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { postPictureThunk } from '../../store/picture'
 
-const UploadPicture = () => {
+const UploadPicture = ({id}) => {
     // const history = useHistory();
     const dispatch = useDispatch();
 
@@ -21,6 +21,15 @@ const UploadPicture = () => {
         formData.append("image", pic);
         formData.append("user_id", sessionUser?.id)
 
+        //this id represents the album_id
+        if (id) {
+            // console.log('inside if', id)
+            formData.append("album_id", id)
+        }
+        else {
+            // console.log('inside else', id)
+            formData.append('album_id', "noId")
+        }
         // console.log('pic', pic.name)
         // formData.append("content", image.name)
         // formData.append("album_id", 1)
