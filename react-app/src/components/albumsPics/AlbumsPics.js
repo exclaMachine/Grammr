@@ -24,8 +24,8 @@ const AlbumsPicturesPage = ({id}) => {
     return (
         <>
         <div>
-            <h1>{albums[id-1].title}'s Pictures</h1>
-
+            {/* <h1>{albums[id-1].title}'s Pictures</h1> */}
+            <h1>Album's Pics</h1>
             <div className='picturesContainer'>
                 <div>
                     <UploadPicture id={id}/>

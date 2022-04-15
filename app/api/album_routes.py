@@ -56,7 +56,7 @@ def delete(id):
     Album.query.filter(Album.id == id).delete()
     db.session.commit()
     # print('\n\n\n\ndeletedPicTo dic!!!!!\n\n\n\n', deletedAlbum.to_dict())
-    return deletedAlbum.to_dict()
+    return {'id': deletedAlbum.to_dict()}
 
 
 @album_routes.route('/<int:id>', methods=['PUT'])
