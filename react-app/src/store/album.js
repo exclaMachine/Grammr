@@ -18,14 +18,14 @@ export const getPicture = (album) => {
     }
 }
 
-export const postPicture = (album) => {
+export const postAlbum = (album) => {
     return {
         type: POST_ALBUM,
         payload: album
     }
 }
 
-export const deletePicture = (id) => {
+export const deleteAlbum = (id) => {
     return {
         type: DELETE_ALBUM,
         payload: id
@@ -67,19 +67,19 @@ export const postAlbumThunk = (data) => async dispatch => {
     })
     if (res.ok) {
         const newAlbum = await res.json()
-        dispatch(postPicture(newAlbum))
+        dispatch(postAlbum(newAlbum))
         return newAlbum
     }
 }
 
-export const deletePictureThunk = (id) => async dispatch => {
+export const deleteAlbumThunk = (id) => async dispatch => {
     const res = await fetch(`/api/albums/${id}`,{
         method: 'DELETE'
     })
     if (res.ok) {
         const delObj = await res.json()
         // console.log('deletedpic', delObj.deleted_pic.id)
-        dispatch(deletePicture(delObj.deleted_pic.id))
+        dispatch(deleteAlbum(delObj.deleted_pic.id))
     }
 }
 
