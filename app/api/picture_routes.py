@@ -68,7 +68,7 @@ def upload_picture():
     return new_image.to_dict()
     # return {"image": url}
 
-@picture_routes.route('/<int:id>', methods=['DELETE'])
+@picture_routes.route('/<int:id>', methods=['GET'])
 def get_pic(id):
     singlePic = Picture.query.filter(Picture.id == id).first()
     return {
