@@ -18,6 +18,15 @@ const LoginForm = () => {
     }
   };
 
+  const demoUser = async (e) => {
+    e.preventDefault();
+
+      let demoEmail = 'demo@aa.io'
+      let demoPassword = 'password'
+
+    return dispatch(login(demoEmail, demoPassword));
+  }
+
   const updateEmail = (e) => {
     setEmail(e.target.value);
   };
@@ -31,6 +40,9 @@ const LoginForm = () => {
   }
 
   return (
+    <div>
+
+
     <form onSubmit={onLogin}>
       <div>
         {errors.map((error, ind) => (
@@ -59,6 +71,10 @@ const LoginForm = () => {
         <button type='submit'>Login</button>
       </div>
     </form>
+    <form onSubmit={demoUser}>
+          <button type='submit'>Demo User</button>
+    </form>
+    </div>
   );
 };
 
