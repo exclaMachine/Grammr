@@ -7,6 +7,7 @@ import NavBar from './components/NavBar';
 import PicturesPage from './components/Pictures'
 import UploadPicture from './components/UploadPic';
 import SplashPage from './components/Splashpage';
+import AlbumsPage from './components/Albums';
 
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
@@ -50,6 +51,9 @@ function App() {
         <ProtectedRoute path='/pictures' exact={true}>
           <PicturesPage/>
           <UploadPicture/>
+        </ProtectedRoute>
+        <ProtectedRoute path='/albums' exact={true}>
+          <AlbumsPage/>
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>
