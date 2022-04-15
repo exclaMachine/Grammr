@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify
-from app.models import db, Album
+from app.models import db, Album, Picture
 from flask_login import current_user, login_required
 from app.s3_funcs import (
     upload_file_to_s3, allowed_file, get_unique_filename)
@@ -38,22 +38,26 @@ def post_album():
 
 # @album_routes.route('/<int:id>', methods=['GET'])
 # def get_pic(id):
-#     singlePic = Picture.query.filter(Picture.id == id).first()
+#     singlePic = Album.query.filter(Album.id == id).first()
 #     return {
 #         singlePic.to_dict()
 #     }
 
-# @album_routes.route('/<int:id>', methods=['DELETE'])
-# def delete(id):
-#     # print('routID', id)
-#     deletedPic = Picture.query.filter(Picture.id == id).first()
-#     # print('delPIc', deletedPic)
-#     Picture.query.filter(Picture.id == id).delete()
-#     db.session.commit()
-#     # print('\n\n\n\ndeletedPicTo dic!!!!!\n\n\n\n', deletedPic.to_dict())
-#     return {
-#         'deleted_pic': deletedPic.to_dict()
-#     }
+@album_routes.route('/<int:id>', methods=['DELETE'])
+def delete(id):
+    # print('routID', id)
+
+    picsInAlbum = Picture.query.filter(Picture.album_id == id)
+    picsInAlbum.delete()
+
+
+    deletedAlbum = Album.query.filter(Album.id == id).first()
+    # print('delPIc', deletedAlbum)
+    Album.query.filter(Album.id == id).delete()
+    db.session.commit()
+    # print('\n\n\n\ndeletedPicTo dic!!!!!\n\n\n\n', deletedAlbum.to_dict())
+    return {'id': deletedAlbum.to_dict()}
+
 
 @album_routes.route('/<int:id>', methods=['PUT'])
 def update_album(id):

@@ -10,12 +10,12 @@ const AlbumsPicturesPage = ({id}) => {
 
     const sessionUser = useSelector(state => state.session.user)
     const pictureObj = useSelector(state => state.pictureReducer)
+    const albumObj = useSelector(state => state.albumReducer)
 
-    // console.log('obj', pictureObj)
+    let albums = Object.values(albumObj)
+
     let pictures = Object.values(pictureObj)
-    console.log('pics', pictures)
     let usersPictures = pictures.filter(picture => picture?.user_id === sessionUser?.id && picture?.album_id === id)
-
 
     useEffect(() => {
         dispatch(getAllPicturesThunk())
@@ -24,8 +24,8 @@ const AlbumsPicturesPage = ({id}) => {
     return (
         <>
         <div>
-            <h1>Pictures</h1>
-
+            {/* <h1>{albums[id-1].title}'s Pictures</h1> */}
+            <h1>Album's Pics</h1>
             <div className='picturesContainer'>
                 <div>
                     <UploadPicture id={id}/>
