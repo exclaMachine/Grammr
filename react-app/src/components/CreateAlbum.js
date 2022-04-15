@@ -40,6 +40,10 @@ const CreateAlbum = () => {
 
         return (
             <form onSubmit={handleSubmit}>
+                 <ul>
+                {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+                </ul>
+
                 <input
                 value={title}
                 onChange={(e)=> setTitle(e.target.value)}
