@@ -32,11 +32,11 @@ export const deletePicture = (id) => {
     }
 }
 
-export const editPicture = (id, updatedPic) => {
+export const editPicture = (id, updatedAlbum) => {
     return {
         type: EDIT_ALBUM,
         id,
-        updatedPic
+        updatedAlbum
     }
 }
 
@@ -83,17 +83,17 @@ export const deletePictureThunk = (id) => async dispatch => {
     }
 }
 
-export const editPictureThunk = (id, data) => async dispatch => {
+export const editAlbumThunk = (id, data) => async dispatch => {
     const res = await fetch(`/api/albums/${id}`, {
         method: 'PUT',
         headers: {'Content-Type': "application/json"},
         body: JSON.stringify(data)
     })
     if (res.ok) {
-        const updatedPic = await res.json()
-        // console.log('updatedPic', updatedPic.updated_pic)
-        dispatch(editPicture(id, updatedPic.updated_pic))
-        return updatedPic.updated_pic
+        const updatedAlbum = await res.json()
+        // console.log('updatedAlbum', updatedAlbum.updated_pic)
+        dispatch(editPicture(id, updatedAlbum))
+        return updatedAlbum
     }
 }
 
@@ -126,7 +126,7 @@ const albumReducer = (state = initialState, action) => {
 
         case EDIT_ALBUM:
             newState = {...state}
-            newState[action.updatedPic.id] = action.updatedPic
+            newState[action.updatedAlbum.id] = action.updatedAlbum
             return newState
 
         default:
