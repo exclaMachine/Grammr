@@ -42,7 +42,7 @@ class Album(db.Model):
         return {
             'id': self.id,
             'user_id': self.user_id,
-            'title': self.album_id,
+            'title': self.title,
         }
 
 class Comment(db.Model):
