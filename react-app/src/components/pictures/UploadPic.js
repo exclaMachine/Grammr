@@ -27,7 +27,7 @@ const UploadPicture = ({id}) => {
             formData.append("album_id", id)
         }
         else {
-            console.log('inside else', id)
+            // console.log('inside else', id)
             formData.append('album_id', "noId")
         }
         // console.log('pic', pic.name)

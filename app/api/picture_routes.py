@@ -51,7 +51,7 @@ def upload_picture():
     # print('filename!!!!!!!!!!', pic.filename)
     # print('image!!!!!!', pic)
     album_id = request.form['album_id']
-    print('\n\nrequest.file\n\n', request.form['album_id'])
+    # print('\n\nrequest.file\n\n', request.form['album_id'])
 
     if album_id == "noId":
         album_id = None
