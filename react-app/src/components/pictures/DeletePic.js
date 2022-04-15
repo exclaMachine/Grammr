@@ -24,7 +24,7 @@ const DeletePicture = ({id}) => {
     return (
         <form onSubmit={handleDelete}>
 
-            <button type="submit">Delete</button>
+            <button type="submit">Delete Picture</button>
         </form>
 
     )

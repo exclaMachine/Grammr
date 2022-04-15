@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { deletePictureThunk } from "../../store/album";
+import { deleteAlbumThunk } from "../../store/album";
 
 const DeleteAlbum = ({id}) => {
     const dispatch = useDispatch()
@@ -17,13 +17,13 @@ const DeleteAlbum = ({id}) => {
     const handleDelete = async (e) => {
         e.preventDefault();
 
-        dispatch(deletePictureThunk(idToDelete))
+        dispatch(deleteAlbumThunk(idToDelete))
     }
 
     return (
         <form onSubmit={handleDelete}>
 
-            <button type="submit">Delete</button>
+            <button type="submit">Delete Album</button>
         </form>
 
     )

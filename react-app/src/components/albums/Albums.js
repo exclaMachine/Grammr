@@ -4,6 +4,7 @@ import { getAllAlbumsThunk } from '../../store/album'
 import CreateAlbum from './CreateAlbum';
 import EditAlbum from './EditAlbum';
 import AlbumsPicturesPage from '../albumsPics/AlbumsPics';
+import DeleteAlbum from './DeleteAlbum';
 
 const AlbumsPage = () => {
     const dispatch = useDispatch()
@@ -36,6 +37,7 @@ const AlbumsPage = () => {
                                 {/* <DeletePicture id={id}/> */}
                                 <EditAlbum id={id} title={title}/>
                                 <AlbumsPicturesPage id={id}/>
+                                <DeleteAlbum id={id}/>
                             </li>
                         ))}
                     </ul>
