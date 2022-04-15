@@ -9,7 +9,7 @@ const EditAlbum = ({id}) => {
     const sessionUser = useSelector(state => state.session.user)
     const albumObj = useSelector(state => state.albumReducer)
     const albums = Object.values(albumObj)
-    console.log('albumObj', albumObj)
+    // console.log('albumObj', albumObj)
 
     const idObj = albums.filter(album => album?.id === id)
 
