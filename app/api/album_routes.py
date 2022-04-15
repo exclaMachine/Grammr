@@ -1,4 +1,4 @@
-from flask import Blueprint, request
+from flask import Blueprint, request, jsonify
 from app.models import db, Album
 from flask_login import current_user, login_required
 from app.s3_funcs import (
@@ -19,12 +19,16 @@ def get_albums():
 @album_routes.route("/new", methods=["POST"])
 @login_required
 def post_album():
-    user_id=current_user.id,
+    # some = request.form.get('title')
+    user_id=current_user.id
     title = request.json['title']
+    print('\n\ntitle!!!\n\n', title)
+
     new_album = Album(
-        user_id,
-        title
+        user_id=user_id,
+        title=title
     )
+
     db.session.add(new_album)
     db.session.commit()
 

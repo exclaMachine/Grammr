@@ -8,9 +8,9 @@ const CreateAlbum = () => {
     const [title, setTitle] = useState('')
     const [errors, setErrors] = useState([]);
 
-    const reset = () => {
-        setTitle('')
-    }
+    // const reset = () => {
+    //     setTitle('')
+    // }
 
     const sessionUser = useSelector(state => state.session.user)
     // const pictureObj = useSelector(state => state.pictureReducer)
@@ -26,7 +26,7 @@ const CreateAlbum = () => {
         //error handling if blank
         if (title) {
             setErrors([]);
-            reset();
+            // reset();
             return dispatch(postAlbumThunk(newAlbum))
             .catch(async (res) => {
                 const data = await res.json();

@@ -62,7 +62,8 @@ export const getPictureThunk = (id) => async dispatch => {
 export const postAlbumThunk = (data) => async dispatch => {
     const res = await fetch('/api/albums/new', {
         method: "POST",
-        body: data
+        headers: { "Content-Type": "application/json", },
+        body: JSON.stringify(data)
     })
     if (res.ok) {
         const newAlbum = await res.json()
