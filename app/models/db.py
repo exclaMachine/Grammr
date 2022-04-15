@@ -38,6 +38,13 @@ class Album(db.Model):
 
     pictures = db.relationship("Picture", backref='albums', cascade="all, delete")
 
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'user_id': self.user_id,
+            'title': self.album_id,
+        }
+
 class Comment(db.Model):
     __tablename__ = 'comments'
 
