@@ -1,4 +1,7 @@
+import { bindActionCreators } from "redux"
+
 const GET_PICTURES = 'picture/GET_PICTURES'
+const SINGLE_PICTURE = 'picture/SINGLE_PICTURE'
 const POST_PICTURE = 'picture/POST_PICTURES'
 const DELETE_PICTURE = 'picture/DELETE_PICTURE'
 const EDIT_PICTURE = 'picture/EDIT_PICTURE'
@@ -7,6 +10,13 @@ export const getAllPictures = (pictures) => {
     return {
         type: GET_PICTURES,
         payload: pictures
+    }
+}
+
+export const getPicture = (picture) => {
+    return {
+        type: SINGLE_PICTURE,
+        payload: picture
     }
 }
 
@@ -39,6 +49,15 @@ export const getAllPicturesThunk = () => async dispatch => {
     if (res.ok) {
         const pictures_obj = await res.json()
         dispatch(getAllPictures(pictures_obj))
+    }
+}
+
+export const getPictureThunk = (id) => async dispatch => {
+    const res = await fetch(`api/pictures/${id}`)
+
+    if (res.ok) {
+        const data = await res.json()
+        dispatch(getPicture(data))
     }
 }
 
@@ -89,6 +108,10 @@ const pictureReducer = (state = initialState, action) => {
             newState = { ...state };
             // action.payload.pictures?.forEach((picture) => newState[picture.id] = picture)
             // return newState;
+            return action.payload
+
+        case SINGLE_PICTURE:
+            newState = {...state}
             return action.payload
 
         case POST_PICTURE:
