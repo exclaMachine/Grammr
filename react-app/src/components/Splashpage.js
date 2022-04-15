@@ -28,7 +28,6 @@ const SplashPage = () => {
                             <li key={id}>
                                 <h1>{content}</h1>
                                 <img alt='' src={image}></img>
-                                <DeletePicture id={id}/>
                             </li>
                         ))}
                     </ul>
