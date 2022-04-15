@@ -50,7 +50,6 @@ const CreateAlbum = () => {
                 <button type="submit">Create Album</button>
             </form>
         )
-
 }
 
 export default CreateAlbum;

@@ -15,3 +15,65 @@ def get_albums():
     return {
         album.id: album.to_dict() for album in albums
     }
+
+@album_routes.route("/new", methods=["POST"])
+@login_required
+def post_album():
+    user_id=current_user.id,
+    title = request.json['title']
+    new_album = Album(
+        user_id,
+        title
+    )
+    db.session.add(new_album)
+    db.session.commit()
+
+    return new_album.to_dict()
+
+
+# @album_routes.route('/<int:id>', methods=['GET'])
+# def get_pic(id):
+#     singlePic = Picture.query.filter(Picture.id == id).first()
+#     return {
+#         singlePic.to_dict()
+#     }
+
+# @album_routes.route('/<int:id>', methods=['DELETE'])
+# def delete(id):
+#     # print('routID', id)
+#     deletedPic = Picture.query.filter(Picture.id == id).first()
+#     # print('delPIc', deletedPic)
+#     Picture.query.filter(Picture.id == id).delete()
+#     db.session.commit()
+#     # print('\n\n\n\ndeletedPicTo dic!!!!!\n\n\n\n', deletedPic.to_dict())
+#     return {
+#         'deleted_pic': deletedPic.to_dict()
+#     }
+
+# @album_routes.route('/<int:id>', methods=['PUT'])
+# def update(id):
+#     # print('\n\nid\n\n', id)
+#     foundPic = Picture.query.get(id)
+#     # foundPic = Picture.query.filter(Picture.id == id)
+#     # print('\n\nFOUND!!!!!\n\n', foundPic)
+#     # print('\n\nrequest.body\n\n', request)
+#     # updated = foundPic.update(request)
+#     user_id = request.json['user_id']
+#     album_id = request.json['album_id']
+#     content = request.json['content']
+#     image = request.json['image']
+
+#     foundPic.user_id = user_id
+#     foundPic.album_id = album_id
+#     foundPic.content = content
+#     foundPic.image = image
+
+#     # print('\n\ncontent\n\n', foundPic.image)
+
+#     db.session.add(foundPic)
+
+#     db.session.commit()
+
+#     return {
+#         'updated_pic': foundPic.to_dict()
+#     }
