@@ -51,6 +51,13 @@ const NavBar = () => {
                 Home
             </NavLink>
           </div>
+
+          <div>
+            <NavLink to='/albums' exact={true} activeClassName='active'>
+              Albums
+            </NavLink>
+          </div>
+
         </div>
         )}
     </div>

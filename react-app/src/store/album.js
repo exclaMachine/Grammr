@@ -1,13 +1,13 @@
-const GET_PICTURES = 'picture/GET_PICTURES'
+const GET_ALBUMS = 'picture/GET_ALBUMS'
 const SINGLE_PICTURE = 'picture/SINGLE_PICTURE'
-const POST_PICTURE = 'picture/POST_PICTURES'
-const DELETE_PICTURE = 'picture/DELETE_PICTURE'
-const EDIT_PICTURE = 'picture/EDIT_PICTURE'
+const POST_ALBUM = 'picture/POST_ALBUM'
+const DELETE_ALBUM = 'picture/DELETE_ALBUM'
+const EDIT_ALBUM = 'picture/EDIT_ALBUM'
 
-export const getAllPictures = (pictures) => {
+export const getAllAlbums = (albums) => {
     return {
-        type: GET_PICTURES,
-        payload: pictures
+        type: GET_ALBUMS,
+        payload: albums
     }
 }
 
@@ -20,38 +20,38 @@ export const getPicture = (picture) => {
 
 export const postPicture = (picture) => {
     return {
-        type: POST_PICTURE,
+        type: POST_ALBUM,
         payload: picture
     }
 }
 
 export const deletePicture = (id) => {
     return {
-        type: DELETE_PICTURE,
+        type: DELETE_ALBUM,
         payload: id
     }
 }
 
 export const editPicture = (id, updatedPic) => {
     return {
-        type: EDIT_PICTURE,
+        type: EDIT_ALBUM,
         id,
         updatedPic
     }
 }
 
 //Thunks
-export const getAllPicturesThunk = () => async dispatch => {
-    const res = await fetch('/api/pictures')
+export const getAllAlbumsThunk = () => async dispatch => {
+    const res = await fetch('/api/albums')
 
     if (res.ok) {
-        const pictures_obj = await res.json()
-        dispatch(getAllPictures(pictures_obj))
+        const albums_obj = await res.json()
+        dispatch(getAllAlbums(albums_obj))
     }
 }
 
 export const getPictureThunk = (id) => async dispatch => {
-    const res = await fetch(`api/pictures/${id}`)
+    const res = await fetch(`api/albums/${id}`)
 
     if (res.ok) {
         const data = await res.json()
@@ -60,7 +60,7 @@ export const getPictureThunk = (id) => async dispatch => {
 }
 
 export const postPictureThunk = (data) => async dispatch => {
-    const res = await fetch('/api/pictures/new', {
+    const res = await fetch('/api/albums/new', {
         method: "POST",
         body: data
     })
@@ -72,7 +72,7 @@ export const postPictureThunk = (data) => async dispatch => {
 }
 
 export const deletePictureThunk = (id) => async dispatch => {
-    const res = await fetch(`/api/pictures/${id}`,{
+    const res = await fetch(`/api/albums/${id}`,{
         method: 'DELETE'
     })
     if (res.ok) {
@@ -83,7 +83,7 @@ export const deletePictureThunk = (id) => async dispatch => {
 }
 
 export const editPictureThunk = (id, data) => async dispatch => {
-    const res = await fetch(`/api/pictures/${id}`, {
+    const res = await fetch(`/api/albums/${id}`, {
         method: 'PUT',
         headers: {'Content-Type': "application/json"},
         body: JSON.stringify(data)
@@ -98,13 +98,13 @@ export const editPictureThunk = (id, data) => async dispatch => {
 
 const initialState = {};
 
-const pictureReducer = (state = initialState, action) => {
+const albumReducer = (state = initialState, action) => {
     let newState;
 
     switch(action.type) {
-        case GET_PICTURES:
+        case GET_ALBUMS:
             newState = { ...state };
-            // action.payload.pictures?.forEach((picture) => newState[picture.id] = picture)
+            // action.payload.albums?.forEach((picture) => newState[picture.id] = picture)
             // return newState;
             return action.payload
 
@@ -112,18 +112,18 @@ const pictureReducer = (state = initialState, action) => {
             newState = {...state}
             return action.payload
 
-        case POST_PICTURE:
+        case POST_ALBUM:
             newState = {...state}
             newState[action.payload.id] = action.payload
             // console.log('here', action.payload.picture)
             return newState;
 
-        case DELETE_PICTURE:
+        case DELETE_ALBUM:
             newState = {...state}
             delete newState[action.payload]
             return newState
 
-        case EDIT_PICTURE:
+        case EDIT_ALBUM:
             newState = {...state}
             newState[action.updatedPic.id] = action.updatedPic
             return newState
@@ -133,4 +133,4 @@ const pictureReducer = (state = initialState, action) => {
     }
 }
 
-export default pictureReducer
+export default albumReducer
