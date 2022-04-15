@@ -1,8 +1,8 @@
-const GET_ALBUMS = 'picture/GET_ALBUMS'
-const SINGLE_PICTURE = 'picture/SINGLE_PICTURE'
-const POST_ALBUM = 'picture/POST_ALBUM'
-const DELETE_ALBUM = 'picture/DELETE_ALBUM'
-const EDIT_ALBUM = 'picture/EDIT_ALBUM'
+const GET_ALBUMS = 'album/GET_ALBUMS'
+const SINGLE_PICTURE = 'album/SINGLE_PICTURE'
+const POST_ALBUM = 'album/POST_ALBUM'
+const DELETE_ALBUM = 'album/DELETE_ALBUM'
+const EDIT_ALBUM = 'album/EDIT_ALBUM'
 
 export const getAllAlbums = (albums) => {
     return {
@@ -11,17 +11,17 @@ export const getAllAlbums = (albums) => {
     }
 }
 
-export const getPicture = (picture) => {
+export const getPicture = (album) => {
     return {
         type: SINGLE_PICTURE,
-        payload: picture
+        payload: album
     }
 }
 
-export const postPicture = (picture) => {
+export const postPicture = (album) => {
     return {
         type: POST_ALBUM,
-        payload: picture
+        payload: album
     }
 }
 
@@ -59,15 +59,15 @@ export const getPictureThunk = (id) => async dispatch => {
     }
 }
 
-export const postPictureThunk = (data) => async dispatch => {
+export const postAlbumThunk = (data) => async dispatch => {
     const res = await fetch('/api/albums/new', {
         method: "POST",
         body: data
     })
     if (res.ok) {
-        const newPic = await res.json()
-        dispatch(postPicture(newPic))
-        return newPic
+        const newAlbum = await res.json()
+        dispatch(postPicture(newAlbum))
+        return newAlbum
     }
 }
 
@@ -104,7 +104,7 @@ const albumReducer = (state = initialState, action) => {
     switch(action.type) {
         case GET_ALBUMS:
             newState = { ...state };
-            // action.payload.albums?.forEach((picture) => newState[picture.id] = picture)
+            // action.payload.albums?.forEach((album) => newState[album.id] = album)
             // return newState;
             return action.payload
 
@@ -115,7 +115,7 @@ const albumReducer = (state = initialState, action) => {
         case POST_ALBUM:
             newState = {...state}
             newState[action.payload.id] = action.payload
-            // console.log('here', action.payload.picture)
+            // console.log('here', action.payload.album)
             return newState;
 
         case DELETE_ALBUM:
