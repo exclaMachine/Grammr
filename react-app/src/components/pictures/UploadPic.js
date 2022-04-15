@@ -1,7 +1,7 @@
 import React, {useState } from "react";
 // import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { postPictureThunk } from "../store/picture";
+import { postPictureThunk } from '../../store/picture'
 
 const UploadPicture = () => {
     // const history = useHistory();
