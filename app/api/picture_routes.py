@@ -50,12 +50,17 @@ def upload_picture():
     # print('currUser', current_user.id)
     # print('filename!!!!!!!!!!', pic.filename)
     # print('image!!!!!!', pic)
+    album_id = request.form['album_id']
+    print('\n\nrequest.file\n\n', request.form['album_id'])
+
+    if album_id == "noId":
+        album_id = None
 
     url = upload["image"]
     # flask_login allows us to get the current user from the request
     new_image = Picture(
         user_id=current_user.id,
-        album_id=None,
+        album_id=album_id,
         content=picName,
         # url=url,
         image=url
