@@ -1,6 +1,6 @@
 import React, {useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { editAlbumThunk } from "../store/album";
+import { editAlbumThunk } from "../../store/album";
 
 const EditAlbum = ({id}) => {
     const dispatch = useDispatch()

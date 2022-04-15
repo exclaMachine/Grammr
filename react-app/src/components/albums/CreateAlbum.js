@@ -1,4 +1,4 @@
-import { postAlbumThunk } from "../store/album";
+import { postAlbumThunk } from "../../store/album";
 import React, {useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 

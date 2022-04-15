@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getAllPicturesThunk } from '../store/picture';
-import DeletePicture from './DeletePic';
+import DeletePicture from './pictures/DeletePic';
 
 //This will show all pics from all users
 

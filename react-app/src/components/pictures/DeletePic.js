@@ -1,7 +1,7 @@
 import React from "react";
 // import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { deletePictureThunk } from "../store/picture";
+import { deletePictureThunk } from "../../store/picture";
 
 const DeletePicture = ({id}) => {
     const dispatch = useDispatch()

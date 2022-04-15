@@ -4,14 +4,14 @@ import { useDispatch } from 'react-redux';
 import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar';
-import PicturesPage from './components/Pictures'
-import UploadPicture from './components/UploadPic';
+import PicturesPage from './components/pictures/Pictures'
+import UploadPicture from './components/pictures/UploadPic';
 import SplashPage from './components/Splashpage';
-import AlbumsPage from './components/Albums';
+import AlbumsPage from './components/albums/Albums';
 
 import ProtectedRoute from './components/auth/ProtectedRoute';
-import UsersList from './components/UsersList';
-import User from './components/User';
+import UsersList from './components/users/UsersList';
+import User from './components/users/User';
 import { authenticate } from './store/session';
 
 function App() {

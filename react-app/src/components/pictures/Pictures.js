@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getAllPicturesThunk } from '../store/picture'
+import { getAllPicturesThunk } from '../../store/picture'
 import DeletePicture from './DeletePic';
 import EditPicture from './EditPic';
 
