@@ -2,8 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getAllAlbumsThunk } from '../store/album'
 import CreateAlbum from './CreateAlbum';
-import DeletePicture from './DeletePic';
-import EditPicture from './EditPic';
+import EditAlbum from './EditAlbum';
 
 const AlbumsPage = () => {
     const dispatch = useDispatch()
@@ -34,6 +33,7 @@ const AlbumsPage = () => {
                                 {/* <EditPicture id={id}/> */}
                                 <h1>{title}</h1>
                                 {/* <DeletePicture id={id}/> */}
+                                <EditAlbum id={id} title={title}/>
                             </li>
                         ))}
                     </ul>

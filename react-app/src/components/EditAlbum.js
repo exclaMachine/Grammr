@@ -2,18 +2,16 @@ import React, {useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { editAlbumThunk } from "../store/album";
 
-const EditAlbum = () => {
+const EditAlbum = ({id}) => {
     const dispatch = useDispatch()
 
-    // console.log('just id', id)
 
     const sessionUser = useSelector(state => state.session.user)
-    const albumObj = useSelector(state => state.pictureReducer)
+    const albumObj = useSelector(state => state.albumReducer)
     const albums = Object.values(albumObj)
+    console.log('albumObj', albumObj)
 
     const idObj = albums.filter(album => album?.id === id)
-    // const idToEdit = idObj[0].id
-    // console.log('id to edit', idToEdit)
 
     const [title, setTitle] = useState(idObj[0].title)
     const [errors, setErrors] = useState([])
