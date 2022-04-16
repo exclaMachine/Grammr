@@ -1,0 +1,19 @@
+.content-container {
+    display: flex;
+    justify-content: center;
+}
+
+div {
+    margin: 5px;
+}
+
+button {
+    background-color: #128fdc;
+    color: white;
+    border-radius: 5px;
+}
+
+h3 {
+    color: #212124;
+    font-family: Proxima Nova,Helvetica,sans-serif;
+}

@@ -1,0 +1,9 @@
+.demoButton {
+    display: flex;
+    justify-content: center;
+}
+
+label {
+    color: #212124;
+    font-family: Proxima Nova,Helvetica,sans-serif;
+}
