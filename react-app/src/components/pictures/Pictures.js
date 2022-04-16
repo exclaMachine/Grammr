@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getAllPicturesThunk } from '../../store/picture'
 import DeletePicture from './DeletePic';
 import EditPicture from './EditPic';
+import './pictures.css'
 
 const PicturesPage = () => {
     const dispatch = useDispatch()
@@ -27,12 +28,12 @@ const PicturesPage = () => {
 
             <div className='picturesContainer'>
                 <div>
-                    <ul>
+                    <ul className='one-pic'>
                         {usersPictures.map(({ id, content, image}) => (
                             <li key={id}>
                                 <EditPicture id={id}/>
                                 <h1>{content}</h1>
-                                <img alt='' src={image}></img>
+                                <img className='upload' alt='' src={image}></img>
                                 <DeletePicture id={id}/>
                             </li>
                         ))}
