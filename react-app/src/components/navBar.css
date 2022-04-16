@@ -12,3 +12,8 @@
 .navBar:hover {
     border-bottom: #128fdc 4px solid;
 }
+
+footer {
+    display: flex;
+    justify-content: end;
+}
