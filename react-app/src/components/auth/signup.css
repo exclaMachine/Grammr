@@ -1,0 +1,14 @@
+.content-container {
+    display: flex;
+    justify-content: center;
+}
+
+div {
+    margin: 5px;
+}
+
+button {
+    background-color: #128fdc;
+    color: white;
+    border-radius: 5px;
+}
