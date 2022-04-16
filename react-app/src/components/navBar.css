@@ -1,0 +1,14 @@
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.navBar {
+    text-decoration: none;
+    color: #212124;
+    font-family: Proxima Nova,Helvetica,sans-serif;
+}
+
+.navBar:hover {
+    border-bottom: #128fdc 4px solid;
+}
