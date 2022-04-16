@@ -3,6 +3,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import { useSelector} from 'react-redux';
+import './navBar.css'
 
 
 const NavBar = () => {
@@ -16,7 +17,7 @@ const NavBar = () => {
         <div>
           <div>
             <NavLink to='/' exact={true} activeClassName='active'>
-              Home
+              Grammr
             </NavLink>
           </div>
 
@@ -30,33 +31,33 @@ const NavBar = () => {
           </NavLink>
 
 
-          <NavLink to='/users' exact={true} activeClassName='active'>
+          {/* <NavLink to='/users' exact={true} activeClassName='active'>
             Users
-          </NavLink>
+          </NavLink> */}
 
         </div>
         )}
         {sessionUser && (
-        <div>
+        <div className="navbar-container">
 
-            <LogoutButton />
 
           <div>
-            <NavLink to='/pictures' exact={true} activeClassName='active'>
+            <NavLink className="navBar" to='/' exact={true} activeClassName='active'>
+                Grammr
+            </NavLink>
+          </div>
+          <div>
+            <NavLink className="navBar" to='/pictures' exact={true} activeClassName='active'>
               Pictures
             </NavLink>
           </div>
-          <div>
-            <NavLink to='/' exact={true} activeClassName='active'>
-                Home
-            </NavLink>
-          </div>
 
           <div>
-            <NavLink to='/albums' exact={true} activeClassName='active'>
+            <NavLink className="navBar" to='/albums' exact={true} activeClassName='active'>
               Albums
             </NavLink>
           </div>
+            <LogoutButton />
 
         </div>
         )}
