@@ -48,7 +48,7 @@ const SignUpForm = () => {
 
     <form onSubmit={onSignUp}>
 
-    <h1>Sign up for Grammr</h1>
+    <h3>Sign up for Grammr</h3>
         <div>
           {errors.map((error, ind) => (
             <div key={ind}>{error}</div>
