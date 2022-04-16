@@ -1,0 +1,13 @@
+.picturesContainer {
+    display: flexbox;
+    flex-direction: row;
+}
+
+.one-pic {
+    /* background-color: aqua; */
+    width: 100%;
+}
+
+.upload {
+    width: 30%;
+}
