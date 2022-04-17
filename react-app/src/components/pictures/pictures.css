@@ -1,13 +1,18 @@
-.picturesContainer {
-    display: flexbox;
-    flex-direction: row;
+
+
+.picturesContainer > div > ul {
+    display: flex;
+    flex-flow: row wrap;
+    padding: 10px;
+    gap: 10px;
 }
 
-.one-pic {
-    /* background-color: aqua; */
-    width: 100%;
+.picturesContainer > div > ul > li > img {
+    object-fit: cover;
+    height: 250px;
+    width: 250px
 }
 
 .upload {
-    width: 30%;
+    width: 20%;
 }
