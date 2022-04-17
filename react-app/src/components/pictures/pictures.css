@@ -9,8 +9,8 @@
 
 .picturesContainer > div > ul > li > img {
     object-fit: cover;
-    height: 250px;
-    width: 250px
+    height: 430px;
+    width: 280px
 }
 
 .upload {
