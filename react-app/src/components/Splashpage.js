@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getAllPicturesThunk } from '../store/picture';
-import DeletePicture from './pictures/DeletePic';
+import { NavLink } from 'react-router-dom';
+
 
 //This will show all pics from all users
 
@@ -27,7 +28,9 @@ const SplashPage = () => {
                         {allPictures.map(({ id, content, image}) => (
                             <li key={id}>
                                 <h1>{content}</h1>
-                                <img alt='' src={image}></img>
+                                <NavLink className="navBar" to={`/pictures/${id}`} exact={true} activeClassName='active'>
+                                    <img alt='' src={image}></img>
+                                </NavLink>
                             </li>
                         ))}
                     </ul>

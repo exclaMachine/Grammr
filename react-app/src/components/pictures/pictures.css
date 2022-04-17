@@ -5,7 +5,7 @@
     gap: 10px;
 }
 
-.picturesContainer > div > ul > li > img {
+.picturesContainer > div > ul > li > a > img {
     object-fit: cover;
     height: 430px;
     width: 280px
