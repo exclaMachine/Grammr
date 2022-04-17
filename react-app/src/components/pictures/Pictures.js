@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { getAllPicturesThunk } from '../../store/picture'
 import DeletePicture from './DeletePic';
@@ -28,12 +29,14 @@ const PicturesPage = () => {
 
             <div className='picturesContainer'>
                 <div>
-                    <ul className='one-pic'>
+                    <ul className='pic-list'>
                         {usersPictures.map(({ id, content, image}) => (
-                            <li key={id}>
+                            <li classNamekey={id}>
                                 <EditPicture id={id}/>
                                 <h1>{content}</h1>
-                                <img className='upload' alt='' src={image}></img>
+                                    <NavLink className="navBar" to={`/pictures/${id}`} exact={true} activeClassName='active'>
+                                        <img className='upload' alt='' src={image}></img>
+                                    </NavLink>
                                 <DeletePicture id={id}/>
                             </li>
                         ))}
