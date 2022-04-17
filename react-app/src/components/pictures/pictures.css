@@ -16,3 +16,7 @@
 .upload {
     width: 20%;
 }
+
+input {
+    margin: 10px;
+}

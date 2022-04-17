@@ -11,9 +11,15 @@ button {
     background-color: #128fdc;
     color: white;
     border-radius: 5px;
+    margin: 5px;
 }
 
 h3 {
     color: #212124;
     font-family: Proxima Nova,Helvetica,sans-serif;
+}
+
+button:hover {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3) 0 0);
+    cursor: pointer;
 }
