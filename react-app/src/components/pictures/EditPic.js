@@ -67,7 +67,7 @@ const EditPicture = ({id}) => {
                 value= {content}
                 onChange={(e) => setContent(e.target.value)}
                 />
-
+            <br></br>
             <button type="submit">Update Title</button>
         </form>
 
