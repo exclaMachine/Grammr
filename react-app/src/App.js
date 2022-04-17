@@ -8,6 +8,7 @@ import PicturesPage from './components/pictures/Pictures'
 import UploadPicture from './components/pictures/UploadPic';
 import SplashPage from './components/Splashpage';
 import AlbumsPage from './components/albums/Albums';
+import PicturePage from './components/pictures/SinglePic';
 
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/users/UsersList';
@@ -50,6 +51,10 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/pictures' exact={true}>
           <PicturesPage/>
+          <UploadPicture/>
+        </ProtectedRoute>
+        <ProtectedRoute path='/pictures/:id' exact={true}>
+          <PicturePage/>
           <UploadPicture/>
         </ProtectedRoute>
         <ProtectedRoute path='/albums' exact={true}>
