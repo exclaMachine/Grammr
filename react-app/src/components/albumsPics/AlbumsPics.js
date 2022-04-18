@@ -15,7 +15,8 @@ const AlbumsPicturesPage = ({id}) => {
     let albums = Object.values(albumObj)
 
     let pictures = Object.values(pictureObj)
-    let usersPictures = pictures.filter(picture => picture?.user_id === sessionUser?.id && picture?.album_id === id)
+    let usersPictures = pictures.filter(picture => picture?.user_id === sessionUser?.id && picture?.album_id === +id)
+    console.log('alpic', usersPictures)
 
     useEffect(() => {
         dispatch(getAllPicturesThunk())
