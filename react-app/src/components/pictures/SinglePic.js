@@ -37,6 +37,7 @@ const PicturePage = () => {
             <div className='picturesContainer'>
                 <div>
                     <img src={`${userPic?.image}`}></img>
+                    {/* <DeletePicture/> */}
 
                 </div>
 
