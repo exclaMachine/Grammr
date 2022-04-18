@@ -24,7 +24,7 @@ const PicturesPage = () => {
 
     return (
         <>
-        <div>
+        <div className='pic-grid'>
             <h1>Pictures</h1>
 
             <div className='picturesContainer'>

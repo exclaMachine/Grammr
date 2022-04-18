@@ -12,25 +12,25 @@ const NavBar = () => {
   const sessionUser = useSelector(state => state.session.user)
 
   return (
-    <div>
+    <div className='container'>
 
 
       <nav>
         <div>
           {!sessionUser && (
-          <div>
-            <div>
+          <div className='navbar-container'>
+            {/* <div>
               <NavLink to='/' exact={true} activeClassName='active'>
                 Grammr
               </NavLink>
-            </div>
+            </div> */}
 
-            <NavLink to='/login' exact={true} activeClassName='active'>
+            <NavLink className="navBar" to='/login' exact={true} activeClassName='active'>
               Login
             </NavLink>
 
 
-            <NavLink to='/sign-up' exact={true} activeClassName='active'>
+            <NavLink className="navBar" to='/sign-up' exact={true} activeClassName='active'>
               Sign Up
             </NavLink>
 

@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getAllPicturesThunk } from '../store/picture';
 import { NavLink } from 'react-router-dom';
+import './Splashpage.css'
 
 
 //This will show all pics from all users
@@ -19,7 +20,7 @@ const SplashPage = () => {
 
     return (
         <>
-        <div>
+        <div className='pic-grid'>
             <h1>Pictures</h1>
 
             <div className='picturesContainer'>
