@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { getAllPicturesThunk } from '../../store/picture'
-import DeletePicture from './DeletePic';
-import EditPicture from './EditPic';
+// import DeletePicture from './DeletePic';
+// import EditPicture from './EditPic';
 import './pictures.css'
 
 const PicturePage = () => {
@@ -13,7 +13,7 @@ const PicturePage = () => {
 
     console.log('param id', id)
 
-    const sessionUser = useSelector(state => state.session.user)
+    // const sessionUser = useSelector(state => state.session.user)
     const pictureObj = useSelector(state => state.pictureReducer)
 
     let pictures = Object.values(pictureObj)
@@ -36,7 +36,8 @@ const PicturePage = () => {
 
             <div className='picturesContainer'>
                 <div>
-                    <img src={`${userPic?.image}`}></img>
+                    <img alt=''src={`${userPic?.image}`}></img>
+                    {/* <DeletePicture/> */}
 
                 </div>
 

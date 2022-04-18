@@ -5,6 +5,7 @@ import CreateAlbum from './CreateAlbum';
 import EditAlbum from './EditAlbum';
 import AlbumsPicturesPage from '../albumsPics/AlbumsPics';
 import DeleteAlbum from './DeleteAlbum';
+import './albums.css'
 
 const AlbumsPage = () => {
     const dispatch = useDispatch()
@@ -24,14 +25,14 @@ const AlbumsPage = () => {
 
     return (
         <>
-        <div>
+        <div className='albums-container'>
             <h1>Albums</h1>
 
-            <div className='albumsContainer'>
+            <div >
                 <div>
                     <ul>
                         {usersAlbums.map(({ id, title}) => (
-                            <li key={id}>
+                            <li className='album-container' key={id}>
                                 {/* <EditPicture id={id}/> */}
                                 <h1>{title}</h1>
                                 {/* <DeletePicture id={id}/> */}
