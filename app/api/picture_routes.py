@@ -75,7 +75,9 @@ def upload_picture():
 
 @picture_routes.route('/<int:id>', methods=['GET'])
 def get_pic(id):
-    singlePic = Picture.query.filter(Picture.id == id).first()
+    # singlePic = Picture.query.filter(Picture.id == id).first()
+    singlePic = Picture.query.get(id)
+    print('\n\nsing\n\n', singlePic)
     return {
         singlePic.to_dict()
     }

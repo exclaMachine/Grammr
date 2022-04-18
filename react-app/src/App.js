@@ -47,15 +47,15 @@ function App() {
           <User />
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
+          <UploadPicture/>
           <SplashPage/>
         </ProtectedRoute>
         <ProtectedRoute path='/pictures' exact={true}>
-          <PicturesPage/>
           <UploadPicture/>
+          <PicturesPage/>
         </ProtectedRoute>
         <ProtectedRoute path='/pictures/:id' exact={true}>
           <PicturePage/>
-          <UploadPicture/>
         </ProtectedRoute>
         <ProtectedRoute path='/albums' exact={true}>
           <AlbumsPage/>
