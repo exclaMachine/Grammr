@@ -1,16 +1,15 @@
-
-
 .picturesContainer > div > ul {
     display: flex;
     flex-flow: row wrap;
     padding: 10px;
-    gap: 10px;
+    gap: 20px;
 }
 
 .picturesContainer > div > ul > li > a > img {
     object-fit: cover;
     height: 430px;
-    width: 280px
+    width: 280px;
+    border: black solid 2px;
 }
 
 input {
