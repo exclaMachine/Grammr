@@ -35,13 +35,7 @@ const PicturePage = () => {
             // .catch(async (res) => {
             //     const data = await res.json();
             //     if (data && data.error) setErrors(data.errors)
-        } else {
-            setErrors(['This picture does not exist'])
         }
-            // } else {
-        //     console.log('in the else')
-        //     errors.push('Wrong page')
-
         // }
     }, [dispatch])
 
