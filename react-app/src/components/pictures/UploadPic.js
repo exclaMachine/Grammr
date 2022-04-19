@@ -61,28 +61,35 @@ const UploadPicture = ({id}) => {
     }
 
 
+
     const updatePic = (e) => {
         const file = e.target.files[0];
-        // console.log('target!!!', e.target.files[0])
+        console.log('target!!!', e.target.files[0])
+
         setPic(file);
     }
 
         return (
             <form onSubmit={handleSubmit}>
-                <label for="file-upload" class="new-file-upload">
+                <label for="fileupload" class="new-file-upload">
                     Choose File
+                </label>
+
                 <input
-                    id="file-upload"
+                    id="fileupload"
                     type="file"
                     accept="image/*"
                     onChange={updatePic}
                 />
-                </label>
+                {pic && (<span id="fileselected"
+
+                >{pic.name}</span>)}
                 <button className='upload-button' type="submit">Upload Pic</button>
                 {/* {(picLoading)&& <p>Loading...</p>} */}
             </form>
         )
 
 }
+
 
 export default UploadPicture;

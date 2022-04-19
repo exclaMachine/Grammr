@@ -16,11 +16,11 @@ input {
     margin: 10px;
 }
 
-/* input[type="file"] {
+input[type="file"] {
     display: none;
-} */
+}
 
-/* .new-file-upload {
+.new-file-upload {
     cursor: pointer;
     background-color: #128fdc;
     color: white;
@@ -32,4 +32,4 @@ input {
 
 .new-file-upload:hover {
     background-image: linear-gradient(rgba(0, 0, 0, 0.3) 0 0);
-} */
+}
