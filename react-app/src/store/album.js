@@ -1,5 +1,5 @@
 const GET_ALBUMS = 'album/GET_ALBUMS'
-const SINGLE_PICTURE = 'album/SINGLE_PICTURE'
+const SINGLE_ALBUM = 'album/SINGLE_ALBUM'
 const POST_ALBUM = 'album/POST_ALBUM'
 const DELETE_ALBUM = 'album/DELETE_ALBUM'
 const EDIT_ALBUM = 'album/EDIT_ALBUM'
@@ -13,7 +13,7 @@ export const getAllAlbums = (albums) => {
 
 export const getPicture = (album) => {
     return {
-        type: SINGLE_PICTURE,
+        type: SINGLE_ALBUM,
         payload: album
     }
 }
@@ -109,7 +109,7 @@ const albumReducer = (state = initialState, action) => {
             // return newState;
             return action.payload
 
-        case SINGLE_PICTURE:
+        case SINGLE_ALBUM:
             newState = {...state}
             return action.payload
 
