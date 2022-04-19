@@ -38,19 +38,23 @@ function AlbumButton({id}) {
 
   return (
     <>
+    {!showMenu && (
+
+
       <button onClick={openMenu}>
 
           Open {album.title} Album
         {/* <i className="fas fa-user-circle" /> */}
       </button>
-      {showMenu && (
-        //   <h1>stuff</h1>
-        <ul className="album-dropdown">
-            <AlbumsPicturesPage id={id}/>
-            <li>{sessionUser.username}</li>
-            <button onClick={closeMenuButton}>Close {album.title} Album</button>
-        </ul>
-      )}
+    )}
+        {showMenu && (
+            //   <h1>stuff</h1>
+            <ul className="album-dropdown">
+                <button onClick={closeMenuButton}>Close {album.title} Album</button>
+                <AlbumsPicturesPage id={id}/>
+                <li>{sessionUser.username}</li>
+            </ul>
+        )}
     </>
   );
 }
