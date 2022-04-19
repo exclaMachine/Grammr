@@ -21,6 +21,7 @@ const SignUpForm = () => {
         setErrors(data)
       }
     }
+
   };
 
   const updateUsername = (e) => {
@@ -66,7 +67,7 @@ const SignUpForm = () => {
         <div>
           <input
             placeholder='Email'
-            type='text'
+            type='email'
             name='email'
             onChange={updateEmail}
             value={email}

@@ -13,6 +13,7 @@ const UploadPicture = ({id}) => {
     // const pictureObj = useSelector(state => state.pictureReducer)
 
     const [pic, setPic] = useState(null);
+    const [errors, setErrors] = useState([]);
     // const [picLoading, setPicLoading] = useState(false);
 
 
@@ -42,10 +43,16 @@ const UploadPicture = ({id}) => {
         // console.log('formdata', formData)
 
         // setPicLoading(true);
-
-        dispatch(postPictureThunk(formData))
+        setErrors([])
+        // setPic('')
+        const data = await dispatch(postPictureThunk(formData))
+        //
+            if (data) {
+                // console.log('inside data', data)
+                setErrors([data]);
+            }
         setPic('')
-        // const res = await fetch('/api/pictures', {
+            // const res = await fetch('/api/pictures', {
         //     method: 'POST',
         //     body: formData
         // })
@@ -75,6 +82,9 @@ const UploadPicture = ({id}) => {
                 <label for="fileupload" class="new-file-upload">
                     Choose File
                 </label>
+                <ul>
+                {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+                </ul>
 
                 <input
                     id="fileupload"

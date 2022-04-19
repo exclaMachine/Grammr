@@ -29,8 +29,9 @@ def upload_picture():
     # content = image.filename
 
     if not allowed_file(pic.filename):
-        # print("file type!!!!!")
-        return {"errors": "file type not permitted"}, 400
+        print("file type!!!!!")
+        return {"errors": "file type not permitted"}
+        # , 400
 
     picName = pic.filename
 
