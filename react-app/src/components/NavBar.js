@@ -5,6 +5,7 @@ import LogoutButton from './auth/LogoutButton';
 import { useSelector} from 'react-redux';
 import './navBar.css'
 import FooterLinks from './Footer';
+import ProfileButton from './buttons/DropdownLogout';
 
 
 const NavBar = () => {
@@ -61,7 +62,8 @@ const NavBar = () => {
                 Albums
               </NavLink>
             </div>
-              <LogoutButton />
+              {/* <LogoutButton /> */}
+              <ProfileButton/>
 
           </div>
           )}

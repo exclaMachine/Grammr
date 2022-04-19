@@ -27,7 +27,7 @@ const AlbumsPage = () => {
         <>
         <div className='albums-container'>
             <h1>Albums</h1>
-
+            {/* <FontAwesomeIcon icon="fa-solid fa-pen-to-square" /> */}
             <div >
                 <div>
                     <ul>
