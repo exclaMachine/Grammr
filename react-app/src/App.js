@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
@@ -9,6 +9,7 @@ import UploadPicture from './components/pictures/UploadPic';
 import SplashPage from './components/Splashpage';
 import AlbumsPage from './components/albums/Albums';
 import PicturePage from './components/pictures/SinglePic';
+
 
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/users/UsersList';
@@ -60,6 +61,12 @@ function App() {
         <ProtectedRoute path='/albums' exact={true}>
           <AlbumsPage/>
         </ProtectedRoute>
+        <Route path=''>
+          <div className='four-oh-four'>
+            <h1>404 - Does this page exist?</h1>
+            <NavLink to='/'><h2>Take me home!</h2></NavLink>
+          </div>
+        </Route>
       </Switch>
     </BrowserRouter>
   );
