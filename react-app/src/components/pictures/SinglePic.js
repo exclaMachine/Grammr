@@ -30,12 +30,12 @@ const PicturePage = () => {
     useEffect(() => {
 
         // dispatch(getPictureThunk(id))
-        if (userPic){
+
             dispatch(getAllPicturesThunk())
+
             // .catch(async (res) => {
             //     const data = await res.json();
             //     if (data && data.error) setErrors(data.errors)
-        }
         // }
     }, [dispatch])
 
