@@ -34,12 +34,8 @@ const AlbumsPage = () => {
                     <ul>
                         {usersAlbums.map(({ id, title}) => (
                             <li className='album-container' key={id}>
-                                {/* <EditPicture id={id}/> */}
                                 <AlbumButton id={id}/>
-                                {/* <h1>{title}</h1> */}
-                                {/* <DeletePicture id={id}/> */}
                                 <EditAlbum id={id} title={title}/>
-                                {/* <AlbumsPicturesPage id={id}/> */}
                                 <DeleteAlbum id={id}/>
                             </li>
                         ))}

@@ -35,7 +35,7 @@ const PicturesPage = () => {
                                 <EditPicture id={id}/>
                                 <h1>{content}</h1>
                                     <NavLink className="navBar" to={`/pictures/${id}`} exact={true} activeClassName='active'>
-                                        <img className='upload' alt='' src={image}></img>
+                                        <img alt='' src={image}></img>
                                     </NavLink>
                                 <DeletePicture id={id}/>
                             </li>

@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { getAllPicturesThunk } from '../../store/picture'
 import DeletePicture from '../pictures/DeletePic'
 import EditPicture from '../pictures/EditPic';
 import UploadPicture from '../pictures/UploadPic';
+
 
 const AlbumsPicturesPage = ({id}) => {
     const dispatch = useDispatch()
@@ -38,7 +40,10 @@ const AlbumsPicturesPage = ({id}) => {
 
                                 <EditPicture id={id}/>
                                 <h1>{content}</h1>
-                                <img alt='' src={image}></img>
+                                    <NavLink className="navBar" to={`/pictures/${id}`} exact={true} activeClassName='active'>
+                                        <img alt='' src={image}></img>
+                                    </NavLink>
+
                                 <DeletePicture id={id}/>
                             </li>
                         ))}
