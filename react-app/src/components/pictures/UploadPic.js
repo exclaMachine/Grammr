@@ -2,6 +2,7 @@ import React, {useState } from "react";
 // import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { postPictureThunk } from '../../store/picture'
+import './pictures.css'
 
 const UploadPicture = ({id}) => {
     // const history = useHistory();
@@ -60,24 +61,35 @@ const UploadPicture = ({id}) => {
     }
 
 
+
     const updatePic = (e) => {
         const file = e.target.files[0];
-        // console.log('target!!!', e.target.files[0])
+        console.log('target!!!', e.target.files[0])
+
         setPic(file);
     }
 
         return (
             <form onSubmit={handleSubmit}>
+                <label for="fileupload" class="new-file-upload">
+                    Choose File
+                </label>
+
                 <input
-                  type="file"
-                  accept="image/*"
-                  onChange={updatePic}
+                    id="fileupload"
+                    type="file"
+                    accept="image/*"
+                    onChange={updatePic}
                 />
-                <button type="submit">Submit</button>
+                {pic && (<span id="fileselected"
+
+                >{pic.name}</span>)}
+                <button className='upload-button' type="submit">Upload Pic</button>
                 {/* {(picLoading)&& <p>Loading...</p>} */}
             </form>
         )
 
 }
+
 
 export default UploadPicture;
