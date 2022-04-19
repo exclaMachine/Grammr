@@ -10,8 +10,10 @@ const AlbumsPicturesPage = ({id}) => {
 
     const sessionUser = useSelector(state => state.session.user)
     const pictureObj = useSelector(state => state.pictureReducer)
-    // const albumObj = useSelector(state => state.albumReducer)
+    const albumObj = useSelector(state => state.albumReducer)
 
+    let specificAlbum = albumObj[+id]
+    console.log('spec', specificAlbum.updated_at)
     // let albums = Object.values(albumObj)
 
     let pictures = Object.values(pictureObj)
@@ -25,8 +27,8 @@ const AlbumsPicturesPage = ({id}) => {
     return (
         <>
         <div>
-            {/* <h1>{albums[id-1].title}'s Pictures</h1> */}
-            <h1>Album's Pics</h1>
+            <h1>{specificAlbum.title}'s Pictures</h1>
+            {/* <h2>{specificAlbum.created_at}</h2> */}
             <div className='picturesContainer'>
                 <div>
                     <UploadPicture id={id}/>
