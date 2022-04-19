@@ -23,7 +23,9 @@ class Picture(db.Model):
             'user_id': self.user_id,
             'album_id': self.album_id,
             'content': self.content,
-            'image': self.image
+            'image': self.image,
+            'created_at': self.created_at,
+            'updated_at': self.updated_at
         }
 
 
@@ -43,6 +45,8 @@ class Album(db.Model):
             'id': self.id,
             'user_id': self.user_id,
             'title': self.title,
+            'created_at': self.created_at,
+            'updated_at': self.updated_at
         }
 
 class Comment(db.Model):
