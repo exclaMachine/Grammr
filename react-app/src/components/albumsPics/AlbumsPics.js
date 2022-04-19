@@ -27,7 +27,7 @@ const AlbumsPicturesPage = ({id}) => {
     return (
         <>
         <div>
-            <h1>{specificAlbum.title}'s Pictures</h1>
+            <h1>Pictures in {specificAlbum.title}</h1>
             {/* <h2>{specificAlbum.created_at}</h2> */}
             <div className='picturesContainer'>
                 <div>
