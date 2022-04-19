@@ -16,6 +16,7 @@ const UploadPicture = ({id}) => {
     // const [picLoading, setPicLoading] = useState(false);
 
 
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         const formData = new FormData()
@@ -43,7 +44,7 @@ const UploadPicture = ({id}) => {
         // setPicLoading(true);
 
         dispatch(postPictureThunk(formData))
-
+        setPic('')
         // const res = await fetch('/api/pictures', {
         //     method: 'POST',
         //     body: formData
