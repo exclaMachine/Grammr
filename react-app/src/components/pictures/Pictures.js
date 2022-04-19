@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getAllPicturesThunk } from '../../store/picture'
 import DeletePicture from './DeletePic';
 import EditPicture from './EditPic';
+import { getPictureThunk } from '../../store/picture';
 import './pictures.css'
 
 const PicturesPage = () => {
@@ -35,7 +36,9 @@ const PicturesPage = () => {
                                 <EditPicture id={id}/>
                                 <h1>{content}</h1>
                                     <NavLink className="navBar" to={`/pictures/${id}`} exact={true} activeClassName='active'>
-                                        <img className='upload' alt='' src={image}></img>
+                                        <img className='upload' alt='' src={image}
+                                        // onClick={() => dispatch(getPictureThunk(id))}
+                                        ></img>
                                     </NavLink>
                                 <DeletePicture id={id}/>
                             </li>

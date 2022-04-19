@@ -29,28 +29,28 @@ const PicturePage = () => {
 
     useEffect(() => {
 
-        // dispatch(getPictureThunk(id))
-        if (userPic){
-            dispatch(getAllPicturesThunk())
+
+        // if (userPic){
+            dispatch(getPictureThunk(id))
             // .catch(async (res) => {
             //     const data = await res.json();
             //     if (data && data.error) setErrors(data.errors)
-        } else {
-            setErrors(['This picture does not exist'])
-        }
+        // } else {
+        //     setErrors(['This picture does not exist'])
+        // }
             // } else {
         //     console.log('in the else')
         //     errors.push('Wrong page')
 
         // }
-    }, [dispatch])
+    }, [dispatch, id])
 
     return (
         <>
         <div>
-            <ul className="errors">
+            {/* <ul className="errors">
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-            </ul>
+            </ul> */}
 
             <h1>{userPic?.content}</h1>
 

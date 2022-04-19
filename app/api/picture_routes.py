@@ -20,7 +20,6 @@ def get_pictures():
 @login_required
 def upload_picture():
     if "image" not in request.files:
-        # print("not in request.files!!!!!!!!")
         return {"errors": "image required"}, 400
 
     # user_id = request.json['user_id']
@@ -38,7 +37,6 @@ def upload_picture():
 
     upload = upload_file_to_s3(pic)
 
-    # print('upload!!!!!!!!', upload)
 
     if "image" not in upload:
         # print("image not in upload!!!!!!!!")
@@ -48,8 +46,7 @@ def upload_picture():
         return upload, 400
 
     # print('currUser', current_user.id)
-    # print('filename!!!!!!!!!!', pic.filename)
-    # print('image!!!!!!', pic)
+
     album_id = request.form['album_id']
     # print('\n\nrequest.file\n\n', request.form['album_id'])
 
