@@ -26,12 +26,14 @@ const PicturePage = () => {
     // let userPicture = pictures[id-1]. This causes a problem when you delete pictures
     console.log('userPic', userPic)
     const [errors, setErrors] = useState([])
+    const [Pic, setPic] = useState([])
 
     useEffect(() => {
 
 
-        // if (userPic){
-            dispatch(getPictureThunk(id))
+        // if (userPic) {
+            dispatch(getAllPicturesThunk());
+            setPic(userPic);
             // .catch(async (res) => {
             //     const data = await res.json();
             //     if (data && data.error) setErrors(data.errors)
@@ -43,7 +45,7 @@ const PicturePage = () => {
         //     errors.push('Wrong page')
 
         // }
-    }, [dispatch, id])
+    }, [dispatch])
 
     return (
         <>
