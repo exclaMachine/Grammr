@@ -15,7 +15,7 @@ const PicturesPage = () => {
     // console.log('obj', pictureObj)
     let pictures = Object.values(pictureObj)
 
-    let usersPictures = pictures.filter(picture => picture?.user_id === sessionUser?.id)
+    let usersPictures = pictures.filter(picture => picture?.user_id === sessionUser?.id).reverse()
 
 
     useEffect(() => {

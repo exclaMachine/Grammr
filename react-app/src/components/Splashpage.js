@@ -12,7 +12,7 @@ const SplashPage = () => {
 
     const pictureObj = useSelector(state => state.pictureReducer)
 
-    let allPictures = Object.values(pictureObj)
+    let allPictures = Object.values(pictureObj).reverse()
 
     useEffect(() => {
         dispatch(getAllPicturesThunk())
