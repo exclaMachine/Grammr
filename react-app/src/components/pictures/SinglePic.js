@@ -3,8 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { getAllPicturesThunk } from '../../store/picture'
-import { getPictureThunk } from '../../store/picture';
-import DeletePicture from './DeletePic';
+// import { getPictureThunk } from '../../store/picture';
+// import DeletePicture from './DeletePic';
 // import EditPicture from './EditPic';
 import './pictures.css'
 
@@ -25,7 +25,7 @@ const PicturePage = () => {
 
     // let userPicture = pictures[id-1]. This causes a problem when you delete pictures
     console.log('userPic', userPic)
-    const [errors, setErrors] = useState([])
+    // const [errors, setErrors] = useState([])
 
     useEffect(() => {
 
@@ -57,9 +57,9 @@ const PicturePage = () => {
     return (
         <>
         <div>
-            <ul className="errors">
+            {/* <ul className="errors">
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-            </ul>
+            </ul> */}
 
             <h1>{userPic?.content}</h1>
 

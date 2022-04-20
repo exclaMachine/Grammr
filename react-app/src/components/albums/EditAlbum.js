@@ -32,20 +32,28 @@ const EditAlbum = ({id}) => {
 
         if (title) {
             setErrors([]);
+            const data = await dispatch(editAlbumThunk(id, updatedPicture))
+            if (typeof data === 'string') {
+                // console.log('inside data edit if', data)
+                return setErrors([data])
+            }
             return dispatch(editAlbumThunk(id, updatedPicture))
-            .catch(async (res) => {
-                const data = await res.json();
-                if (data && data.error) setErrors(data.errors)
-            })
+            // .catch(async (res) => {
+            //     const data = await res.json();
+            //     if (data && data.error) setErrors(data.errors)
+            // })
         }
         return setErrors(['Title cannot be empty'])
     }
-
+    // console.log('errEdit', errors)
     return (
         <form onSubmit={handleEdit}>
+
+            {errors && (
              <ul>
-                {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+                {errors.map((error) => <li> {error}</li>)}
             </ul>
+            )}
             <label className="label title">Title</label>
                 <input
                 className='title-input'

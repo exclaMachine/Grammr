@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getAllAlbumsThunk } from '../../store/album'
 import CreateAlbum from './CreateAlbum';
 import EditAlbum from './EditAlbum';
-import AlbumsPicturesPage from '../albumsPics/AlbumsPics';
+// import AlbumsPicturesPage from '../albumsPics/AlbumsPics';
 import DeleteAlbum from './DeleteAlbum';
 import './albums.css'
 import AlbumButton from '../buttons/AlbumDropdown';
@@ -14,11 +14,11 @@ const AlbumsPage = () => {
     const sessionUser = useSelector(state => state.session.user)
     const albumObj = useSelector(state => state.albumReducer)
 
-    console.log('obj', albumObj)
+    // console.log('obj', albumObj)
     let albums = Object.values(albumObj)
 
     let usersAlbums = albums.filter(album => album?.user_id === sessionUser?.id)
-    console.log('users', usersAlbums)
+    // console.log('users', usersAlbums)
 
     useEffect(() => {
         dispatch(getAllAlbumsThunk())

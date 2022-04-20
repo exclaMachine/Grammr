@@ -28,9 +28,9 @@ const CreateAlbum = () => {
             setErrors([]);
             reset();
             const data = await dispatch(postAlbumThunk(newAlbum))
-            if (data) {
+            if (typeof data === 'string') {
+                console.log('inside data if', typeof data === 'string')
                 return setErrors([data])
-                // console.log('inside data if', data)
             }
             return dispatch(postAlbumThunk(newAlbum))
             // .catch(async (res) => {
@@ -45,7 +45,7 @@ const CreateAlbum = () => {
 
 
     }
-    console.log('err', errors)
+    // console.log('err', errors)
         return (
             <form onSubmit={handleSubmit}>
                  {/* <ul>

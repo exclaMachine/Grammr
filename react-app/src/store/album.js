@@ -96,6 +96,9 @@ export const editAlbumThunk = (id, data) => async dispatch => {
         const updatedAlbum = await res.json()
         // console.log('updatedAlbum', updatedAlbum.updated_pic)
         dispatch(editPicture(id, updatedAlbum))
+        if (updatedAlbum.errors) {
+            return updatedAlbum.errors
+        }
         return updatedAlbum
     }
 }
