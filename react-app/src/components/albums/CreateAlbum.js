@@ -30,9 +30,9 @@ const CreateAlbum = () => {
             const data = await dispatch(postAlbumThunk(newAlbum))
             if (data) {
                 return setErrors([data])
-                console.log('inside data if', data)
+                // console.log('inside data if', data)
             }
-            dispatch(postAlbumThunk(newAlbum))
+            return dispatch(postAlbumThunk(newAlbum))
             // .catch(async (res) => {
             //     const data = await res.json();
             //     if (data && data.errors) {
@@ -45,13 +45,13 @@ const CreateAlbum = () => {
 
 
     }
-
+    console.log('err', errors)
         return (
             <form onSubmit={handleSubmit}>
-                 <ul>
+                 {/* <ul>
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-                </ul>
-
+                </ul> */}
+                {errors[0]}
                 <input
                 value={title}
                 onChange={(e)=> setTitle(e.target.value)}
