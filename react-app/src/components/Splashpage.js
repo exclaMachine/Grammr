@@ -21,7 +21,7 @@ const SplashPage = () => {
     return (
         <>
         <div className='pic-grid'>
-            <h1>Pictures</h1>
+            <h1>Everyone's Pictures</h1>
 
             <div className='picturesContainer'>
                 <div>

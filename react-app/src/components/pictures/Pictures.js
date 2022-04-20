@@ -11,7 +11,7 @@ const PicturesPage = () => {
 
     const sessionUser = useSelector(state => state.session.user)
     const pictureObj = useSelector(state => state.pictureReducer)
-
+    console.log('sess', sessionUser)
     // console.log('obj', pictureObj)
     let pictures = Object.values(pictureObj)
 
@@ -25,7 +25,7 @@ const PicturesPage = () => {
     return (
         <>
         <div className='pic-grid'>
-            <h1>Pictures</h1>
+            <h1>{sessionUser?.username}'s Pictures</h1>
 
             <div className='picturesContainer'>
                 <div>
