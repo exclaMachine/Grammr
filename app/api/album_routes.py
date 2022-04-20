@@ -19,6 +19,8 @@ def get_albums():
 @album_routes.route("/new", methods=["POST"])
 @login_required
 def post_album():
+    albums = Album.query.all()
+
     # some = request.form.get('title')
     user_id=current_user.id
     title = request.json['title']
@@ -29,6 +31,11 @@ def post_album():
         user_id=user_id,
         title=title
     )
+
+    for album in albums:
+        if album.user_id == new_album.user_id and album.title == new_album.title:
+            print('in the same name if')
+            return {"errors": "album title must be unique"}
 
     db.session.add(new_album)
     db.session.commit()

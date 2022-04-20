@@ -27,23 +27,31 @@ const CreateAlbum = () => {
         if (title) {
             setErrors([]);
             reset();
+            const data = await dispatch(postAlbumThunk(newAlbum))
+            if (data) {
+                return setErrors([data])
+                // console.log('inside data if', data)
+            }
             return dispatch(postAlbumThunk(newAlbum))
-            .catch(async (res) => {
-                const data = await res.json();
-                if (data && data.errors) setErrors(data.errors);
-            })
+            // .catch(async (res) => {
+            //     const data = await res.json();
+            //     if (data && data.errors) {
+            //         console.log('inside catch', data.errors)
+            //         setErrors(data.errors);
+            //     }
+            // })
         }
         return setErrors(['Album title cannot be empty']);
 
 
     }
-
+    console.log('err', errors)
         return (
             <form onSubmit={handleSubmit}>
-                 <ul>
+                 {/* <ul>
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-                </ul>
-
+                </ul> */}
+                {errors[0]}
                 <input
                 value={title}
                 onChange={(e)=> setTitle(e.target.value)}
