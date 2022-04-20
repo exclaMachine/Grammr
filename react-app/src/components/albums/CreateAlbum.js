@@ -27,11 +27,19 @@ const CreateAlbum = () => {
         if (title) {
             setErrors([]);
             reset();
-            return dispatch(postAlbumThunk(newAlbum))
-            .catch(async (res) => {
-                const data = await res.json();
-                if (data && data.errors) setErrors(data.errors);
-            })
+            const data = await dispatch(postAlbumThunk(newAlbum))
+            if (data) {
+                return setErrors([data])
+                console.log('inside data if', data)
+            }
+            dispatch(postAlbumThunk(newAlbum))
+            // .catch(async (res) => {
+            //     const data = await res.json();
+            //     if (data && data.errors) {
+            //         console.log('inside catch', data.errors)
+            //         setErrors(data.errors);
+            //     }
+            // })
         }
         return setErrors(['Album title cannot be empty']);
 

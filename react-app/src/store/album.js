@@ -11,7 +11,7 @@ export const getAllAlbums = (albums) => {
     }
 }
 
-export const getPicture = (album) => {
+export const getAlbum = (album) => {
     return {
         type: SINGLE_ALBUM,
         payload: album
@@ -50,12 +50,12 @@ export const getAllAlbumsThunk = () => async dispatch => {
     }
 }
 
-export const getPictureThunk = (id) => async dispatch => {
+export const getAlbumThunk = (id) => async dispatch => {
     const res = await fetch(`api/albums/${id}`)
 
     if (res.ok) {
         const data = await res.json()
-        dispatch(getPicture(data))
+        dispatch(getAlbum(data))
     }
 }
 
@@ -68,6 +68,9 @@ export const postAlbumThunk = (data) => async dispatch => {
     if (res.ok) {
         const newAlbum = await res.json()
         dispatch(postAlbum(newAlbum))
+        if (newAlbum.errors) {
+            return newAlbum.errors
+        }
         return newAlbum
     }
 }
