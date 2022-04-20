@@ -13,6 +13,7 @@ const NavBar = () => {
   const sessionUser = useSelector(state => state.session.user)
 
   return (
+    <>
     <div className='container'>
 
 
@@ -69,10 +70,12 @@ const NavBar = () => {
           )}
       </div>
       </nav>
-      <footer>
-            <FooterLinks/>
-      </footer>
+
     </div>
+    <footer>
+    <FooterLinks/>
+    </footer>
+    </>
   );
 }
 
