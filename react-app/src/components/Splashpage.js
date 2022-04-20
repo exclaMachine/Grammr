@@ -12,7 +12,7 @@ const SplashPage = () => {
 
     const pictureObj = useSelector(state => state.pictureReducer)
 
-    let allPictures = Object.values(pictureObj)
+    let allPictures = Object.values(pictureObj).reverse()
 
     useEffect(() => {
         dispatch(getAllPicturesThunk())
@@ -21,7 +21,7 @@ const SplashPage = () => {
     return (
         <>
         <div className='pic-grid'>
-            <h1>Pictures</h1>
+            <h1>Everyone's Pictures</h1>
 
             <div className='picturesContainer'>
                 <div>
