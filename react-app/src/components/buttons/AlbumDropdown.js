@@ -52,7 +52,7 @@ function AlbumButton({id}) {
             <ul className="album-dropdown">
                 <button onClick={closeMenuButton}>Close {album.title} Album</button>
                 <AlbumsPicturesPage id={id}/>
-                <li>{sessionUser.username}</li>
+                {/* <li>{sessionUser.username}</li> */}
             </ul>
         )}
     </>
