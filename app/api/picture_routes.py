@@ -20,8 +20,9 @@ def get_pictures():
 @login_required
 def upload_picture():
     if "image" not in request.files:
-        # print("not in request.files!!!!!!!!")
-        return {"errors": "image required"}, 400
+        print("request.files!!!!!!!!")
+        return {"errors": "Choose a File"}
+        # , 400
 
     # user_id = request.json['user_id']
     pic = request.files["image"]
@@ -30,7 +31,7 @@ def upload_picture():
 
     if not allowed_file(pic.filename):
         print("file type!!!!!")
-        return {"errors": "file type not permitted"}
+        return {"errors": "File type not permitted"}
         # , 400
 
     picName = pic.filename
