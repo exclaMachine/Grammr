@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState} from "react";
+import { useSelector } from 'react-redux';
 import AlbumsPicturesPage from "../albumsPics/AlbumsPics";
 
 function AlbumButton({id}) {
-  const sessionUser = useSelector(state => state.session.user)
+  // const sessionUser = useSelector(state => state.session.user)
   const albumObj = useSelector(state => state.albumReducer)
 
   const album = albumObj[+id]
