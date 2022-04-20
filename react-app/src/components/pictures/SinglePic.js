@@ -39,6 +39,21 @@ const PicturePage = () => {
         // }
     }, [dispatch])
 
+    const [users, setUsers] = useState([]);
+
+    useEffect(() => {
+        async function fetchData() {
+        const response = await fetch('/api/users/');
+        const responseData = await response.json();
+        setUsers(responseData.users);
+        }
+        fetchData();
+    }, []);
+
+    const picUser = users.find(user => user?.id === userPic?.user_id )
+    console.log('users!!!', users)
+    console.log('picUser', picUser)
+
     return (
         <>
         <div>
@@ -52,6 +67,7 @@ const PicturePage = () => {
                 <div>
                     <img alt=''src={`${userPic?.image}`}></img>
                     {/* <DeletePicture/> */}
+                    <div>Uploaded by {picUser?.username}</div>
 
                 </div>
 
