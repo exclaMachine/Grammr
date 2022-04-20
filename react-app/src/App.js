@@ -9,6 +9,7 @@ import UploadPicture from './components/pictures/UploadPic';
 import SplashPage from './components/Splashpage';
 import AlbumsPage from './components/albums/Albums';
 import PicturePage from './components/pictures/SinglePic';
+import FooterLinks from './components/Footer';
 
 
 import ProtectedRoute from './components/auth/ProtectedRoute';
@@ -67,6 +68,7 @@ function App() {
             <NavLink to='/'><h2>Take me home!</h2></NavLink>
           </div>
         </Route>
+        <FooterLinks/>
       </Switch>
     </BrowserRouter>
   );
