@@ -20,7 +20,7 @@ const AlbumsPicturesPage = ({id}) => {
 
     let pictures = Object.values(pictureObj)
     let usersPictures = pictures.filter(picture => picture?.user_id === sessionUser?.id && picture?.album_id === +id)
-    // console.log('alpic', usersPictures)
+    console.log('alpic', usersPictures)
 
     useEffect(() => {
         dispatch(getAllPicturesThunk())
@@ -29,7 +29,7 @@ const AlbumsPicturesPage = ({id}) => {
     return (
         <>
         <div>
-            <h1>Pictures in {specificAlbum.title}</h1>
+            <h1>Pictures in {specificAlbum.title} ({usersPictures.length})</h1>
             {/* <h2>{specificAlbum.created_at}</h2> */}
             <div className='picturesContainer'>
                 <div>
