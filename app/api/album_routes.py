@@ -35,7 +35,7 @@ def post_album():
     for album in albums:
         if album.user_id == new_album.user_id and album.title == new_album.title:
             print('in the same name if')
-            return {"errors": "album title must be unique"}
+            return {"errors": "Album title must be unique"}
 
     db.session.add(new_album)
     db.session.commit()
@@ -69,6 +69,9 @@ def delete(id):
 @album_routes.route('/<int:id>', methods=['PUT'])
 def update_album(id):
     # print('\n\nid\n\n', id)
+    #get all the albums except the one being changed
+    albums = Album.query.filter(Album.id != id)
+
     foundAlbum = Album.query.get(id)
     #
     user_id = request.json['user_id']
@@ -76,6 +79,11 @@ def update_album(id):
 
     foundAlbum.user_id = user_id
     foundAlbum.title = title
+
+    for album in albums:
+        if album.user_id == foundAlbum.user_id and album.title == foundAlbum.title:
+            # print('in the same name put if')
+            return {"errors": "Album title must be unique"}
 
     # print('\n\ncontent\n\n', foundAlbum.image)
 
