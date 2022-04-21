@@ -28,7 +28,7 @@ const SplashPage = () => {
                     <ul>
                         {allPictures.map(({ id, content, image}) => (
                             <li key={id}>
-                                <h1>{content}</h1>
+                                {/* <h1>{content}</h1> */}
                                 <NavLink className="navBar" to={`/pictures/${id}`} exact={true} activeClassName='active'>
                                     <img alt='' src={image}></img>
                                 </NavLink>
