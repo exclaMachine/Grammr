@@ -45,14 +45,17 @@ const LoginForm = () => {
       <div className='content-container'>
 
 
-      <form onSubmit={onLogin}>
+      <form className='form' onSubmit={onLogin}>
+      <h2>Log in to Grammr</h2>
+      <p>A place to post images about grammar and punctuation!?</p>
+
         <div>
           {errors.map((error, ind) => (
             <div key={ind}>{error}</div>
           ))}
         </div>
         <div>
-          <label htmlFor='email'>Email</label>
+          {/* <label htmlFor='email'>Email</label> */}
           <br></br>
           <input
             name='email'
@@ -63,7 +66,7 @@ const LoginForm = () => {
           />
         </div>
         <div>
-          <label htmlFor='password'>Password</label>
+          {/* <label htmlFor='password'>Password</label> */}
           <br></br>
           <input
             name='password'
@@ -73,7 +76,7 @@ const LoginForm = () => {
             onChange={updatePassword}
           />
         </div>
-          <button type='submit'>Login</button>
+          <button className="logbutton" type='submit'>Login</button>
       </form>
 
       </div>
@@ -81,6 +84,11 @@ const LoginForm = () => {
           <form onSubmit={demoUser}>
                 <button type='submit'>Demo User</button>
           </form>
+          </div>
+          <div className='redirect'>
+            <p>Don't have an account?
+              <a href='/sign-up'> Sign up here.</a>
+            </p>
           </div>
     </div>
   );
