@@ -49,11 +49,11 @@ function App() {
           <User />
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
-          <UploadPicture/>
+          {/* <UploadPicture/> */}
           <SplashPage/>
         </ProtectedRoute>
         <ProtectedRoute path='/pictures' exact={true}>
-          <UploadPicture/>
+          {/* <UploadPicture/> */}
           <PicturesPage/>
         </ProtectedRoute>
         <ProtectedRoute path='/pictures/:id' exact={true}>

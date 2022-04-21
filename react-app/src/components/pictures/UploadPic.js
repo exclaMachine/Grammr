@@ -1,8 +1,10 @@
 import React, {useState } from "react";
 // import { useHistory } from "react-router-dom";
+
 import { useDispatch, useSelector } from "react-redux";
 import { postPictureThunk } from '../../store/picture'
 import './pictures.css'
+
 
 const UploadPicture = ({id}) => {
     // const history = useHistory();
