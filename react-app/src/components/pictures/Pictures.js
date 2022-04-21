@@ -7,6 +7,7 @@ import EditPicture from './EditPic';
 import './pictures.css'
 import UploadPicture from './UploadPic';
 import DeleteModal from '../modals/DeleteModal'
+import EditPicModal from '../modals/EditPicModal'
 
 const PicturesPage = () => {
     const dispatch = useDispatch()
@@ -35,7 +36,8 @@ const PicturesPage = () => {
                     <div className='pic-list'>
                         {usersPictures.map(({ id, content, image}) => (
                             <div classNamekey={id}>
-                                <EditPicture id={id}/>
+                                {/* <EditPicture id={id}/> */}
+                                <EditPicModal id={id}/>
                                 <h1>{content}</h1>
                                     <NavLink className="navBar" to={`/pictures/${id}`} exact={true} activeClassName='active'>
                                         <img alt='' src={image}></img>
