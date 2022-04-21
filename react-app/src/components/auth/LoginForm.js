@@ -49,7 +49,7 @@ const LoginForm = () => {
       <h2>Log in to Grammr</h2>
       <p>A place to post images about grammar and punctuation!?</p>
 
-        <div>
+        <div className="errors">
           {errors.map((error, ind) => (
             <div key={ind}>{error}</div>
           ))}

@@ -21,6 +21,7 @@ const SignUpForm = () => {
         setErrors(data)
       }
     }
+    return setErrors(["Password and Confirm Password field must match"])
 
   };
 
@@ -52,7 +53,7 @@ const SignUpForm = () => {
 
     <h2>Sign up for Grammr</h2>
     <p>A place to post images about grammar and punctuation!?</p>
-        <div>
+        <div className="errors">
           {errors.map((error, ind) => (
             <div key={ind}>{error}</div>
           ))}
