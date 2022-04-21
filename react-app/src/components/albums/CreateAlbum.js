@@ -53,6 +53,7 @@ const CreateAlbum = () => {
                 </ul>
                 {/* {errors[0]} */}
                 <input
+                className='title-input'
                 value={title}
                 onChange={(e)=> setTitle(e.target.value)}
                 >
