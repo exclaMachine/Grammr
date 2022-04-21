@@ -43,7 +43,7 @@ function AlbumButton({id}) {
 
       <button onClick={openMenu}>
 
-          Open {album.title} Album
+          Open {album.title}
         {/* <i className="fas fa-user-circle" /> */}
       </button>
     )}
