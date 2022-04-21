@@ -20,11 +20,14 @@ const PicturePage = () => {
     // let pictures = Object.values(pictureObj)
     // console.log("pic", pictures)
 
+    let wholeDate = userPic?.created_at
+    let newDate = new Date(wholeDate).toUTCString();
+    let finalDate = newDate.split(' ').slice(0, 4).join(' ');
     //remember to add the plus
     // let userPic = pictures.filter(picture => picture?.id === +id)[0]
 
     // let userPicture = pictures[id-1]. This causes a problem when you delete pictures
-    console.log('userPic', userPic)
+    // console.log('userPic', userPic)
     // const [errors, setErrors] = useState([])
 
     useEffect(() => {
@@ -51,8 +54,8 @@ const PicturePage = () => {
     }, []);
 
     const picUser = users.find(user => user?.id === userPic?.user_id )
-    console.log('users!!!', users)
-    console.log('picUser', picUser)
+    // console.log('users!!!', users)
+    // console.log('picUser', picUser)
 
     return (
         <>
@@ -65,9 +68,10 @@ const PicturePage = () => {
 
             <div className='picturesContainer'>
                 <div>
+                    <div>Uploaded by {picUser?.username}</div>
+                    <div>Uploaded on {finalDate}</div>
                     <img alt=''src={`${userPic?.image}`}></img>
                     {/* <DeletePicture/> */}
-                    <div>Uploaded by {picUser?.username}</div>
 
                 </div>
 
