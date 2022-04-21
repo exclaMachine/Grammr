@@ -26,6 +26,7 @@ const AlbumsPage = () => {
 
     return (
         <>
+        <CreateAlbum/>
         <div className='albums-container'>
             <h1>Albums</h1>
             {/* <FontAwesomeIcon icon="fa-solid fa-pen-to-square" /> */}
@@ -42,7 +43,6 @@ const AlbumsPage = () => {
                     </ul>
 
                 </div>
-                        <CreateAlbum/>
 
             </div>
 
