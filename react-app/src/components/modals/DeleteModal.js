@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
 import DeletePicture from '../pictures/DeletePic';
 
-function DeleteModal() {
+function DeleteModal({id}) {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -10,7 +10,7 @@ function DeleteModal() {
       <button onClick={() => setShowModal(true)}>Delete</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <DeletePicture />
+          <DeletePicture id={id} />
         </Modal>
       )}
     </>
