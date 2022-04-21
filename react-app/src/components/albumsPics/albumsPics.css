@@ -1,0 +1,18 @@
+.picturesContainer > div > ul > li > img {
+    width: 200px;
+    height: 100px;
+}
+
+.picturesContainer > div > ul > li > img {
+    object-fit: cover;
+    height: 430px;
+    width: 280px;
+    border: black solid 2px;
+}
+
+.picturesContainer > div > ul {
+    display: flex;
+    flex-flow: row wrap;
+    padding: 10px;
+    gap: 20px;
+}

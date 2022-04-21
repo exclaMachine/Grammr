@@ -5,6 +5,7 @@ import { getAllPicturesThunk } from '../../store/picture'
 import DeletePicture from './DeletePic';
 import EditPicture from './EditPic';
 import './pictures.css'
+import UploadPicture from './UploadPic';
 
 const PicturesPage = () => {
     const dispatch = useDispatch()
@@ -24,6 +25,7 @@ const PicturesPage = () => {
 
     return (
         <>
+        <UploadPicture/>
         <div className='pic-grid'>
             <h1>{sessionUser?.username}'s Pictures</h1>
 
