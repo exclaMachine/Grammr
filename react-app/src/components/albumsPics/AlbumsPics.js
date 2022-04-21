@@ -34,9 +34,9 @@ const AlbumsPicturesPage = ({id}) => {
             <div className='picturesContainer'>
                 <div>
                     <UploadPicture id={id}/>
-                    <ul>
+                    <div>
                         {usersPictures.map(({ id, album_id, content, image}) => (
-                            <li key={id}>
+                            <div key={id}>
 
                                 <EditPicture id={id}/>
                                 <h1>{content}</h1>
@@ -45,9 +45,9 @@ const AlbumsPicturesPage = ({id}) => {
                                     </NavLink>
 
                                 <DeletePicture id={id}/>
-                            </li>
+                            </div>
                         ))}
-                    </ul>
+                    </div>
 
                 </div>
 

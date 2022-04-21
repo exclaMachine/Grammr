@@ -32,9 +32,9 @@ const PicturesPage = () => {
 
             <div className='picturesContainer'>
                 <div>
-                    <ul className='pic-list'>
+                    <div className='pic-list'>
                         {usersPictures.map(({ id, content, image}) => (
-                            <li classNamekey={id}>
+                            <div classNamekey={id}>
                                 <EditPicture id={id}/>
                                 <h1>{content}</h1>
                                     <NavLink className="navBar" to={`/pictures/${id}`} exact={true} activeClassName='active'>
@@ -42,9 +42,9 @@ const PicturesPage = () => {
                                     </NavLink>
                                 {/* <DeleteModal id={id}/> */}
                                 <DeletePicture id={id}/>
-                            </li>
+                            </div>
                         ))}
-                    </ul>
+                    </div>
 
                 </div>
 
