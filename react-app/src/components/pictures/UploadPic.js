@@ -84,7 +84,7 @@ const UploadPicture = ({id}) => {
                 <label for="fileupload" class="new-file-upload">
                     Choose File
                 </label>
-                <ul>
+                <ul className="errors">
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
                 </ul>
 

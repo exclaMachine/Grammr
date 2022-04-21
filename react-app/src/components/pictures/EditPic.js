@@ -57,7 +57,7 @@ const EditPicture = ({id}) => {
 
     return (
         <form onSubmit={handleEdit}>
-             <ul>
+             <ul className="errors">
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul>
             <label className="label title">Title</label>
