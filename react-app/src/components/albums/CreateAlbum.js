@@ -29,7 +29,7 @@ const CreateAlbum = () => {
             reset();
             const data = await dispatch(postAlbumThunk(newAlbum))
             if (typeof data === 'string') {
-                console.log('inside data if', typeof data === 'string')
+                // console.log('inside data if', typeof data === 'string')
                 return setErrors([data])
             }
             return dispatch(postAlbumThunk(newAlbum))
@@ -48,10 +48,10 @@ const CreateAlbum = () => {
     // console.log('err', errors)
         return (
             <form onSubmit={handleSubmit}>
-                 {/* <ul>
+                 <ul className="errors">
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-                </ul> */}
-                {errors[0]}
+                </ul>
+                {/* {errors[0]} */}
                 <input
                 value={title}
                 onChange={(e)=> setTitle(e.target.value)}

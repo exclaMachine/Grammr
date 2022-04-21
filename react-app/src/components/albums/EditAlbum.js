@@ -50,8 +50,8 @@ const EditAlbum = ({id}) => {
         <form onSubmit={handleEdit}>
 
             {errors && (
-             <ul>
-                {errors.map((error) => <li> {error}</li>)}
+             <ul className="errors">
+                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul>
             )}
             <label className="label title">Title</label>
