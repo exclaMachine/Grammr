@@ -60,7 +60,7 @@ const EditPicture = ({id}) => {
              <ul className="errors">
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul>
-            <label className="label title">Title</label>
+            <label className="label-title">Title</label>
                 <input
                 className='title-input'
                 type='text'

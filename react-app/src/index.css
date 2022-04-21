@@ -8,3 +8,12 @@
 .errors {
     color: red;
 }
+
+.label-title {
+    font-family: Proxima Nova,Helvetica,sans-serif;
+}
+
+.title-input {
+    padding: 3px;
+    border-radius: 5px;
+}
