@@ -1,5 +1,12 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .content-container {
     display: flex;
+    /* background-color: whitesmoke; */
     justify-content: center;
 }
 
@@ -14,7 +21,13 @@ button {
     margin: 5px;
 }
 
-h3 {
+h2 {
+    margin: 2px;
+    color: #212124;
+    font-family: Proxima Nova,Helvetica,sans-serif;
+}
+
+p {
     color: #212124;
     font-family: Proxima Nova,Helvetica,sans-serif;
 }
@@ -22,4 +35,25 @@ h3 {
 button:hover {
     background-image: linear-gradient(rgba(0, 0, 0, 0.3) 0 0);
     cursor: pointer;
+}
+
+.redirect {
+    display: flex;
+    justify-content: center;
+    font-family: Proxima Nova,Helvetica,sans-serif;
+}
+
+.redirect a{
+    text-decoration: none;
+    color: #5ba7c2;
+}
+
+.form > div {
+    display: flex;
+    justify-content: center;
+}
+
+.logbutton {
+    display: flex;
+    justify-content: center;
 }

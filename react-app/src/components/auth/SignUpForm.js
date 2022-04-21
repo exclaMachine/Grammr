@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { Redirect } from 'react-router-dom';
+import { NavLink, Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
 import './signup.css'
 
@@ -45,11 +45,13 @@ const SignUpForm = () => {
   }
 
   return (
+    <>
     <div className='content-container'>
 
-    <form onSubmit={onSignUp}>
+    <form className="form" onSubmit={onSignUp}>
 
-    <h3>Sign up for Grammr</h3>
+    <h2>Sign up for Grammr</h2>
+    <p>A place to post images about grammar and punctuation!?</p>
         <div>
           {errors.map((error, ind) => (
             <div key={ind}>{error}</div>
@@ -92,9 +94,15 @@ const SignUpForm = () => {
             required={true}
           ></input>
         </div>
-        <button className= 'confirm button' type='submit'>Sign Up</button>
+        <button className="logbutton" type='submit'>Sign Up</button>
       </form>
     </div>
+    <div className='redirect'>
+      <p>Already have an account?
+        <a href='/login'> Log in here.</a>
+      </p>
+    </div>
+      </>
   );
 };
 
