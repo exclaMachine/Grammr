@@ -7,7 +7,7 @@ function EditPicModal({id}) {
 
   return (
     <>
-      <button onClick={() => setShowModal(true)}>Edit Picture</button>
+      <button onClick={() => setShowModal(true)}>Edit Picture Title</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <EditPicture id={id} />

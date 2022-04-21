@@ -35,7 +35,7 @@ const PicturesPage = () => {
                 <div>
                     <div className='pic-list'>
                         {usersPictures.map(({ id, content, image}) => (
-                            <div classNamekey={id}>
+                            <div className="individual-pic" key={id}>
                                 {/* <EditPicture id={id}/> */}
                                 <EditPicModal id={id}/>
                                 <h1>{content}</h1>

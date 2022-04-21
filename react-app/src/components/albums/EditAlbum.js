@@ -62,7 +62,7 @@ const EditAlbum = ({id}) => {
                 onChange={(e) => setTitle(e.target.value)}
                 />
 
-            <button type="submit">Update Album Title</button>
+            <button type="submit">Update Title</button>
         </form>
 
     )
