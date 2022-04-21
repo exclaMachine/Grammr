@@ -65,9 +65,10 @@ const PicturePage = () => {
 
             <div className='picturesContainer'>
                 <div>
+                    <div>Uploaded by {picUser?.username}</div>
+
                     <img alt=''src={`${userPic?.image}`}></img>
                     {/* <DeletePicture/> */}
-                    <div>Uploaded by {picUser?.username}</div>
 
                 </div>
 
