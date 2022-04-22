@@ -4,10 +4,11 @@ const POST_COMMENT = 'comment/POST_COMMENTS'
 const DELETE_COMMENT = 'comment/DELETE_COMMENT'
 const EDIT_COMMENT = 'comment/EDIT_COMMENT'
 
-export const getAllComments = (comments) => {
+export const getAllComments = (id, comments) => {
     return {
         type: GET_COMMENTS,
-        payload: comments
+        id,
+        comments
     }
 }
 
@@ -41,8 +42,8 @@ export const editComment = (id, updatedComment) => {
 }
 
 //Thunks
-export const getAllCommentsThunk = () => async dispatch => {
-    const res = await fetch('/api/comments')
+export const getAllCommentsThunk = (id) => async dispatch => {
+    const res = await fetch(`/api/pictures/${id}/comments`)
 
     if (res.ok) {
         const comments_obj = await res.json()

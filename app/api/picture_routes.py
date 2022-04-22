@@ -1,5 +1,5 @@
 from flask import Blueprint, request
-from app.models import db, Picture
+from app.models import db, Picture, Comment
 from flask_login import current_user, login_required
 from app.s3_funcs import (
     upload_file_to_s3, allowed_file, get_unique_filename)
@@ -126,3 +126,10 @@ def update(id):
     return {
         'updated_pic': foundPic.to_dict()
     }
+
+#comments route
+@picture_routes.route('/<int:id>/comments', methods=['GET'])
+def get_pic(id):
+    comments = Comment.query.filter(Comment.picture_id == id)
+
+    return {'comments': [comment.to_dict() for comment in comments]}
