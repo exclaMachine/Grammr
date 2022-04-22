@@ -25,6 +25,8 @@ def post_album():
     user_id=current_user.id
     title = request.json['title']
     print('\n\ntitle!!!\n\n', title)
+    if len(title) > 20:
+        return {"errors": "Album title must be less than 20 characters in length"}
 
     new_album = Album(
         #this needs the = can't just list user_id like javascript
@@ -76,6 +78,9 @@ def update_album(id):
     #
     user_id = request.json['user_id']
     title = request.json['title']
+
+    if len(title) > 20:
+        return {"errors": "Album title must be less than 20 characters in length"}
 
     foundAlbum.user_id = user_id
     foundAlbum.title = title
