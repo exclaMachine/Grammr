@@ -3,7 +3,7 @@ from datetime import date
 
 today = date.today()
 
-albums_dict = [
+comments_dict = [
     {
         "user_id": 3,
         "picId": 5,
@@ -37,7 +37,7 @@ def seed_comments():
          comment = ele['comment'],
          created_at = ele["created"],
         updated_at = ele["updated"]
-    ) for ele in albums_dict]
+    ) for ele in comments_dict]
 
     db.session.add_all(comments)
 
