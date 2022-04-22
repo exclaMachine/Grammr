@@ -57,8 +57,16 @@ const EditPicture = ({id}) => {
 
     return (
         <form onSubmit={handleEdit}>
-             <ul className="errors">
+             {/* <ul className="errors">
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+            </ul> */}
+            <ul className="errors">
+                {content.length < 1 && (
+                    <li>Title has to be at least 1 character in length</li>
+                )}
+                {content.length > 20 && (
+                    <li>Title has to be less than 20 characters in length</li>
+                )}
             </ul>
             <label className="label-title">Title</label>
                 <input
