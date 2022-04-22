@@ -109,6 +109,9 @@ def update(id):
     content = request.json['content']
     image = request.json['image']
 
+    if len(content) > 20:
+        return {'errors': "Title must be less than 20 characters"}
+
     foundPic.user_id = user_id
     foundPic.album_id = album_id
     foundPic.content = content

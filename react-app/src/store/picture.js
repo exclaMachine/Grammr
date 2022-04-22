@@ -68,7 +68,7 @@ export const postPictureThunk = (data) => async dispatch => {
         const newPic = await res.json()
         console.log('newPic', newPic.errors)
         if (newPic.errors) {
-            console.log('inside', newPic.errors)
+            // console.log('inside', newPic.errors)
             return newPic.errors
         }
         dispatch(postPicture(newPic))
@@ -101,6 +101,9 @@ export const editPictureThunk = (id, data) => async dispatch => {
     if (res.ok) {
         const updatedPic = await res.json()
         // console.log('updatedPic', updatedPic.updated_pic)
+        if (updatedPic.errors) {
+            return updatedPic.errors
+        }
         dispatch(editPicture(id, updatedPic.updated_pic))
         return updatedPic.updated_pic
     }
