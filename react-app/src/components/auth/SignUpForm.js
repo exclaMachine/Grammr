@@ -18,10 +18,14 @@ const SignUpForm = () => {
     if (password === repeatPassword) {
       const data = await dispatch(signUp(username, email, password));
       if (data) {
+        console.log('data', data)
         setErrors(data)
       }
     }
-    return setErrors(["Password and Confirm Password field must match"])
+    if (password !== repeatPassword) {
+        return setErrors(["Password and Confirm Password field must match"])
+    }
+
 
   };
 
