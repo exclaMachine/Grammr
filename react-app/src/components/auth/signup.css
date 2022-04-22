@@ -1,3 +1,15 @@
+.demoButton {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    background-color: #128fdc;
+    color: white;
+    border-radius: 5px;
+    margin: 10px;
+}
+
 .card-container {
     display: flex;
     align-content: center;
@@ -22,15 +34,6 @@
     background-color: whitesmoke;
 }
 
-.delete-button {
-    background-color: red;
-    color: white;
-    border-radius: 5px;
-    margin: 50px;
-}
-/* form > div {
-    margin: 5px;
-} */
 
 .confirm-button {
     background-color: #128fdc;
@@ -46,6 +49,7 @@ h3 {
 }
 
 p {
+    margin: 10px;
     color: #212124;
     font-family: Proxima Nova,Helvetica,sans-serif;
 }
@@ -78,6 +82,8 @@ button:hover {
 }
 
 .logbutton {
+    margin-left: 100px;
+    width: 100px;
     display: flex;
     justify-content: center;
 }
