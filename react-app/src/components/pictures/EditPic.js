@@ -71,7 +71,8 @@ const EditPicture = ({id}) => {
                     <li>Title has to be less than 21 characters in length</li>
                 )}
             </ul>
-            <label className="label-title">Title</label>
+            <div> You <strong>could</strong> pick a name with punctuation!!</div>
+            <label className="label-title"></label>
                 <input
                 className='title-input'
                 type='text'
