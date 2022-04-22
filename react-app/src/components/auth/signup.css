@@ -1,3 +1,10 @@
+.card-container {
+    display: flex;
+    align-content: center;
+    justify-content: left;
+    margin: 100px
+}
+
 .form {
     display: flex;
     flex-direction: column;
@@ -8,17 +15,28 @@
     display: flex;
     /* background-color: whitesmoke; */
     justify-content: center;
+    border: solid black;
+    position: relative;
+    width: 26rem;
+    margin: 100px;
+    background-color: whitesmoke;
 }
 
-div {
+.delete-button {
+    background-color: red;
+    color: white;
+    border-radius: 5px;
+    margin: 50px;
+}
+/* form > div {
     margin: 5px;
-}
+} */
 
-button {
+.confirm-button {
     background-color: #128fdc;
     color: white;
     border-radius: 5px;
-    margin: 5px;
+    margin: 25px;
 }
 
 h2 {
@@ -37,6 +55,12 @@ button:hover {
     cursor: pointer;
 }
 
+.background {
+    background-image: url('https://images.unsplash.com/photo-1633613286848-e6f43bbafb8d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');
+    background-size: cover;
+    background-position: bottom;
+    /* background-size:100% 100%; */
+}
 .redirect {
     display: flex;
     justify-content: center;
