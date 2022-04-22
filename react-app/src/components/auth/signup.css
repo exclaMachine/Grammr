@@ -13,10 +13,10 @@
 
 .content-container {
     display: flex;
-    /* background-color: whitesmoke; */
     justify-content: center;
     border: solid black;
     position: relative;
+    border-radius: 5px;
     width: 26rem;
     margin: 150px;
     background-color: whitesmoke;
@@ -39,8 +39,8 @@
     margin: 25px;
 }
 
-h2 {
-    margin: 2px;
+h3 {
+    margin: 10px;
     color: #212124;
     font-family: Proxima Nova,Helvetica,sans-serif;
 }

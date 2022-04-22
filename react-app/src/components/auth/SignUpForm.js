@@ -59,6 +59,7 @@ const SignUpForm = () => {
           <form onSubmit={onSignUp}>
 
           <h3>Sign up for <strong>Grammr</strong></h3>
+          <p>A place to post images about grammar</p><p> and punctuation!?</p>
               <div className="errors">
                 {errors.map((error, ind) => (
                   <div key={ind}>{error}</div>
