@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
-import './login.css'
+// import './login.css'
+import './signup.css'
 
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
@@ -41,12 +42,15 @@ const LoginForm = () => {
   }
 
   return (
-    <div>
-      <div className='content-container'>
+    <>
+    <div className='page'>
+      <div className='background'>
+        <div className='card-container'>
+          <div className='content-container'>
 
 
       <form className='form' onSubmit={onLogin}>
-      <h2>Log in to Grammr</h2>
+      <h3>Log in to Grammr</h3>
       <p>A place to post images about grammar and punctuation!?</p>
 
         <div className="errors">
@@ -77,20 +81,22 @@ const LoginForm = () => {
           />
         </div>
           <button className="logbutton" type='submit'>Login</button>
-      </form>
-
-      </div>
-          <div className='demoButton'>
-          <form onSubmit={demoUser}>
-                <button type='submit'>Demo User</button>
-          </form>
-          </div>
           <div className='redirect'>
             <p>Don't have an account?
               <a href='/sign-up'> Sign up here.</a>
             </p>
           </div>
+      </form>
+          <div className='demoButton'>
+          <form onSubmit={demoUser}>
+                <button className='demoButton' type='submit'>Demo User</button>
+          </form>
+          </div>
+      </div>
+      </div>
+      </div>
     </div>
+    </>
   );
 };
 

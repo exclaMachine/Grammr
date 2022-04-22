@@ -1,3 +1,22 @@
+.demoButton {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    background-color: #128fdc;
+    color: white;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+.card-container {
+    display: flex;
+    align-content: center;
+    justify-content: left;
+    margin: 10px
+}
+
 .form {
     display: flex;
     flex-direction: column;
@@ -6,28 +25,31 @@
 
 .content-container {
     display: flex;
-    /* background-color: whitesmoke; */
     justify-content: center;
+    border: solid black;
+    position: relative;
+    border-radius: 5px;
+    width: 26rem;
+    margin: 150px;
+    background-color: whitesmoke;
 }
 
-div {
-    margin: 5px;
-}
 
-button {
+.confirm-button {
     background-color: #128fdc;
     color: white;
     border-radius: 5px;
-    margin: 5px;
+    margin: 25px;
 }
 
-h2 {
-    margin: 2px;
+h3 {
+    margin: 10px;
     color: #212124;
     font-family: Proxima Nova,Helvetica,sans-serif;
 }
 
 p {
+    margin: 10px;
     color: #212124;
     font-family: Proxima Nova,Helvetica,sans-serif;
 }
@@ -37,6 +59,12 @@ button:hover {
     cursor: pointer;
 }
 
+.background {
+    background-image: url('https://images.unsplash.com/photo-1633613286848-e6f43bbafb8d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');
+    background-size: cover;
+    background-position: bottom;
+    /* background-size:100% 100%; */
+}
 .redirect {
     display: flex;
     justify-content: center;
@@ -54,6 +82,8 @@ button:hover {
 }
 
 .logbutton {
+    margin-left: 100px;
+    width: 100px;
     display: flex;
     justify-content: center;
 }
