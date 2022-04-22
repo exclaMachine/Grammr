@@ -2,7 +2,7 @@
     display: flex;
     align-content: center;
     justify-content: left;
-    margin: 100px
+    margin: 10px
 }
 
 .form {
@@ -18,7 +18,7 @@
     border: solid black;
     position: relative;
     width: 26rem;
-    margin: 100px;
+    margin: 150px;
     background-color: whitesmoke;
 }
 
