@@ -20,6 +20,7 @@ const PicturePage = () => {
     let userPic = pictureObj[+id]
     // let pictures = Object.values(pictureObj)
     // console.log("pic", pictures)
+    console.log('pic obj', pictureObj.picture)
 
     let wholeDate = userPic?.created_at
     let newDate = new Date(wholeDate).toUTCString();
@@ -71,7 +72,9 @@ const PicturePage = () => {
                 <div>
                     <div>Uploaded by {picUser?.username}</div>
                     <div>Uploaded on {finalDate}</div>
-                    <img alt=''src={`${userPic?.image}`}></img>
+                    {/* <img alt=''src={`${userPic?.image}`}></img> */}
+                    <img alt=''src={`${pictureObj.picture?.image}`}></img>
+
                     {/* <DeletePicture/> */}
                     <CommentsPage id={id}/>
 

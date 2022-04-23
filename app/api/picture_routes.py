@@ -80,7 +80,7 @@ def get_pic(id):
     # singlePic = Picture.query.filter(Picture.id == id).first()
     singlePic = Picture.query.get(id)
     print('\n\nsing\n\n', singlePic.id)
-    return {"picture": singlePic.id.to_dict()}
+    return {'picture': singlePic.to_dict()}
 
 @picture_routes.route('/<int:id>', methods=['DELETE'])
 def delete(id):
