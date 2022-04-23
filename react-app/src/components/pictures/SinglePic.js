@@ -3,9 +3,10 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { getAllPicturesThunk } from '../../store/picture'
-// import { getPictureThunk } from '../../store/picture';
+import { getPictureThunk } from '../../store/picture';
 // import DeletePicture from './DeletePic';
 // import EditPicture from './EditPic';
+import CommentsPage from '../comments/Comments.js';
 import './pictures.css'
 
 const PicturePage = () => {
@@ -19,6 +20,7 @@ const PicturePage = () => {
     let userPic = pictureObj[+id]
     // let pictures = Object.values(pictureObj)
     // console.log("pic", pictures)
+    console.log('pic obj', pictureObj.picture)
 
     let wholeDate = userPic?.created_at
     let newDate = new Date(wholeDate).toUTCString();
@@ -32,9 +34,9 @@ const PicturePage = () => {
 
     useEffect(() => {
 
-        // dispatch(getPictureThunk(id))
+        dispatch(getPictureThunk(+id))
 
-            dispatch(getAllPicturesThunk())
+            // dispatch(getAllPicturesThunk())
 
             // .catch(async (res) => {
             //     const data = await res.json();
@@ -70,8 +72,11 @@ const PicturePage = () => {
                 <div>
                     <div>Uploaded by {picUser?.username}</div>
                     <div>Uploaded on {finalDate}</div>
-                    <img alt=''src={`${userPic?.image}`}></img>
+                    {/* <img alt=''src={`${userPic?.image}`}></img> */}
+                    <img alt=''src={`${pictureObj.picture?.image}`}></img>
+
                     {/* <DeletePicture/> */}
+                    <CommentsPage id={id}/>
 
                 </div>
 
