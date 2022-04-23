@@ -126,7 +126,7 @@ def update(id):
     }
 
 #comments route
-@picture_routes.route('/<int:id>', methods=['GET'])
+@picture_routes.route('/comment/<int:id>', methods=['GET'])
 def get_comments(id):
     comments = Comment.query.filter(Comment.picture_id == id)
     print('hello')

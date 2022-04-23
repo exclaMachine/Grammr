@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { getAllPicturesThunk } from '../../store/picture'
-// import { getPictureThunk } from '../../store/picture';
+import { getPictureThunk } from '../../store/picture';
 // import DeletePicture from './DeletePic';
 // import EditPicture from './EditPic';
 import CommentsPage from '../comments/Comments.js';
@@ -33,9 +33,9 @@ const PicturePage = () => {
 
     useEffect(() => {
 
-        // dispatch(getPictureThunk(id))
+        dispatch(getPictureThunk(+id))
 
-            dispatch(getAllPicturesThunk())
+            // dispatch(getAllPicturesThunk())
 
             // .catch(async (res) => {
             //     const data = await res.json();

@@ -43,7 +43,7 @@ export const editComment = (id, updatedComment) => {
 
 //Thunks
 export const getAllCommentsThunk = (id) => async dispatch => {
-    const res = await fetch(`/api/pictures/${id}`)
+    const res = await fetch(`/api/pictures/${id}/comments`)
 
     if (res.ok) {
         const comments_obj = await res.json()

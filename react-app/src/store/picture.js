@@ -51,7 +51,7 @@ export const getAllPicturesThunk = () => async dispatch => {
 }
 
 export const getPictureThunk = (id) => async dispatch => {
-    const res = await fetch(`api/pictures/${id}`)
+    const res = await fetch(`/api/pictures/${id}`)
 
     if (res.ok) {
         const data = await res.json()
