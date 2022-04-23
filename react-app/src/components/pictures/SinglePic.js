@@ -6,6 +6,7 @@ import { getAllPicturesThunk } from '../../store/picture'
 // import { getPictureThunk } from '../../store/picture';
 // import DeletePicture from './DeletePic';
 // import EditPicture from './EditPic';
+import CommentsPage from '../comments/Comments.js';
 import './pictures.css'
 
 const PicturePage = () => {
@@ -72,6 +73,7 @@ const PicturePage = () => {
                     <div>Uploaded on {finalDate}</div>
                     <img alt=''src={`${userPic?.image}`}></img>
                     {/* <DeletePicture/> */}
+                    <CommentsPage id={id}/>
 
                 </div>
 

@@ -43,7 +43,7 @@ export const editComment = (id, updatedComment) => {
 
 //Thunks
 export const getAllCommentsThunk = (id) => async dispatch => {
-    const res = await fetch(`/api/pictures/${id}/comments`)
+    const res = await fetch(`/api/pictures/${id}`)
 
     if (res.ok) {
         const comments_obj = await res.json()
@@ -120,7 +120,8 @@ const commentReducer = (state = initialState, action) => {
             newState = { ...state };
             // action.payload.comments?.forEach((comment) => newState[comment.id] = comment)
             // return newState;
-            return action.payload
+            newState = [action.comments.id]
+            return newState;
 
         case SINGLE_COMMENT:
             newState = {...state}

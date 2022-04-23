@@ -79,10 +79,8 @@ def upload_picture():
 def get_pic(id):
     # singlePic = Picture.query.filter(Picture.id == id).first()
     singlePic = Picture.query.get(id)
-    print('\n\nsing\n\n', singlePic)
-    return {
-        singlePic.to_dict()
-    }
+    print('\n\nsing\n\n', singlePic.id)
+    return {"picture": singlePic.id.to_dict()}
 
 @picture_routes.route('/<int:id>', methods=['DELETE'])
 def delete(id):
@@ -128,8 +126,8 @@ def update(id):
     }
 
 #comments route
-@picture_routes.route('/<int:id>/comments', methods=['GET'])
-def get_pic(id):
+@picture_routes.route('/<int:id>', methods=['GET'])
+def get_comments(id):
     comments = Comment.query.filter(Comment.picture_id == id)
-
+    print('hello')
     return {'comments': [comment.to_dict() for comment in comments]}
