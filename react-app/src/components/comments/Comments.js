@@ -16,12 +16,17 @@ const CommentsPage = ({id}) => {
     console.log('usecomments', usersComments)
 
     useEffect(() => {
-        dispatch(getAllCommentsThunk(id))
+        dispatch(getAllCommentsThunk(+id))
     }, [dispatch])
 
     return (
         <>
         <div>Comments</div>
+
+        {comments.map((comment) => {
+            <h2>{comment.comment.content}</h2>
+        })}
+
         </>
     )
 }

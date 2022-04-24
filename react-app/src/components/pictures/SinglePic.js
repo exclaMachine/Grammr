@@ -13,14 +13,14 @@ const PicturePage = () => {
     const dispatch = useDispatch()
     const { id } = useParams();
 
-    console.log('param id', id)
+    // console.log('param id', id)
 
     // const sessionUser = useSelector(state => state.session.user)
     const pictureObj = useSelector(state => state.pictureReducer)
     let userPic = pictureObj[+id]
     // let pictures = Object.values(pictureObj)
     // console.log("pic", pictures)
-    console.log('pic obj', pictureObj.picture)
+    // console.log('pic obj', pictureObj.picture)
 
 
 

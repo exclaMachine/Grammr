@@ -55,7 +55,7 @@ export const getPictureThunk = (id) => async dispatch => {
 
     if (res.ok) {
         const data = await res.json()
-        console.log('inside pic thunk', data)
+        // console.log('inside pic thunk', data)
         dispatch(getPicture(data))
     }
 }

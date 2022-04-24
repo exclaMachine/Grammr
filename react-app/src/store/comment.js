@@ -47,7 +47,8 @@ export const getAllCommentsThunk = (id) => async dispatch => {
 
     if (res.ok) {
         const comments_obj = await res.json()
-        dispatch(getAllComments(comments_obj))
+        console.log('inside comments thunk', comments_obj)
+        dispatch(getAllComments(id, comments_obj))
     }
 }
 
@@ -118,9 +119,10 @@ const commentReducer = (state = initialState, action) => {
     switch(action.type) {
         case GET_COMMENTS:
             newState = { ...state };
-            // action.payload.comments?.forEach((comment) => newState[comment.id] = comment)
+            // action.comments?.forEach((comment) => newState[comment.id] = comment)
             // return newState;
-            newState = [action.comments.id]
+            newState = action.comments
+            // console.log('newState', newState)
             return newState;
 
         case SINGLE_COMMENT:

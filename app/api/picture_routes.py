@@ -20,7 +20,7 @@ def get_pictures():
 @login_required
 def upload_picture():
     if "image" not in request.files:
-        print("request.files!!!!!!!!")
+        # print("request.files!!!!!!!!")
         return {"errors": "Choose a File"}
         # , 400
 
@@ -79,7 +79,7 @@ def upload_picture():
 def get_pic(id):
     # singlePic = Picture.query.filter(Picture.id == id).first()
     singlePic = Picture.query.get(id)
-    print('\n\nsing\n\n', singlePic.id)
+    # print('\n\nsing\n\n', singlePic.id)
     return {'picture': singlePic.to_dict()}
 
 @picture_routes.route('/<int:id>', methods=['DELETE'])
@@ -126,8 +126,8 @@ def update(id):
     }
 
 #comments route
-@picture_routes.route('/comment/<int:id>', methods=['GET'])
+@picture_routes.route('/<int:id>/comments', methods=['GET'])
 def get_comments(id):
     comments = Comment.query.filter(Comment.picture_id == id)
-    print('hello')
-    return {'comments': [comment.to_dict() for comment in comments]}
+    print('\n\ncomm\n\n', id)
+    return {comment.id: comment.to_dict() for comment in comments}
