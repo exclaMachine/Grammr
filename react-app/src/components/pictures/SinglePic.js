@@ -22,7 +22,9 @@ const PicturePage = () => {
     // console.log("pic", pictures)
     console.log('pic obj', pictureObj.picture)
 
-    let wholeDate = userPic?.created_at
+
+
+    let wholeDate = pictureObj.picture?.created_at
     let newDate = new Date(wholeDate).toUTCString();
     let finalDate = newDate.split(' ').slice(0, 4).join(' ');
     //remember to add the plus
