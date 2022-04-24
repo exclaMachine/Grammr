@@ -57,7 +57,7 @@ const PicturePage = () => {
         fetchData();
     }, []);
 
-    const picUser = users.find(user => user?.id === userPic?.user_id )
+    const picUser = users.find(user => user?.id === pictureObj.picture?.user_id )
     // console.log('users!!!', users)
     // console.log('picUser', picUser)
 
@@ -68,7 +68,7 @@ const PicturePage = () => {
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul> */}
 
-            <h1>{userPic?.content}</h1>
+            <h1>{pictureObj.picture?.content}</h1>
 
             <div className='picturesContainer'>
                 <div>
