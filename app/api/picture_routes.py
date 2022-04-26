@@ -1,5 +1,5 @@
 from flask import Blueprint, request
-from app.models import db, Picture
+from app.models import db, Picture, Comment
 from flask_login import current_user, login_required
 from app.s3_funcs import (
     upload_file_to_s3, allowed_file, get_unique_filename)
@@ -20,7 +20,7 @@ def get_pictures():
 @login_required
 def upload_picture():
     if "image" not in request.files:
-        print("request.files!!!!!!!!")
+        # print("request.files!!!!!!!!")
         return {"errors": "Choose a File"}
         # , 400
 
@@ -79,10 +79,8 @@ def upload_picture():
 def get_pic(id):
     # singlePic = Picture.query.filter(Picture.id == id).first()
     singlePic = Picture.query.get(id)
-    print('\n\nsing\n\n', singlePic)
-    return {
-        singlePic.to_dict()
-    }
+    # print('\n\nsing\n\n', singlePic.id)
+    return {'picture': singlePic.to_dict()}
 
 @picture_routes.route('/<int:id>', methods=['DELETE'])
 def delete(id):
@@ -126,3 +124,10 @@ def update(id):
     return {
         'updated_pic': foundPic.to_dict()
     }
+
+#comments route
+@picture_routes.route('/<int:id>/comments', methods=['GET'])
+def get_comments(id):
+    comments = Comment.query.filter(Comment.picture_id == id)
+    print('\n\ncomm\n\n', id)
+    return {comment.id: comment.to_dict() for comment in comments}

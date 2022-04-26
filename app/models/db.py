@@ -58,3 +58,13 @@ class Comment(db.Model):
     comment = db.Column(db.String(255), nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.now(), nullable=False)
     updated_at = db.Column(db.DateTime, default=datetime.now(), nullable=False)
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'user_id': self.user_id,
+            'picture_id': self.picture_id,
+            'comment': self.comment,
+            'created_at': self.created_at,
+            'updated_at': self.updated_at
+        }
