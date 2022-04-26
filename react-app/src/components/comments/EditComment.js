@@ -1,49 +1,51 @@
-import React, {useState } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { editPictureThunk } from "../../store/picture";
+import { editCommentThunk } from "../../store/comment";
 
-const EditPicture = ({id}) => {
+const EditComment = ({id}) => {
     const dispatch = useDispatch()
 
     // console.log('just id', id)
 
     const sessionUser = useSelector(state => state.session.user)
-    const pictureObj = useSelector(state => state.pictureReducer)
-    const pictures = Object.values(pictureObj)
+    const commentObj = useSelector(state => state.commentReducer)
+    const pictureObj = useSelector(state => state.pictureReducer.picture)
 
-    const idObj = pictures.filter(picture => picture?.id === id)
+    const comments = Object.values(commentObj)
+
+    const idObj = comments.filter(comment => comment?.id === id)
     // const idToEdit = idObj[0].id
     // console.log('id to edit', idToEdit)
 
-    const [content, setContent] = useState(idObj[0].content)
+    const [comment, setComment] = useState(idObj[0].comment)
     const [errors, setErrors] = useState([])
 
 
     const handleEdit = async (e) => {
         e.preventDefault();
 
-        let updatedPicture;
+        let updatedComment;
 
         // if this has a album_id. come back to this
         if (id) {
-            updatedPicture = {
+            updatedComment = {
                 user_id: sessionUser?.id,
                 album_id: idObj[0].album_id,
-                content,
+                comment,
                 image: idObj[0].image
             }
         } else {
-            updatedPicture = {
+            updatedComment = {
                 user_id: sessionUser?.id,
                 album_id: null,
-                content,
+                comment,
                 image: idObj[0].image
             }
         }
 
-        if (content) {
+        if (comment) {
             setErrors([]);
-            const data = await dispatch(editPictureThunk(id, updatedPicture))
+            const data = await dispatch(editCommentThunk(id, updatedComment))
 
             if (data) {
                 setErrors([data])
@@ -59,10 +61,10 @@ const EditPicture = ({id}) => {
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul> */}
             <ul className="errors">
-                {content.length < 1 && (
+                {comment.length < 1 && (
                     <li>Title has to be at least 1 character in length</li>
                 )}
-                {content.length > 20 && (
+                {comment.length > 250 && (
                     <li>Title has to be less than 21 characters in length</li>
                 )}
             </ul>
@@ -71,14 +73,14 @@ const EditPicture = ({id}) => {
                 <input
                 className='title-input'
                 type='text'
-                value= {content}
-                onChange={(e) => setContent(e.target.value)}
+                value= {comment}
+                onChange={(e) => setComment(e.target.value)}
                 />
             <br></br>
-            <button type="submit">Update Title</button>
+            <button type="submit">Update Comment</button>
         </form>
 
     )
 }
 
-export default EditPicture
+export default EditComment
