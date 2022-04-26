@@ -8,6 +8,7 @@ import { getPictureThunk } from '../../store/picture';
 // import EditPicture from './EditPic';
 import CommentsPage from '../comments/Comments.js';
 import './pictures.css'
+import CreateComment from '../comments/PostComment';
 
 const PicturePage = () => {
     const dispatch = useDispatch()
@@ -78,6 +79,7 @@ const PicturePage = () => {
                     <img alt=''src={`${pictureObj.picture?.image}`}></img>
 
                     {/* <DeletePicture/> */}
+                    <CreateComment/>
                     <CommentsPage id={id}/>
 
                 </div>
