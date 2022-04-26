@@ -17,7 +17,7 @@ const CreateComment = () => {
     const pictureObj = useSelector(state => state.pictureReducer.picture)
 
     let pictureID = pictureObj?.id
-    console.log('picID', pictureID)
+    // console.log('picID', pictureID)
 
 
     // let picture = Object.values(pictureObj.picture)
@@ -35,11 +35,12 @@ const CreateComment = () => {
             setErrors([]);
             reset();
             const data = await dispatch(postCommentThunk(newComment))
+            console.log('data', data)
             if (typeof data === 'string') {
                 // console.log('inside data if', typeof data === 'string')
                 return setErrors([data])
             }
-            return dispatch(postCommentThunk(newComment))
+            // return dispatch(postCommentThunk(newComment))
             // .catch(async (res) => {
             //     const data = await res.json();
             //     if (data && data.errors) {
@@ -48,7 +49,7 @@ const CreateComment = () => {
             //     }
             // })
         }
-        return setErrors(['Comment cannot be empty']);
+        // return setErrors(['Comment cannot be empty']);
 
 
     }
@@ -58,7 +59,6 @@ const CreateComment = () => {
                  <ul className="errors">
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
                 </ul>
-                {/* {errors[0]} */}
                 <input
                 className='comment-input'
                 value={comment}
