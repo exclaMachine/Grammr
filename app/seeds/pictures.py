@@ -76,7 +76,7 @@ pict_dict = [
         "updated": today.strftime("%B %d, %Y")
     },
     {
-        "id": 2,
+        "id": 3,
         "cont": "Conjunctions",
         "img": "https://i0.wp.com/awsymbols.com/wp-content/uploads/2021/05/7954F0E2-C272-4B3A-908C-A9334BC69640.jpeg?w=800&ssl=1",
         "created": today.strftime("%B %d, %Y"),
@@ -90,7 +90,7 @@ pict_dict = [
         "updated": today.strftime("%B %d, %Y")
     },
     {
-        "id": 2,
+        "id": 3,
         "cont": "Ambigrams",
         "img": "https://i0.wp.com/awsymbols.com/wp-content/uploads/2021/10/E6FF6D0B-7D5D-44CA-84E9-787F7833C470.png?w=800&ssl=1",
         "created": today.strftime("%B %d, %Y"),

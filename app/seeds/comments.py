@@ -12,9 +12,16 @@ comments_dict = [
         "updated": today.strftime("%B %d, %Y")
     },
     {
-        "user_id": 1,
-        "picId": 3,
-        'comment': 'Isn\'t yeah is a great ambigram. I also think dot and top is also a pretty good one.',
+        "user_id": 2,
+        "picId": 13,
+        'comment': 'Isn\'t yeah a great ambigram. I also think dot and top is also a pretty good one.',
+        "created": today.strftime("%B %d, %Y"),
+        "updated": today.strftime("%B %d, %Y")
+    },
+    {
+        "user_id": 3,
+        "picId": 13,
+        'comment': 'Two of the greatest ambigram artists: Scott Kim and John Langdon',
         "created": today.strftime("%B %d, %Y"),
         "updated": today.strftime("%B %d, %Y")
     },
@@ -22,6 +29,13 @@ comments_dict = [
         "user_id": 2,
         "picId": 7,
         'comment': 'Semordnilap is palindrome backwards and was coined by Martin Gardner',
+        "created": today.strftime("%B %d, %Y"),
+        "updated": today.strftime("%B %d, %Y")
+    },
+    {
+        "user_id": 3,
+        "picId": 7,
+        'comment': 'Another good semordnilap: pots',
         "created": today.strftime("%B %d, %Y"),
         "updated": today.strftime("%B %d, %Y")
     },
