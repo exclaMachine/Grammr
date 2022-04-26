@@ -57,7 +57,10 @@ const CreateComment = () => {
         return (
             <form onSubmit={handleSubmit}>
                  <ul className="errors">
-                {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+                {/* {errors.map((error, idx) => <li key={idx}>{error}</li>)} */}
+                {comment.length < 1 && (
+                    <li>Comment has to be at least 1 character in length</li>
+                )}
                 </ul>
                 <input
                 className='comment-input'
