@@ -23,9 +23,9 @@ const CommentsPage = ({id}) => {
         <>
         <div>Comments</div>
 
-        {comments.map((comment) => {
-            <h2>{comment.comment.content}</h2>
-        })}
+        {comments.map((comment) => (
+            <h2>{comment.comment}</h2>
+        ))}
 
         </>
     )
