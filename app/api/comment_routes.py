@@ -12,10 +12,12 @@ def post_picture():
 
     user_id=current_user.id
     comment = request.json['comment']
+    picture_id = request.json['picture_id']
 
     new_comment = Comment(
         user_id=user_id,
-        comment=comment
+        comment=comment,
+        picture_id=picture_id
     )
 
     db.session.add(new_comment)

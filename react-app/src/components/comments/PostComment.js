@@ -14,14 +14,20 @@ const CreateComment = () => {
     }
 
     const sessionUser = useSelector(state => state.session.user)
-    // const pictureObj = useSelector(state => state.pictureReducer)
+    const pictureObj = useSelector(state => state.pictureReducer.picture)
 
+    let pictureID = pictureObj?.id
+    console.log('picID', pictureID)
+
+
+    // let picture = Object.values(pictureObj.picture)
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         const newComment = {
             userId: sessionUser?.id,
-            comment
+            comment,
+            picture_id: pictureID
         }
 
         //error handling if blank
