@@ -64,7 +64,8 @@ export const getCommentThunk = (id) => async dispatch => {
 export const postCommentThunk = (data) => async dispatch => {
     const res = await fetch('/api/comments/new', {
         method: "POST",
-        body: data
+        headers: { "Content-Type": "application/json", },
+        body: JSON.stringify(data)
     })
     if (res.ok) {
         const newPic = await res.json()
