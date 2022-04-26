@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getAllCommentsThunk } from '../../store/comment'
+import CreateComment from './PostComment';
+
 
 const CommentsPage = ({id}) => {
     const dispatch = useDispatch()
@@ -21,11 +23,12 @@ const CommentsPage = ({id}) => {
 
     return (
         <>
-        <div>Comments</div>
+        <h1>Comments</h1>
 
         {comments.map((comment) => (
             <h2>{comment.comment}</h2>
         ))}
+        <CreateComment/>
 
         </>
     )

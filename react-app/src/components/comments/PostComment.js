@@ -1,15 +1,16 @@
-import { postCommentThunk } from "../../store/album";
+import { postCommentThunk } from "../../store/comment";
 import React, {useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+
 
 const CreateComment = () => {
     const dispatch = useDispatch();
 
-    const [content, setContent] = useState('')
+    const [comment, setComment] = useState('')
     const [errors, setErrors] = useState([]);
 
     const reset = () => {
-        setContent('')
+        setComment('')
     }
 
     const sessionUser = useSelector(state => state.session.user)
@@ -20,11 +21,11 @@ const CreateComment = () => {
         e.preventDefault();
         const newComment = {
             userId: sessionUser?.id,
-            content
+            comment
         }
 
         //error handling if blank
-        if (content) {
+        if (comment) {
             setErrors([]);
             reset();
             const data = await dispatch(postCommentThunk(newComment))
@@ -41,7 +42,7 @@ const CreateComment = () => {
             //     }
             // })
         }
-        return setErrors(['Comment content cannot be empty']);
+        return setErrors(['Comment cannot be empty']);
 
 
     }
@@ -53,9 +54,9 @@ const CreateComment = () => {
                 </ul>
                 {/* {errors[0]} */}
                 <input
-                className='content-input'
-                value={content}
-                onChange={(e)=> setContent(e.target.value)}
+                className='comment-input'
+                value={comment}
+                onChange={(e)=> setComment(e.target.value)}
                 >
 
                 </input>

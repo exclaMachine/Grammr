@@ -11,11 +11,11 @@ comment_routes = Blueprint('comments', __name__)
 def post_picture():
 
     user_id=current_user.id
-    content = request.json['content']
+    comment = request.json['comment']
 
     new_comment = Comment(
         user_id=user_id,
-        content=content
+        comment=comment
     )
 
     db.session.add(new_comment)
