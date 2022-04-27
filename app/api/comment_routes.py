@@ -24,3 +24,31 @@ def post_picture():
     db.session.commit()
 
     return new_comment.to_dict()
+
+@comment_routes.route('/<int:id>', methods=['PUT'])
+def update_comment(id):
+    # print('\n\nid\n\n', id)
+    #get all the albums except the one being changed
+    comments = Comment.query.filter(Comment.id != id)
+
+    foundComment = Comment.query.get(id)
+
+    user_id = request.json['user_id']
+    print('user_id in back', user_id)
+    comment = request.json['comment']
+    picture_id = request.json['picture_id']
+    print('\n\ncomment\n\n', foundComment)
+
+    if len(comment) > 250:
+        return {"errors": "Comment comment must be less than 250 characters in length"}
+
+    foundComment.user_id = user_id
+    foundComment.comment = comment
+    foundComment.picture_id = picture_id
+
+
+    db.session.add(foundComment)
+
+    db.session.commit()
+
+    return foundComment.to_dict()

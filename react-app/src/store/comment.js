@@ -47,7 +47,7 @@ export const getAllCommentsThunk = (id) => async dispatch => {
 
     if (res.ok) {
         const comments_obj = await res.json()
-        console.log('inside comments thunk', comments_obj)
+        // console.log('inside comments thunk', comments_obj)
         dispatch(getAllComments(id, comments_obj))
     }
 }
