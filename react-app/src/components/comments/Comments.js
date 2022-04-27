@@ -19,12 +19,12 @@ const CommentsPage = () => {
     console.log('comms from all', comments)
 
 
-        let commentArr = []
-        for (const comment in commentObj) {
-            commentArr.push(comment)
-            commentArr.push(commentObj[comment].comment)
-        }
-        console.log('commentArr', commentArr)
+        // let commentArr = []
+        // for (const comment in commentObj) {
+        //     commentArr.push(comment)
+        //     commentArr.push(commentObj[comment].comment)
+        // }
+        // console.log('commentArr', commentArr)
 
 
     let usersComments = comments.filter(comment => comment?.user_id === sessionUser?.id).reverse()
@@ -41,7 +41,7 @@ const CommentsPage = () => {
 
         {comments.map((comment, id) => (
         <>
-            <h2 key={id}>{comment.comment}</h2>
+            <h2 key={id}>{comment?.comment}</h2>
             <EditCommentModal id={id}/>
         </>
         ))}

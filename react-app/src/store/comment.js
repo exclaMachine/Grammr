@@ -103,12 +103,12 @@ export const editCommentThunk = (id, data) => async dispatch => {
     })
     if (res.ok) {
         const updatedComment = await res.json()
-        // console.log('updatedComment', updatedComment.updated_pic)
+        console.log('updatedComment', updatedComment)
         if (updatedComment.errors) {
             return updatedComment.errors
         }
-        dispatch(editComment(id, updatedComment.updated_pic))
-        return updatedComment.updated_pic
+        dispatch(editComment(id, updatedComment))
+        return updatedComment
     }
 }
 
@@ -143,7 +143,7 @@ const commentReducer = (state = initialState, action) => {
 
         case EDIT_COMMENT:
             newState = {...state}
-            newState[action.updatedComment.id] = action.updatedComment
+            newState[action.updatedComment?.id] = action.updatedComment
             return newState
 
         default:

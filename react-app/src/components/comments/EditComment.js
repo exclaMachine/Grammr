@@ -58,7 +58,7 @@ const EditComment = ({id}) => {
         if (comment) {
             setErrors([]);
             const data = await dispatch(editCommentThunk(comments[+id]?.id, updatedComment))
-
+            console.log('data in edit Comments', data)
             if (data) {
                 setErrors([data])
             }
@@ -66,6 +66,8 @@ const EditComment = ({id}) => {
         return setErrors(['Comment cannot be empty'])
 
     }
+
+
 
     return (
         <form onSubmit={handleEdit}>
