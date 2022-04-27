@@ -80,7 +80,7 @@ const PicturePage = () => {
 
                     {/* <DeletePicture/> */}
                     <CreateComment/>
-                    <CommentsPage id={id}/>
+                    <CommentsPage/>
 
                 </div>
 

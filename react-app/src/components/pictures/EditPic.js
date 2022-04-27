@@ -1,5 +1,4 @@
 import React, {useState } from "react";
-// import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { editPictureThunk } from "../../store/picture";
 
@@ -45,17 +44,13 @@ const EditPicture = ({id}) => {
         if (content) {
             setErrors([]);
             const data = await dispatch(editPictureThunk(id, updatedPicture))
-            // .catch(async (res) => {
-            //     const data = await res.json();
-            //     if (data && data.error) setErrors(data.errors)
-            // })
+
             if (data) {
                 setErrors([data])
             }
         }
         return setErrors(['Title cannot be empty'])
 
-        // dispatch(editPictureThunk(idToEdit))
     }
 
     return (
