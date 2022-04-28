@@ -88,8 +88,8 @@ export const deletePictureThunk = (id) => async dispatch => {
     })
     if (res.ok) {
         const delObj = await res.json()
-        // console.log('deletedpic', delObj.deleted_pic.id)
-        dispatch(deletePicture(delObj.deleted_pic.id))
+        console.log('deletedpic', delObj.id)
+        dispatch(deletePicture(delObj.id))
     }
 }
 
