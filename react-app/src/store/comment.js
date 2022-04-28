@@ -90,8 +90,8 @@ export const deleteCommentThunk = (id) => async dispatch => {
     })
     if (res.ok) {
         const delObj = await res.json()
-        // console.log('deletedpic', delObj.deleted_comment.id)
-        dispatch(deleteComment(delObj.deleted_comment.id))
+        console.log('deletedpic', delObj.id)
+        dispatch(deleteComment(delObj.id))
     }
 }
 

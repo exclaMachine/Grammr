@@ -9,15 +9,15 @@ import DeleteComment from './DeleteComment';
 const CommentsPage = () => {
     const dispatch = useDispatch()
     const { id } = useParams();
-    console.log('id from comms', id)
+    // console.log('id from comms', id)
     const sessionUser = useSelector(state => state.session.user)
     const commentObj = useSelector(state => state.commentReducer)
     // console.log('sess', sessionUser)
     console.log('obj', commentObj)
     let entries = Object.entries(commentObj)
-    console.log('entries', entries)
+    // console.log('entries', entries)
     let comments = Object.values(commentObj)
-    console.log('comms from all', comments)
+    // console.log('comms from all', comments)
 
 
         // let commentArr = []
@@ -44,7 +44,7 @@ const CommentsPage = () => {
         <>
             <h2 key={id}>{comment?.comment}</h2>
             <EditCommentModal id={id}/>
-            <DeleteComment/>
+            <DeleteComment id={id}/>
         </>
         ))}
 
