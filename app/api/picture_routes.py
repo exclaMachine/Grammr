@@ -93,7 +93,7 @@ def delete(id):
     Picture.query.filter(Picture.id == id).delete()
     db.session.commit()
     # print('\n\n\n\ndeletedPicTo dic!!!!!\n\n\n\n', deletedPic.to_dict())
-    return {'id': deletedPic.to_dict()}
+    return deletedPic.to_dict()
 
 
 @picture_routes.route('/<int:id>', methods=['PUT'])
