@@ -62,13 +62,13 @@ const CreateComment = () => {
                     <li>Comment has to be at least 1 character in length</li>
                 )}
                 </ul>
-                <input
+                <textarea
                 className='comment-input'
                 value={comment}
                 onChange={(e)=> setComment(e.target.value)}
                 >
 
-                </input>
+                </textarea>
 
                 <button type="submit">Create Comment</button>
             </form>
