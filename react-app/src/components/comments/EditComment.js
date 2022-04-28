@@ -24,7 +24,7 @@ const EditComment = ({id}) => {
     // const idToEdit = commentArr[0]?.id
     // console.log('id to edit', idToEdit)
 
-    //don't need to change it to an array first. Fix this
+    //don't need to change it to an array first. Fix this comments[+id].comment
     const [comment, setComment] = useState(commentArr[+id])
     const [errors, setErrors] = useState([])
     console.log('comment', comment)

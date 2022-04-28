@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getAllCommentsThunk } from '../../store/comment'
 import EditCommentModal from '../modals/EditCommentModal';
 import { useParams } from 'react-router-dom';
+import DeleteComment from './DeleteComment';
 
 
 const CommentsPage = () => {
@@ -43,6 +44,7 @@ const CommentsPage = () => {
         <>
             <h2 key={id}>{comment?.comment}</h2>
             <EditCommentModal id={id}/>
+            <DeleteComment/>
         </>
         ))}
 
