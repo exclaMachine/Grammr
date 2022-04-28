@@ -38,21 +38,11 @@ const EditComment = ({id}) => {
 
         let updatedComment;
 
-        // if this has a album_id. come back to this
-        if (id) {
             updatedComment = {
                 user_id: comments[+id].user_id,
-                album_id: comments[+id].album_id,
                 comment,
                 picture_id: comments[+id].picture_id
-            }
-        } else {
-            updatedComment = {
-                user_id: comments[+id].user_id,
-                album_id: null,
-                comment,
-                picture_id: comments[+id].picture_id
-            }
+
         }
 
         if (comment) {
