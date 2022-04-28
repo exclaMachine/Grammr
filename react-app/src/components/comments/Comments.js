@@ -12,8 +12,8 @@ const CommentsPage = () => {
     // console.log('id from comms', id)
     const sessionUser = useSelector(state => state.session.user)
     const commentObj = useSelector(state => state.commentReducer)
-    // console.log('sess', sessionUser)
-    console.log('obj', commentObj)
+    console.log('sess', sessionUser?.id)
+    // console.log('obj', commentObj)
     let entries = Object.entries(commentObj)
     // console.log('entries', entries)
     let comments = Object.values(commentObj)
@@ -43,8 +43,12 @@ const CommentsPage = () => {
         {comments.map((comment, id) => (
         <>
             <h2 key={id}>{comment?.comment}</h2>
-            <EditCommentModal id={id}/>
-            <DeleteComment id={id}/>
+            {sessionUser?.id === comment?.user_id && (
+                <>
+                <EditCommentModal id={id}/>
+                <DeleteComment id={id}/>
+                </>
+            )}
         </>
         ))}
 
