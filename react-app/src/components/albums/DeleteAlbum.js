@@ -22,7 +22,7 @@ const DeleteAlbum = ({id}) => {
 
     return (
         <form onSubmit={handleDelete}>
-
+            <h2>Are you sure you want to delete this album and pics?</h2>
             <button type="submit">Delete Album</button>
         </form>
 

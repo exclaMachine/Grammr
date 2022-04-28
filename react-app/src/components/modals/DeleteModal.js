@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
+import DeleteAlbum from '../albums/DeleteAlbum';
 import DeletePicture from '../pictures/DeletePic';
 
 function DeleteModal({id}) {
@@ -10,7 +11,7 @@ function DeleteModal({id}) {
       <button onClick={() => setShowModal(true)}>Delete</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <DeletePicture id={id} />
+          <DeleteAlbum id={id} />
         </Modal>
       )}
     </>
