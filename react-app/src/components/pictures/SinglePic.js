@@ -73,8 +73,8 @@ const PicturePage = () => {
 
             <div className='picturesContainer'>
                 <div>
-                    <div>Uploaded by {picUser?.username}</div>
-                    <div>Uploaded on {finalDate}</div>
+                    <div>Uploaded by {picUser?.username} on {finalDate}</div>
+                    {/* <div>Uploaded on {finalDate}</div> */}
                     {/* <img alt=''src={`${userPic?.image}`}></img> */}
                     <img alt=''src={`${pictureObj.picture?.image}`}></img>
 
