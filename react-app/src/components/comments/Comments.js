@@ -43,9 +43,11 @@ const CommentsPage = () => {
         {comments.map((comment, id) => (
         <>
             <h2 key={id}>{comment?.comment}</h2>
-            <EditCommentModal id={id}/>
             {sessionUser?.id === comment?.user_id && (
+                <>
+                <EditCommentModal id={id}/>
                 <DeleteComment id={id}/>
+                </>
             )}
         </>
         ))}
