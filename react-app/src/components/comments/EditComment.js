@@ -73,6 +73,7 @@ const EditComment = ({id}) => {
                 )}
             </ul>
             <div> You <strong>should</strong> add punctuation!!</div>
+            <br></br>
             <label className="label-title"></label>
                 <textarea
                 className='title-input'

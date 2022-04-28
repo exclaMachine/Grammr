@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getAllCommentsThunk } from '../../store/comment'
 import EditCommentModal from '../modals/EditCommentModal';
@@ -19,14 +19,22 @@ const CommentsPage = () => {
     let comments = Object.values(commentObj)
     // console.log('comms from all', comments)
 
+    const [users, setUsers] = useState([]);
 
-        // let commentArr = []
-        // for (const comment in commentObj) {
-        //     commentArr.push(comment)
-        //     commentArr.push(commentObj[comment].comment)
-        // }
-        // console.log('commentArr', commentArr)
+    useEffect(() => {
+        async function fetchData() {
+        const response = await fetch('/api/users/');
+        const responseData = await response.json();
+        setUsers(responseData.users);
+        }
+        fetchData();
+    }, []);
 
+    // console.log('users', users)
+    // console.log('comments1', comments)
+
+    const commentUser = users.find(user => user?.id === comments?.user_id)
+    console.log('commentUser', commentUser)
 
     let usersComments = comments.filter(comment => comment?.user_id === sessionUser?.id).reverse()
     // console.log('usecomments', usersComments)
@@ -42,7 +50,8 @@ const CommentsPage = () => {
 
         {comments.map((comment, id) => (
         <>
-            <h2 key={id}>{comment?.comment}</h2>
+
+            <h4 className='comment' key={id}>{comment?.comment}</h4>
             {sessionUser?.id === comment?.user_id && (
                 <>
                 <EditCommentModal id={id}/>

@@ -79,8 +79,8 @@ const PicturePage = () => {
                     <img alt=''src={`${pictureObj.picture?.image}`}></img>
 
                     {/* <DeletePicture/> */}
-                    <CreateComment/>
                     <CommentsPage/>
+                    <CreateComment/>
 
                 </div>
 
