@@ -1,5 +1,5 @@
 from flask import Blueprint, request
-from app.models import db, Picture, Comment
+from app.models import db, Comment, Comment
 from flask_login import current_user, login_required
 from app.s3_funcs import (
     upload_file_to_s3, allowed_file, get_unique_filename)
@@ -52,3 +52,14 @@ def update_comment(id):
     db.session.commit()
 
     return foundComment.to_dict()
+
+
+@comment_routes.route('/<int:id>', methods=['DELETE'])
+def delete(id):
+    # print('routID', id)
+    deletedComment = Comment.query.filter(Comment.id == id).first()
+    # print('delComm', deletedComment)
+    Comment.query.filter(Comment.id == id).delete()
+    db.session.commit()
+    # print('\n\n\n\ndeletedCommTo dic!!!!!\n\n\n\n', deletedComment.to_dict())
+    return deletedComment.to_dict()
