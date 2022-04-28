@@ -58,12 +58,13 @@ const CreateComment = () => {
             <form onSubmit={handleSubmit}>
                  <ul className="errors">
                 {/* {errors.map((error, idx) => <li key={idx}>{error}</li>)} */}
-                {comment.length < 1 && (
+                {/* {comment.length < 1 && (
                     <li>Comment has to be at least 1 character in length</li>
-                )}
+                )} */}
                 </ul>
                 <textarea
                 className='comment-input'
+                placeholder="Comment has to be at least 1 character in length"
                 value={comment}
                 onChange={(e)=> setComment(e.target.value)}
                 >
