@@ -7,6 +7,7 @@ import EditAlbum from './EditAlbum';
 import DeleteAlbum from './DeleteAlbum';
 import './albums.css'
 import AlbumButton from '../buttons/AlbumDropdown';
+import DeleteModal from '../modals/DeleteModal';
 
 const AlbumsPage = () => {
     const dispatch = useDispatch()
@@ -37,7 +38,8 @@ const AlbumsPage = () => {
                             <li className='album-container' key={id}>
                                 <AlbumButton id={id}/>
                                 <EditAlbum id={id} title={title}/>
-                                <DeleteAlbum id={id}/>
+                                <DeleteModal id={id}/>
+                                {/* <DeleteAlbum id={id}/> */}
                             </li>
                         ))}
                     </ul>

@@ -6,7 +6,7 @@ import DeletePicture from './DeletePic';
 import EditPicture from './EditPic';
 import './pictures.css'
 import UploadPicture from './UploadPic';
-import DeleteModal from '../modals/DeleteModal'
+import DeletePicModal from '../modals/DeletePicModal'
 import EditPicModal from '../modals/EditPicModal'
 
 const PicturesPage = () => {
@@ -42,8 +42,8 @@ const PicturesPage = () => {
                                     <NavLink className="navBar" to={`/pictures/${id}`} exact={true} activeClassName='active'>
                                         <img alt='' src={image}></img>
                                     </NavLink>
-                                {/* <DeleteModal id={id}/> */}
-                                <DeletePicture id={id}/>
+                                <DeletePicModal id={id}/>
+                                {/* <DeletePicture id={id}/> */}
                             </div>
                         ))}
                     </div>
