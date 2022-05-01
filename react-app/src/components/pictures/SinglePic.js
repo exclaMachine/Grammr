@@ -71,7 +71,7 @@ const PicturePage = () => {
 
             <h1>{pictureObj.picture?.content}</h1>
 
-            <div className='picturesContainer'>
+            <div className='pictureContainer'>
                 <div>
                     <div>Uploaded by {picUser?.username} on {finalDate}</div>
                     {/* <div>Uploaded on {finalDate}</div> */}
