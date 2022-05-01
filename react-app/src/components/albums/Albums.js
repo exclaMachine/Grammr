@@ -15,11 +15,9 @@ const AlbumsPage = () => {
     const sessionUser = useSelector(state => state.session.user)
     const albumObj = useSelector(state => state.albumReducer)
 
-    // console.log('obj', albumObj)
     let albums = Object.values(albumObj)
 
     let usersAlbums = albums.filter(album => album?.user_id === sessionUser?.id)
-    // console.log('users', usersAlbums)
 
     useEffect(() => {
         dispatch(getAllAlbumsThunk())
@@ -30,7 +28,6 @@ const AlbumsPage = () => {
         <CreateAlbum/>
         <div className='albums-container'>
             <h1>Albums</h1>
-            {/* <FontAwesomeIcon icon="fa-solid fa-pen-to-square" /> */}
             <div >
                 <div>
                     <ul>

@@ -14,7 +14,7 @@ const DeleteComment = ({id}) => {
     const comments = Object.values(commentObj)
 
 
-    console.log('commss', comments)
+    // console.log('commss', comments)
     // console.log('sess', sessionUser)
 
 

@@ -55,7 +55,6 @@ export const getPictureThunk = (id) => async dispatch => {
 
     if (res.ok) {
         const data = await res.json()
-        // console.log('inside pic thunk', data)
         dispatch(getPicture(data))
     }
 }
@@ -67,9 +66,7 @@ export const postPictureThunk = (data) => async dispatch => {
     })
     if (res.ok) {
         const newPic = await res.json()
-        console.log('newPic', newPic.errors)
         if (newPic.errors) {
-            // console.log('inside', newPic.errors)
             return newPic.errors
         }
         dispatch(postPicture(newPic))
@@ -77,7 +74,6 @@ export const postPictureThunk = (data) => async dispatch => {
     }
     // else {
     //     const error = await res.json()
-    //     console.log('errors', error)
     //     return error
     // }
 }

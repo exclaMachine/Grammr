@@ -17,12 +17,12 @@ const AlbumsPicturesPage = ({id}) => {
     const albumObj = useSelector(state => state.albumReducer)
 
     let specificAlbum = albumObj[+id]
-    console.log('spec', specificAlbum.updated_at)
+    // console.log('spec', specificAlbum.updated_at)
     // let albums = Object.values(albumObj)
 
     let pictures = Object.values(pictureObj)
     let usersPictures = pictures.filter(picture => picture?.user_id === sessionUser?.id && picture?.album_id === +id)
-    console.log('alpic', usersPictures)
+    // console.log('alpic', usersPictures)
 
     useEffect(() => {
         dispatch(getAllPicturesThunk())

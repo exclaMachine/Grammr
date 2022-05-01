@@ -69,7 +69,6 @@ export const postCommentThunk = (data) => async dispatch => {
     })
     if (res.ok) {
         const newPic = await res.json()
-        console.log('newPic', newPic.errors)
         if (newPic.errors) {
             // console.log('inside', newPic.errors)
             return newPic.errors
@@ -79,7 +78,6 @@ export const postCommentThunk = (data) => async dispatch => {
     }
     // else {
     //     const error = await res.json()
-    //     console.log('errors', error)
     //     return error
     // }
 }
@@ -90,7 +88,6 @@ export const deleteCommentThunk = (id) => async dispatch => {
     })
     if (res.ok) {
         const delObj = await res.json()
-        console.log('deletedpic', delObj.id)
         dispatch(deleteComment(delObj.id))
     }
 }
@@ -103,7 +100,6 @@ export const editCommentThunk = (id, data) => async dispatch => {
     })
     if (res.ok) {
         const updatedComment = await res.json()
-        console.log('updatedComment', updatedComment)
         if (updatedComment.errors) {
             return updatedComment.errors
         }
