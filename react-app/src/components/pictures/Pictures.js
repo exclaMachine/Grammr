@@ -28,27 +28,30 @@ const PicturesPage = () => {
         <UploadPicture/>
         <div className='pic-grid'>
             <h1>{sessionUser?.username}'s Pictures</h1>
-
+            {usersPictures.length < 1 && (
+            <h2>You need pictures! Start uploading some!</h2>
+            )}
             <div className='picturesContainer'>
-                <div>
-                    <div className='pic-list'>
-                        {usersPictures.map(({ id, content, image}) => (
-                            <div className="individual-pic" key={id}>
-                                {/* <EditPicture id={id}/> */}
-                                <EditPicModal id={id}/>
-                                <h1>{content}</h1>
-                                    <NavLink className="navBar" to={`/pictures/${id}`} exact={true} activeClassName='active'>
-                                        <img alt='' src={image}></img>
-                                    </NavLink>
-                                <DeletePicModal id={id}/>
-                                {/* <DeletePicture id={id}/> */}
-                            </div>
-                        ))}
-                    </div>
+                 <div>
+                     <div className='pic-list'>
+                         {usersPictures.map(({ id, content, image}) => (
+                             <div className="individual-pic" key={id}>
+                                 {/* <EditPicture id={id}/> */}
+                                 <EditPicModal id={id}/>
+                                 <h1>{content}</h1>
+                                     <NavLink className="navBar" to={`/pictures/${id}`} exact={true} activeClassName='active'>
+                                         <img alt='' src={image}></img>
+                                     </NavLink>
+                                 <DeletePicModal id={id}/>
+                                 {/* <DeletePicture id={id}/> */}
+                             </div>
+                         ))}
+                     </div>
 
-                </div>
+                 </div>
 
             </div>
+
 
         </div>
         </>
