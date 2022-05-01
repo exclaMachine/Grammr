@@ -7,7 +7,10 @@ function DeletePicModal({id}) {
 
   return (
     <>
-      <button onClick={() => setShowModal(true)}>Delete</button>
+      <button onClick={() => setShowModal(true)}>
+        <i class="fa-solid fa-trash"></i>
+        {/* Delete */}
+        </button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <DeletePicture id={id} />
