@@ -5,33 +5,24 @@ import { editCommentThunk } from "../../store/comment";
 const EditComment = ({id}) => {
     const dispatch = useDispatch()
 
-    // console.log('just id', id)
 
     const sessionUser = useSelector(state => state.session.user)
     const commentObj = useSelector(state => state.commentReducer)
     const pictureObj = useSelector(state => state.pictureReducer.picture)
-    // console.log('sessuse', sessionUser?.id)
 
     const comments = Object.values(commentObj)
-    console.log('comms', comments)
-    console.log('commObj', commentObj)
-    // console.log('is this it', commentObj[+id])
 
-    console.log('id', id)
+
     const commentArr = comments.map(comment => comment?.comment)
-    console.log('commentArr', commentArr)
 
     // const idToEdit = commentArr[0]?.id
-    // console.log('id to edit', idToEdit)
 
     //don't need to change it to an array first. Fix this comments[+id].comment
     const [comment, setComment] = useState(commentArr[+id])
     const [errors, setErrors] = useState([])
-    console.log('comment', comment)
 
 
-    console.log('is this the id', comments[+id].picture_id)
-    console.log('comments in edit', comments)
+
 
     const handleEdit = async (e) => {
         e.preventDefault();
@@ -48,7 +39,6 @@ const EditComment = ({id}) => {
         if (comment) {
             setErrors([]);
             const data = await dispatch(editCommentThunk(comments[+id]?.id, updatedComment))
-            console.log('data in edit Comments', data)
             if (data) {
                 setErrors([data])
             }
