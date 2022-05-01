@@ -33,3 +33,8 @@ textarea {
     max-width: 800px;
     max-height: 1600px;
 }
+
+.deleteButton {
+    max-width: 50px;
+    max-height: 20px;
+}
