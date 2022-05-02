@@ -31,7 +31,7 @@ const AlbumsPage = () => {
                     <ul>
                         {usersAlbums.map(({ id, title}) => (
                             <li className='album-container' key={id}>
-                                <AlbumButton id={id}/>
+                                <span><AlbumButton id={id}/></span>
                                 <EditAlbum id={id} title={title}/>
                                 <DeleteModal id={id}/>
                             </li>
