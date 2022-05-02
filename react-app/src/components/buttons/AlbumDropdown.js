@@ -43,14 +43,14 @@ function AlbumButton({id}) {
 
       <button onClick={openMenu}>
 
-          Open {album.title}
+          Open <u>{album.title}</u>
         {/* <i className="fas fa-user-circle" /> */}
       </button>
     )}
         {showMenu && (
             //   <h1>stuff</h1>
             <ul className="album-dropdown">
-                <button onClick={closeMenuButton}>Close {album.title} Album</button>
+                <button onClick={closeMenuButton}>Close <u>{album.title}</u> Album</button>
                 <AlbumsPicturesPage id={id}/>
                 {/* <li>{sessionUser.username}</li> */}
             </ul>
