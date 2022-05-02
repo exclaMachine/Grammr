@@ -23,3 +23,7 @@
     border: black solid;
     width: 90vw;
 }
+
+.active {
+    border-bottom: #128fdc 4px solid;
+}
