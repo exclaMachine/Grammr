@@ -3,8 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getAllAlbumsThunk } from '../../store/album'
 import CreateAlbum from './CreateAlbum';
 import EditAlbum from './EditAlbum';
-// import AlbumsPicturesPage from '../albumsPics/AlbumsPics';
-import DeleteAlbum from './DeleteAlbum';
 import './albums.css'
 import AlbumButton from '../buttons/AlbumDropdown';
 import DeleteModal from '../modals/DeleteModal';
@@ -33,10 +31,9 @@ const AlbumsPage = () => {
                     <ul>
                         {usersAlbums.map(({ id, title}) => (
                             <li className='album-container' key={id}>
-                                <AlbumButton id={id}/>
+                                <span><AlbumButton id={id}/></span>
                                 <EditAlbum id={id} title={title}/>
                                 <DeleteModal id={id}/>
-                                {/* <DeleteAlbum id={id}/> */}
                             </li>
                         ))}
                     </ul>

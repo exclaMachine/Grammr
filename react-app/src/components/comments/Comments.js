@@ -12,7 +12,6 @@ const CommentsPage = () => {
     const sessionUser = useSelector(state => state.session.user)
     const commentObj = useSelector(state => state.commentReducer)
 
-    let entries = Object.entries(commentObj)
     let comments = Object.values(commentObj)
 
     const [users, setUsers] = useState([]);
@@ -29,7 +28,7 @@ const CommentsPage = () => {
     // console.log('users', users)
     // console.log('comments1', comments)
 
-    const commentUser = users.find(user => user?.id === comments?.user_id)
+    // const commentUser = users.find(user => user?.id === comments?.user_id)
     // console.log('commentUser', commentUser)
 
     let usersComments = comments.filter(comment => comment?.user_id === sessionUser?.id).reverse()

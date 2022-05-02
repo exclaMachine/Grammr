@@ -6,9 +6,9 @@ const EditComment = ({id}) => {
     const dispatch = useDispatch()
 
 
-    const sessionUser = useSelector(state => state.session.user)
+    // const sessionUser = useSelector(state => state.session.user)
     const commentObj = useSelector(state => state.commentReducer)
-    const pictureObj = useSelector(state => state.pictureReducer.picture)
+    // const pictureObj = useSelector(state => state.pictureReducer.picture)
 
     const comments = Object.values(commentObj)
 
