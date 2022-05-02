@@ -2,9 +2,7 @@ import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { getAllPicturesThunk } from '../../store/picture'
-import DeletePicture from '../pictures/DeletePic'
 import DeletePicModal from '../modals/DeletePicModal'
-import EditPicture from '../pictures/EditPic';
 import EditPicModal from '../modals/EditPicModal'
 import UploadPicture from '../pictures/UploadPic';
 

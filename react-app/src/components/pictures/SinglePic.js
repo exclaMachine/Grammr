@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from 'react';
-// import { NavLink } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { getAllPicturesThunk } from '../../store/picture'
 import { getPictureThunk } from '../../store/picture';
-// import DeletePicture from './DeletePic';
-// import EditPicture from './EditPic';
 import CommentsPage from '../comments/Comments.js';
 import './pictures.css'
 import CreateComment from '../comments/PostComment';
@@ -18,7 +14,6 @@ const PicturePage = () => {
 
     // const sessionUser = useSelector(state => state.session.user)
     const pictureObj = useSelector(state => state.pictureReducer)
-    let userPic = pictureObj[+id]
     // let pictures = Object.values(pictureObj)
     // console.log("pic", pictures)
     // console.log('pic obj', pictureObj.picture)
@@ -78,7 +73,6 @@ const PicturePage = () => {
                     {/* <img alt=''src={`${userPic?.image}`}></img> */}
                     <img alt=''src={`${pictureObj.picture?.image}`}></img>
 
-                    {/* <DeletePicture/> */}
                     <CommentsPage/>
                     <CreateComment/>
 
