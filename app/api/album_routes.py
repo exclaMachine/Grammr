@@ -24,7 +24,7 @@ def post_album():
     # some = request.form.get('title')
     user_id=current_user.id
     title = request.json['title']
-    print('\n\ntitle!!!\n\n', title)
+    # print('\n\ntitle!!!\n\n', title)
     if len(title) > 20:
         return {"errors": "Album title must be less than 20 characters in length"}
 
@@ -36,10 +36,11 @@ def post_album():
 
     for album in albums:
         if album.user_id == new_album.user_id and album.title == new_album.title:
-            print('in the same name if')
+            # print('in the same name if')
             return {"errors": "Album title must be unique"}
 
     db.session.add(new_album)
+
     db.session.commit()
 
     return new_album.to_dict()
