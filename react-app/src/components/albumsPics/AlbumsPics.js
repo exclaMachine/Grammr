@@ -29,7 +29,7 @@ const AlbumsPicturesPage = ({id}) => {
     return (
         <>
         <div>
-            <h1>Pictures in <u><em>{specificAlbum.title}</em></u> ({usersPictures.length})</h1>
+            <h3 className='albumTitle'>Pictures in <u><em>{specificAlbum.title}</em></u> ({usersPictures.length})</h3>
             {/* <h2>{specificAlbum.created_at}</h2> */}
             <div className='picturesContainer'>
                 <div>
