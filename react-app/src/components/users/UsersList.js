@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
-function UsersList() {
+function UsersList({id}) {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
@@ -23,6 +23,7 @@ function UsersList() {
 
   return (
     <>
+
       <h1>User List: </h1>
       <ul>{userComponents}</ul>
     </>
