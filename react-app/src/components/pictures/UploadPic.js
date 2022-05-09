@@ -14,9 +14,11 @@ const UploadPicture = ({id}) => {
     const sessionUser = useSelector(state => state.session.user)
     // const pictureObj = useSelector(state => state.pictureReducer)
 
+    // const [Title, setTitle] = useState('')
     const [pic, setPic] = useState(null);
     const [errors, setErrors] = useState([]);
     // const [picLoading, setPicLoading] = useState(false);
+
 
 
 
@@ -74,19 +76,27 @@ const UploadPicture = ({id}) => {
 
     const updatePic = (e) => {
         const file = e.target.files[0];
-        console.log('target!!!', e.target.files[0])
+        // console.log('target!!!', e.target.files[0])
 
         setPic(file);
     }
 
         return (
             <form onSubmit={handleSubmit}>
-                <label for="fileupload" class="new-file-upload">
-                    Choose File
+                <label htmlFor="fileupload" class="new-file-upload">
+                    <i class="fa-solid fa-cloud-arrow-up"></i>
                 </label>
+
                 <ul className="errors">
-                {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+                    {errors.map((error, idx) => <li key={idx}>{error}</li>)}
                 </ul>
+
+                {/* <input
+                type="text"
+                name="content"
+                onChange={updateTitle}
+                >
+                </input> */}
 
                 <input
                     id="fileupload"
@@ -94,10 +104,26 @@ const UploadPicture = ({id}) => {
                     accept="image/*"
                     onChange={updatePic}
                 />
-                {pic && (<span id="fileselected"
+                {pic && (
+                <>
+                    <div
+                    id="fileselected">
+                        {pic.name}
+                    </div>
 
-                >{pic.name}</span>)}
-                <button className='upload-button' type="submit">Upload Pic</button>
+                    <img
+                    className='uploadedPic'
+                    alt='your pic'
+                    src={URL.createObjectURL(pic)}
+
+                    ></img>
+
+                    <div>
+                        <button className='upload-button' type="submit">Upload Pic</button>
+                    </div>
+                </>
+                )}
+
                 {/* {(picLoading)&& <p>Loading...</p>} */}
             </form>
         )
