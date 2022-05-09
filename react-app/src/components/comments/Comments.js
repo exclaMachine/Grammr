@@ -45,15 +45,16 @@ const CommentsPage = () => {
 
         {comments.map((comment, id) => (
         <>
-
-            <h4 className='comment' key={id}>{comment?.comment}</h4>
+        <div className='commentContainer'>
+            <SpecificUser id={comment.user_id}/>
+            <p className='comment' key={id}>{comment?.comment}</p>
             {sessionUser?.id === comment?.user_id && (
                 <>
-                <SpecificUser id={comment.user_id}/>
                 <EditCommentModal id={id}/>
                 <DeleteComment id={id}/>
                 </>
             )}
+        </div>
         </>
         ))}
 

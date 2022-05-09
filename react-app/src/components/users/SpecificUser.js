@@ -21,17 +21,13 @@ function SpecificUser({id}) {
 
 
   return (
-    <ul>
-      {/* <li>
-        <strong>User Id</strong> {id}
-      </li> */}
-      <li>
-        <strong>Username</strong> {user.username}
-      </li>
-      {/* <li>
-        <strong>Email</strong> {user.email}
-      </li> */}
-    </ul>
+    <>
+
+      <div className='userName'>
+        <strong>{user.username}</strong>
+      </div>
+
+    </>
   );
 }
 export default SpecificUser;

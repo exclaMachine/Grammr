@@ -23,7 +23,7 @@ textarea {
     height: 150px;
   }
 
-.comment {
+.commentContainer {
     border-top:  solid black 2px;
     padding: 10px;
 }
@@ -37,4 +37,8 @@ textarea {
 .deleteButton {
     max-width: 50px;
     max-height: 20px;
+}
+
+.userName {
+    color: #128fdc
 }
