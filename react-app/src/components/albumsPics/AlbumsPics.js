@@ -7,7 +7,6 @@ import EditPicModal from '../modals/EditPicModal'
 import UploadPicture from '../pictures/UploadPic';
 import DeletePicture from '../pictures/DeletePic';
 import EditPicture from '../pictures/EditPic';
-import './albumsPics.css'
 
 const AlbumsPicturesPage = ({id}) => {
     const dispatch = useDispatch()
@@ -33,10 +32,10 @@ const AlbumsPicturesPage = ({id}) => {
         <div>
             <h3 className='albumTitle'>Pictures in <u><em>{specificAlbum.title}</em></u> ({usersPictures.length})</h3>
             {/* <h2>{specificAlbum.created_at}</h2> */}
-            <div>
+            <div className='picturesContainer'>
                 <div>
                     <UploadPicture id={id}/>
-                    <div className='picturesContainer'>
+                    <div>
                         {usersPictures.map(({ id, album_id, content, image}) => (
                             <div key={id}>
 
