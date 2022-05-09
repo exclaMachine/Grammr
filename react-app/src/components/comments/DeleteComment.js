@@ -30,7 +30,9 @@ const DeleteComment = ({id}) => {
         // <h1>Delete location</h1>
         <form onSubmit={handleDelete}>
 
-            <button type="submit">Delete Comment</button>
+            <button type="submit">
+            <i class="fa-solid fa-trash"></i>
+            </button>
         </form>
 
     )
