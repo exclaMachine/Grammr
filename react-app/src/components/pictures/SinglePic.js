@@ -69,6 +69,8 @@ const PicturePage = () => {
                 <div>
                     <div>Uploaded by {picUser?.username} on {finalDate}</div>
 
+                    <br></br>
+
                     <img alt=''src={`${pictureObj.picture?.image}`}></img>
 
                     <CommentsPage/>
