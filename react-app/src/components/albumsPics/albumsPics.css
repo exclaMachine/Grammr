@@ -1,20 +1,16 @@
-
-
-.picturesContainer > div {
-    width: 400px;
-    border: black dashed 2px;
-    padding: 5px;
-    margin: 5px;
+.picturesContainer > div > ul > li > img {
+    width: 200px;
+    height: 100px;
 }
 
-.picturesContainer > div > a > img {
+.picturesContainer > div > ul > li > img {
     object-fit: cover;
     height: 430px;
     width: 280px;
     border: black solid 2px;
 }
 
-.picturesContainer > div > a > img {
+.picturesContainer > div > ul {
     display: flex;
     flex-flow: row wrap;
     padding: 10px;
