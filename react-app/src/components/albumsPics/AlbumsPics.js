@@ -5,7 +5,8 @@ import { getAllPicturesThunk } from '../../store/picture'
 import DeletePicModal from '../modals/DeletePicModal'
 import EditPicModal from '../modals/EditPicModal'
 import UploadPicture from '../pictures/UploadPic';
-
+import DeletePicture from '../pictures/DeletePic';
+import EditPicture from '../pictures/EditPic';
 
 const AlbumsPicturesPage = ({id}) => {
     const dispatch = useDispatch()
@@ -38,14 +39,14 @@ const AlbumsPicturesPage = ({id}) => {
                         {usersPictures.map(({ id, album_id, content, image}) => (
                             <div key={id}>
 
-                                {/* <EditPicture id={id}/> */}
-                                <EditPicModal id={id}/>
+                                <EditPicture id={id}/>
+                                {/* <EditPicModal id={id}/> */}
                                 <h1>{content}</h1>
                                     <NavLink className="navBar" to={`/pictures/${id}`} exact={true} activeClassName='active'>
                                         <img alt='' src={image}></img>
                                     </NavLink>
-                                <DeletePicModal id={id}/>
-                                {/* <DeletePicture id={id}/> */}
+                                {/* <DeletePicModal id={id}/> */}
+                                <DeletePicture id={id}/>
                             </div>
                         ))}
                     </div>
