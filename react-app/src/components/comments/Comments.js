@@ -4,7 +4,7 @@ import { getAllCommentsThunk } from '../../store/comment'
 import EditCommentModal from '../modals/EditCommentModal';
 import { useParams } from 'react-router-dom';
 import DeleteComment from './DeleteComment';
-
+import SpecificUser from '../users/SpecificUser';
 
 const CommentsPage = () => {
     const dispatch = useDispatch()
@@ -16,14 +16,14 @@ const CommentsPage = () => {
 
     const [users, setUsers] = useState([]);
 
-    useEffect(() => {
-        async function fetchData() {
-        const response = await fetch('/api/users/');
-        const responseData = await response.json();
-        setUsers(responseData.users);
-        }
-        fetchData();
-    }, []);
+    // useEffect(() => {
+    //     async function fetchData() {
+    //     const response = await fetch('/api/users/');
+    //     const responseData = await response.json();
+    //     setUsers(responseData.users);
+    //     }
+    //     fetchData();
+    // }, []);
 
     // console.log('users', users)
     // console.log('comments1', comments)
@@ -45,14 +45,16 @@ const CommentsPage = () => {
 
         {comments.map((comment, id) => (
         <>
-
-            <h4 className='comment' key={id}>{comment?.comment}</h4>
+        <div className='commentContainer'>
+            <SpecificUser id={comment.user_id}/>
+            <p className='comment' key={id}>{comment?.comment}</p>
             {sessionUser?.id === comment?.user_id && (
                 <>
                 <EditCommentModal id={id}/>
                 <DeleteComment id={id}/>
                 </>
             )}
+        </div>
         </>
         ))}
 

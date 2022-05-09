@@ -54,8 +54,7 @@ const PicturePage = () => {
     }, []);
 
     const picUser = users.find(user => user?.id === pictureObj.picture?.user_id )
-    // console.log('users!!!', users)
-    // console.log('picUser', picUser)
+
 
     return (
         <>
@@ -69,9 +68,9 @@ const PicturePage = () => {
             <div className='pictureContainer'>
                 <div>
                     <div>Uploaded by {picUser?.username} on {finalDate}</div>
+
                     <br></br>
-                    {/* <div>Uploaded on {finalDate}</div> */}
-                    {/* <img alt=''src={`${userPic?.image}`}></img> */}
+
                     <img alt=''src={`${pictureObj.picture?.image}`}></img>
 
                     <CommentsPage/>
