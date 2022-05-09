@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 
 function SpecificUser({id}) {
   const [user, setUser] = useState({});
-//   const { userId }  = useParams();
 
   useEffect(() => {
     if (!id) {

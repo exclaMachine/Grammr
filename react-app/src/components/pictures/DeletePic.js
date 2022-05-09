@@ -20,7 +20,7 @@ const DeletePicture = ({id}) => {
 
     const idObj = pictures.filter(picture => picture?.id === id)
     const idToDelete = idObj[0].id
-    // console.log('idObj', idObj)
+    console.log('idObj', idObj)
 
     const handleDelete = async (e) => {
         e.preventDefault();
@@ -31,7 +31,7 @@ const DeletePicture = ({id}) => {
     return (
         // <h1>Delete location</h1>
         <form onSubmit={handleDelete}>
-            <h2>This will delete all the comments as well...</h2>
+            {/* <h2>This will delete all the comments as well...</h2> */}
             <button type="submit">Delete Picture</button>
         </form>
 
