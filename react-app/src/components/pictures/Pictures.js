@@ -5,7 +5,8 @@ import { getAllPicturesThunk } from '../../store/picture'
 import './pictures.css'
 import UploadPicture from './UploadPic';
 import DeletePicModal from '../modals/DeletePicModal'
-import EditPicModal from '../modals/EditPicModal'
+// import EditPicModal from '../modals/EditPicModal'
+import EditPicture from './EditPic';
 
 const PicturesPage = () => {
     const dispatch = useDispatch()
@@ -34,8 +35,9 @@ const PicturesPage = () => {
                      <div className='pic-list'>
                          {usersPictures.map(({ id, content, image}) => (
                              <div className="individual-pic" key={id}>
-                                 <EditPicModal id={id}/>
-                                 <h1>{content}</h1>
+                                 <EditPicture id={id}/>
+                                 {/* <EditPicModal id={id}/> */}
+                                 {/* <h1>{content}</h1> */}
                                      <NavLink className="navBar" to={`/pictures/${id}`} exact={true} activeClassName='active'>
                                          <img alt='' src={image}></img>
                                      </NavLink>
