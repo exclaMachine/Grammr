@@ -7,6 +7,7 @@ const EditPicture = ({id}) => {
 
     // console.log('just id', id)
 
+    const [showModal, setShowModal] = useState(false);
     const sessionUser = useSelector(state => state.session.user)
     const pictureObj = useSelector(state => state.pictureReducer)
     const pictures = Object.values(pictureObj)

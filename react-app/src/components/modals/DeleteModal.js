@@ -8,7 +8,7 @@ function DeleteModal({id}) {
   return (
     <>
       <button className='deleteButton' onClick={() => setShowModal(true)}>
-      <i class="fa-solid fa-trash"></i>
+      <i className="fa-solid fa-trash"></i>
         </button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>

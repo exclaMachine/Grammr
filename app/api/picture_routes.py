@@ -44,15 +44,14 @@ def upload_picture():
 
     if "image" not in upload:
         # print("image not in upload!!!!!!!!")
-        # if the dictionary doesn't have a url key
+        # if the dictionary doesn't have a image key
         # it means that there was an error when we tried to upload
         # so we send back that error message
         return upload, 400
 
-    # print('currUser', current_user.id)
-    # print('filename!!!!!!!!!!', pic.filename)
-    # print('image!!!!!!', pic)
+
     album_id = request.form['album_id']
+    content = request.form['content']
     # print('\n\nrequest.file\n\n', request.form['album_id'])
 
     if album_id == "noId":
@@ -63,7 +62,8 @@ def upload_picture():
     new_image = Picture(
         user_id=current_user.id,
         album_id=album_id,
-        content=picName,
+        # content=picName,
+        content=content,
         # url=url,
         image=url
         )
