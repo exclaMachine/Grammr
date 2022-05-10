@@ -8,7 +8,7 @@ function DeletePicModal({id}) {
   return (
     <>
       <button onClick={() => setShowModal(true)}>
-        <i class="fa-solid fa-trash"></i>
+        <i className="fa-solid fa-trash"></i>
         {/* Delete */}
         </button>
       {showModal && (
