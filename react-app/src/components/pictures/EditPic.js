@@ -55,7 +55,7 @@ const EditPicture = ({id}) => {
     }
 
     return (
-        <form onSubmit={handleEdit}>
+        <form onBlur={handleEdit}>
              {/* <ul className="errors">
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul> */}
@@ -67,7 +67,7 @@ const EditPicture = ({id}) => {
                     <li>Title has to be less than 21 characters in length</li>
                 )}
             </ul>
-            <div> You <strong>could</strong> pick a name with punctuation!!</div>
+            {/* <div> You <strong>could</strong> pick a name with punctuation!!</div> */}
             <label className="label-title"></label>
                 <input
                 className='title-input'
@@ -75,8 +75,8 @@ const EditPicture = ({id}) => {
                 value= {content}
                 onChange={(e) => setContent(e.target.value)}
                 />
-            <br></br>
-            <button type="submit">Update Title</button>
+            {/* <br></br>
+            <button type="submit">Update Title</button> */}
         </form>
 
     )
