@@ -49,6 +49,13 @@ textarea {
     width: 100px;
 }
 
-.editTitleButton:hover {
+.input {
+    background-color: whitesmoke;
+    border: none;
+    font-family: Proxima Nova,Helvetica,sans-serif;
+    font-size: 20px;
+}
+
+.not-input:hover {
     cursor: text;
 }

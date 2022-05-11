@@ -5,7 +5,7 @@ import { editPictureThunk } from "../../store/picture";
 const EditPicture = ({id}) => {
     const dispatch = useDispatch()
 
-    // console.log('just id', id)
+    const [isInput, setInput] = useState(false)
     const [showMenu, setShowMenu] = useState(false);
     const [showModal, setShowModal] = useState(false);
     const sessionUser = useSelector(state => state.session.user)
@@ -18,6 +18,10 @@ const EditPicture = ({id}) => {
 
     const [content, setContent] = useState(idObj[0].content)
     const [errors, setErrors] = useState([])
+
+    const toggleClass = () => {
+        setInput(!isInput);
+    }
 
     const openMenu = () => {
         if (showMenu) return;
@@ -73,8 +77,8 @@ const EditPicture = ({id}) => {
 
     return (
         <>
-        <h2 className='editTitleButton' onClick={openMenu}>{content}</h2>
-        {showMenu && (
+        {/* <h2 className={isInput ? "input": "not-input"} onClick={openMenu}>{content}</h2> */}
+        {/* {showMenu && ( */}
         <form onBlur={handleEdit}>
              {/* <ul className="errors">
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
@@ -90,7 +94,7 @@ const EditPicture = ({id}) => {
             {/* <div> You <strong>could</strong> pick a name with punctuation!!</div> */}
             <label className="label-title"></label>
                 <input
-                className='title-input'
+                className={isInput ? "not-input": "input"}
                 type='text'
                 value= {content}
                 onChange={(e) => setContent(e.target.value)}
@@ -98,7 +102,7 @@ const EditPicture = ({id}) => {
             {/* <br></br>
             <button type="submit">Update Title</button> */}
         </form>
-        )}
+        {/* )} */}
         </>
 
     )
