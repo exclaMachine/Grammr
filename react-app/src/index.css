@@ -1,6 +1,7 @@
 /* TODO Add site wide styles */
 .individual-pic {
-    border: black dashed 2px;
+    position: relative;
+    /* border: black dashed 2px; */
     border-radius: 5px;
     padding: 5px;
 }
@@ -27,6 +28,22 @@ textarea {
 .commentContainer {
     border-top:  solid black 2px;
     padding: 10px;
+}
+
+
+.hidden {
+    visibility: hidden;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.not-hidden {
+    visibility: visible;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 2;
 }
 
 .pictureContainer > div > img{
@@ -56,6 +73,7 @@ textarea {
     font-size: 20px;
 }
 
-.not-input:hover {
-    cursor: text;
+.not-input {
+    background-color: white;
+    font-size: 20px;
 }

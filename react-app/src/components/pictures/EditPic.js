@@ -64,6 +64,8 @@ const EditPicture = ({id}) => {
             }
         }
 
+        setInput(false);
+
         if (content) {
             setErrors([]);
             const data = await dispatch(editPictureThunk(id, updatedPicture))
@@ -73,8 +75,8 @@ const EditPicture = ({id}) => {
             }
         }
         return setErrors(['Title cannot be empty'])
-
     }
+
     let enterStrike = (e) => {
         document.addEventListener('keypress', e => {
             if (e.key === 'Enter') {
@@ -88,7 +90,7 @@ const EditPicture = ({id}) => {
         <>
         {/* <h2 className={isInput ? "input": "not-input"} onClick={openMenu}>{content}</h2> */}
         {/* {showMenu && ( */}
-        <form  onBlur={handleEdit} onKeyPress={enterStrike}>
+        <form  onBlur={handleEdit} onKeyPress={enterStrike} onClick={toggleClass}>
              {/* <ul className="errors">
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul> */}
