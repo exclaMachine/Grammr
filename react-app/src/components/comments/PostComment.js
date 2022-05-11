@@ -1,5 +1,5 @@
 import { postCommentThunk } from "../../store/comment";
-import React, {useState } from "react";
+import React, {useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 
@@ -8,6 +8,8 @@ const CreateComment = () => {
 
     const [comment, setComment] = useState('')
     const [errors, setErrors] = useState([]);
+    const [showButton, setShowButton] = useState(false)
+
 
     const reset = () => {
         setComment('')
@@ -19,6 +21,26 @@ const CreateComment = () => {
     let pictureID = pictureObj?.id
     // console.log('picID', pictureID)
 
+
+
+    const addButton = () => {
+        if (showButton) return;
+        setShowButton(true);
+    }
+
+
+
+    useEffect(() => {
+        if (!showButton) return;
+
+        const removeButton = () => {
+          setShowButton(false);
+        };
+
+        document.addEventListener('submit', removeButton);
+
+        return () => document.removeEventListener("submit", removeButton);
+      }, [showButton]);
 
     // let picture = Object.values(pictureObj.picture)
 
@@ -63,6 +85,7 @@ const CreateComment = () => {
                 )} */}
                 </ul>
                 <textarea
+                onFocus={addButton}
                 className='comment-input'
                 placeholder="Comment has to be at least 1 character in length"
                 value={comment}
@@ -70,8 +93,9 @@ const CreateComment = () => {
                 >
 
                 </textarea>
-
-                <button type="submit">Create Comment</button>
+                {showButton && (
+                    <button type="submit" >Post Comment</button>
+                )}
             </form>
         )
 }

@@ -6,6 +6,9 @@ import { useParams } from 'react-router-dom';
 import DeleteComment from './DeleteComment';
 import SpecificUser from '../users/SpecificUser';
 
+
+
+
 const CommentsPage = () => {
     const dispatch = useDispatch()
     const { id } = useParams();
@@ -15,6 +18,7 @@ const CommentsPage = () => {
     let comments = Object.values(commentObj)
 
     const [users, setUsers] = useState([]);
+
 
     // useEffect(() => {
     //     async function fetchData() {
