@@ -20,8 +20,9 @@
     position: fixed;
     background-color: whitesmoke;
     bottom: 0;
+    right: 0;
     border: black solid;
-    width: 90vw;
+    width: 50vw;
 }
 
 .active {
