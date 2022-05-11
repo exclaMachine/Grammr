@@ -38,11 +38,11 @@ function ProfileButton() {
       </button>
       {showMenu && (
         <ul className="profile-dropdown">
-          <li>{sessionUser.username}</li>
-          <li>{sessionUser.email}</li>
-          <li>
+          {/* <li>{sessionUser.username}</li> */}
+          {/* <li>{sessionUser.email}</li> */}
+          <div>
             <LogoutButton/>
-          </li>
+          </div>
         </ul>
       )}
     </>
