@@ -1,4 +1,4 @@
-import React, {useState } from "react";
+import React, {useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { editPictureThunk } from "../../store/picture";
 
@@ -6,7 +6,7 @@ const EditPicture = ({id}) => {
     const dispatch = useDispatch()
 
     // console.log('just id', id)
-
+    const [showMenu, setShowMenu] = useState(false);
     const [showModal, setShowModal] = useState(false);
     const sessionUser = useSelector(state => state.session.user)
     const pictureObj = useSelector(state => state.pictureReducer)
@@ -18,6 +18,23 @@ const EditPicture = ({id}) => {
 
     const [content, setContent] = useState(idObj[0].content)
     const [errors, setErrors] = useState([])
+
+    const openMenu = () => {
+        if (showMenu) return;
+        setShowMenu(true)
+    }
+
+    useEffect(() => {
+        if (!showMenu) return;
+
+        const closeMenu = () => {
+            setShowMenu(false)
+        }
+
+        document.addEventListener('focusout', closeMenu);
+
+        return () => document.removeEventListener('focusout', closeMenu)
+    }, [showMenu])
 
 
     const handleEdit = async (e) => {
@@ -55,6 +72,9 @@ const EditPicture = ({id}) => {
     }
 
     return (
+        <>
+        <h2 className='editTitleButton' onClick={openMenu}>{content}</h2>
+        {showMenu && (
         <form onBlur={handleEdit}>
              {/* <ul className="errors">
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
@@ -78,6 +98,8 @@ const EditPicture = ({id}) => {
             {/* <br></br>
             <button type="submit">Update Title</button> */}
         </form>
+        )}
+        </>
 
     )
 }
