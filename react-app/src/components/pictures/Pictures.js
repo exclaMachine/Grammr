@@ -41,7 +41,9 @@ const PicturesPage = () => {
                                      <NavLink className="navBar" to={`/pictures/${id}`} exact={true} activeClassName='active'>
                                          <img alt='' src={image}></img>
                                      </NavLink>
-                                 <DeletePicModal id={id}/>
+                                    <div>
+                                     <DeletePicModal id={id}/>
+                                     </div>
                              </div>
                          ))}
                      </div>
