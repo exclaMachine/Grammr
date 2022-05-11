@@ -46,6 +46,7 @@ const EditPicture = ({id}) => {
 
         let updatedPicture;
 
+
         // if this has a album_id. come back to this
         if (id) {
             updatedPicture = {
@@ -74,12 +75,20 @@ const EditPicture = ({id}) => {
         return setErrors(['Title cannot be empty'])
 
     }
+    let enterStrike = (e) => {
+        document.addEventListener('keypress', e => {
+            if (e.key === 'Enter') {
+                return handleEdit(e)
+            }
+        })
+
+    }
 
     return (
         <>
         {/* <h2 className={isInput ? "input": "not-input"} onClick={openMenu}>{content}</h2> */}
         {/* {showMenu && ( */}
-        <form onBlur={handleEdit}>
+        <form  onBlur={handleEdit} onKeyPress={enterStrike}>
              {/* <ul className="errors">
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul> */}
