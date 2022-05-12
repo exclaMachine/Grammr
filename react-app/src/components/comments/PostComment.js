@@ -66,9 +66,9 @@ const CreateComment = () => {
             if (typeof data === 'string') {
                 console.log('inside data if', typeof data === 'string')
 
-                if (comment.length > 0) {
-                    setComment(comment)
-                }
+
+                setComment(comment)
+
                 return setErrors([data])
             }
             // return dispatch(postCommentThunk(newComment))
@@ -100,11 +100,13 @@ const CreateComment = () => {
                         onChange={(e)=> {setComment(e.target.value); setCount(e.target.value.length)}}
                         >
                     </textarea>
-                    <span className='character-count'>{count}/255</span>
 
                     <span>
                         {showButton && (
+                            <>
+                            <span className='character-count'>{count}/255</span>
                             <button type="submit" >Post Comment</button>
+                            </>
                         )}
                     </span>
                 </div>
