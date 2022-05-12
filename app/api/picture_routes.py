@@ -59,6 +59,9 @@ def upload_picture():
     if content == '':
         return {"errors": "Title must be at least one character"}
 
+    if len(content) > 20:
+        return {"errors": "Title must be less than 21 characters"}
+
     if album_id == "noId":
         album_id = None
 

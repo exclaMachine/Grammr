@@ -96,10 +96,10 @@ const EditPicture = ({id}) => {
             </ul> */}
             <ul className="errors">
                 {content.length < 1 && (
-                    <li>Title has to be at least 1 character in length</li>
+                    <li>Title has to be at least 1 character</li>
                 )}
                 {content.length > 20 && (
-                    <li>Title has to be less than 21 characters in length</li>
+                    <li>Title has to be less than 21 characters</li>
                 )}
             </ul>
             {/* <div> You <strong>could</strong> pick a name with punctuation!!</div> */}
