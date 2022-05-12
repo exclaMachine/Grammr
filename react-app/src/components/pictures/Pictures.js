@@ -20,13 +20,13 @@ const PicturesPage = () => {
 
     let usersPictures = pictures.filter(picture => picture?.user_id === sessionUser?.id).reverse()
 
-    const Hide = () => {
-        setHidden(true);
-    }
+    // const Hide = () => {
+    //     setHidden(true);
+    // }
 
-    const Show = () => {
-        setHidden(false);
-    }
+    // const Show = () => {
+    //     setHidden(false);
+    // }
 
     useEffect(() => {
         dispatch(getAllPicturesThunk())
@@ -44,14 +44,14 @@ const PicturesPage = () => {
                  <div>
                      <div className='pic-list'>
                          {usersPictures.map(({ id, content, image}) => (
-                             <div onMouseEnter={Hide} onMouseLeave={Show} className="individual-pic" key={id}>
+                             <div className="individual-pic" key={id}>
                                  <EditPicture id={id}/>
                                  {/* <EditPicModal id={id}/> */}
                                  {/* <h1>{content}</h1> */}
                                      <NavLink className="navBar" to={`/pictures/${id}`} exact={true} activeClassName='active'>
                                          <img alt='' src={image}></img>
                                      </NavLink>
-                                        <div className={isHidden ? 'not-hidden': 'hidden'}>
+                                        <div className='trash-can'>
                                              <DeletePicModal id={id}/>
                                         </div>
                              </div>

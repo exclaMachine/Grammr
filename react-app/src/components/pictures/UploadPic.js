@@ -84,7 +84,7 @@ const UploadPicture = ({id}) => {
 
         return (
             <form onSubmit={handleSubmit}>
-                <label htmlFor="fileupload" class="new-file-upload">
+                <label htmlFor="fileupload" className="new-file-upload">
                     <i className="fa-solid fa-cloud-arrow-up"></i>
                 </label>
 

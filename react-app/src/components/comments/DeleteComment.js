@@ -31,7 +31,7 @@ const DeleteComment = ({id}) => {
         <form onSubmit={handleDelete}>
 
             <button type="submit">
-            <i class="fa-solid fa-trash"></i>
+            <i className="fa-solid fa-trash"></i>
             </button>
         </form>
 

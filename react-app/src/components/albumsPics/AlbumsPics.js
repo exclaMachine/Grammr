@@ -35,7 +35,7 @@ const AlbumsPicturesPage = ({id}) => {
                     <UploadPicture id={id}/>
                     <div>
                         {usersPictures.map(({ id, album_id, content, image}) => (
-                            <div key={id}>
+                            <div className="individual-pic" key={id}>
 
                                 <EditPicture id={id}/>
                                 {/* <EditPicModal id={id}/> */}
@@ -43,7 +43,9 @@ const AlbumsPicturesPage = ({id}) => {
                                     <NavLink className="navBar" to={`/pictures/${id}`} exact={true} activeClassName='active'>
                                         <img alt='' src={image}></img>
                                     </NavLink>
-                                <DeletePicModal id={id}/>
+                                    <div className='trash-can'>
+                                         <DeletePicModal id={id}/>
+                                    </div>
                                 {/* <DeletePicture id={id}/> */}
                             </div>
                         ))}
