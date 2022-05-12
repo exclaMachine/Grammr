@@ -30,9 +30,11 @@ def upload_picture():
     # content = image.filename
 
     if not allowed_file(pic.filename):
-        print("file type!!!!!")
+        # print("file type!!!!!")
         return {"errors": "File type not permitted"}
         # , 400
+
+
 
     picName = pic.filename
 
@@ -53,6 +55,9 @@ def upload_picture():
     album_id = request.form['album_id']
     content = request.form['content']
     # print('\n\nrequest.file\n\n', request.form['album_id'])
+
+    if content == '':
+        return {"errors": "Title must be at least one character"}
 
     if album_id == "noId":
         album_id = None
