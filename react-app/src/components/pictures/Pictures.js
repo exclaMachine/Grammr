@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { getAllPicturesThunk } from '../../store/picture'
@@ -10,9 +10,6 @@ import EditPicture from './EditPic';
 
 const PicturesPage = () => {
     const dispatch = useDispatch()
-
-    const [isHidden, setHidden] = useState(false)
-
 
     const sessionUser = useSelector(state => state.session.user)
     const pictureObj = useSelector(state => state.pictureReducer)

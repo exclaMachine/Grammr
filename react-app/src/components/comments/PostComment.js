@@ -23,15 +23,11 @@ const CreateComment = () => {
     // console.log('picID', pictureID)
 
 
-
     const addButton = () => {
         if (showButton) return;
         setShowButton(true);
     }
 
-    const countCharacters = (e) => {
-        document.addEventListener('')
-    }
 
     useEffect(() => {
         if (!showButton) return;

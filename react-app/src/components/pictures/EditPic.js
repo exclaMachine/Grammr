@@ -7,7 +7,6 @@ const EditPicture = ({id}) => {
 
     const [isInput, setInput] = useState(false)
     const [showMenu, setShowMenu] = useState(false);
-    const [showModal, setShowModal] = useState(false);
     const sessionUser = useSelector(state => state.session.user)
     const pictureObj = useSelector(state => state.pictureReducer)
     const pictures = Object.values(pictureObj)
@@ -21,11 +20,6 @@ const EditPicture = ({id}) => {
 
     const toggleClass = () => {
         setInput(!isInput);
-    }
-
-    const openMenu = () => {
-        if (showMenu) return;
-        setShowMenu(true)
     }
 
     useEffect(() => {

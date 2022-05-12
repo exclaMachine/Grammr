@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getAllCommentsThunk } from '../../store/comment'
 import EditCommentModal from '../modals/EditCommentModal';
@@ -17,7 +17,6 @@ const CommentsPage = () => {
 
     let comments = Object.values(commentObj)
 
-    const [users, setUsers] = useState([]);
 
 
     // useEffect(() => {
