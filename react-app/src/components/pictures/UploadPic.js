@@ -56,8 +56,9 @@ const UploadPicture = ({id}) => {
                 // console.log('inside data', data)
                 setErrors([data]);
             }
-        // console.log('title', title)
-        // setTitle('')
+
+
+        //This has to be her otherwise the uploaded pic section will not go away
         setPic(null);
         setPicLoading(false)
             // const res = await fetch('/api/pictures', {
@@ -89,7 +90,7 @@ const UploadPicture = ({id}) => {
         return (
             <form onSubmit={handleSubmit}>
                 <label htmlFor="fileupload" className="new-file-upload">
-                    <i className="fa-solid fa-cloud-arrow-up"></i>
+                    <i className="fa-solid fa-cloud-arrow-up">  Upload Pic </i>
                 </label>
 
                 <ul className="errors">
