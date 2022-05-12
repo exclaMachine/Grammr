@@ -64,8 +64,11 @@ const CreateComment = () => {
             const data = await dispatch(postCommentThunk(newComment))
             console.log('data', data)
             if (typeof data === 'string') {
-                // console.log('inside data if', typeof data === 'string')
-                setComment(comment)
+                console.log('inside data if', typeof data === 'string')
+
+                if (comment.length > 0) {
+                    setComment(comment)
+                }
                 return setErrors([data])
             }
             // return dispatch(postCommentThunk(newComment))

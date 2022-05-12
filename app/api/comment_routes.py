@@ -12,6 +12,7 @@ def post_comment():
 
     user_id=current_user.id
     comment = request.json['comment']
+    # print('comment', comment)
     picture_id = request.json['picture_id']
 
     new_comment = Comment(
@@ -20,6 +21,7 @@ def post_comment():
         picture_id=picture_id
     )
 
+    #I think this isn't working because the state is already a '' so it's not rerendering
     if len(comment) == 0:
         return {'errors': "Comment must be at least one character"}
 
