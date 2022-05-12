@@ -9,6 +9,7 @@ const CreateComment = () => {
     const [comment, setComment] = useState('')
     const [errors, setErrors] = useState([]);
     const [showButton, setShowButton] = useState(false)
+    const [count, setCount] = useState(0);
 
 
     const reset = () => {
@@ -28,7 +29,9 @@ const CreateComment = () => {
         setShowButton(true);
     }
 
-
+    const countCharacters = (e) => {
+        document.addEventListener('')
+    }
 
     useEffect(() => {
         if (!showButton) return;
@@ -38,6 +41,7 @@ const CreateComment = () => {
         };
 
         document.addEventListener('submit', removeButton);
+
 
         return () => document.removeEventListener("submit", removeButton);
       }, [showButton]);
@@ -56,10 +60,15 @@ const CreateComment = () => {
         if (comment) {
             setErrors([]);
             reset();
+            setCount(0);
             const data = await dispatch(postCommentThunk(newComment))
             console.log('data', data)
             if (typeof data === 'string') {
-                // console.log('inside data if', typeof data === 'string')
+                console.log('inside data if', typeof data === 'string')
+
+                if (comment.length > 0) {
+                    setComment(comment)
+                }
                 return setErrors([data])
             }
             // return dispatch(postCommentThunk(newComment))
@@ -79,23 +88,27 @@ const CreateComment = () => {
         return (
             <form onSubmit={handleSubmit}>
                  <ul className="errors">
-                {/* {errors.map((error, idx) => <li key={idx}>{error}</li>)} */}
-                {/* {comment.length < 1 && (
-                    <li>Comment has to be at least 1 character in length</li>
-                )} */}
+                    {errors.map((error, idx) => <li key={idx}>{error}</li>)}
                 </ul>
-                <textarea
-                onFocus={addButton}
-                className='comment-input'
-                placeholder="Comment has to be at least 1 character in length"
-                value={comment}
-                onChange={(e)=> setComment(e.target.value)}
-                >
 
-                </textarea>
-                {showButton && (
-                    <button type="submit" >Post Comment</button>
-                )}
+                <div className="comment-container">
+                    <textarea
+                        onFocus={addButton}
+                        className='comment-input'
+                        // placeholder="Comment has to be at least 1 character in length"
+                        value={comment}
+                        onChange={(e)=> {setComment(e.target.value); setCount(e.target.value.length)}}
+                        >
+                    </textarea>
+                    <span className='character-count'>{count}/255</span>
+
+                    <span>
+                        {showButton && (
+                            <button type="submit" >Post Comment</button>
+                        )}
+                    </span>
+                </div>
+
             </form>
         )
 }

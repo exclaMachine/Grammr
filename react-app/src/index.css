@@ -46,6 +46,14 @@ textarea {
     right: 0;
 }
 
+ /* .comment-input {
+    position: relative
+} */
+
+.character-count {
+   font-size: 15px;
+   margin: 5px;
+}
 
 .pictureContainer > div > img{
     /* border: red solid 5px; */
