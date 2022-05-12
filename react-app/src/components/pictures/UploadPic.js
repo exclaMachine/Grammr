@@ -15,7 +15,7 @@ const UploadPicture = ({id}) => {
     // const pictureObj = useSelector(state => state.pictureReducer)
 
     const [pic, setPic] = useState(null);
-    const [title, setTitle] = useState('');
+    const [title, setTitle] = useState(pic?.name);
     const [errors, setErrors] = useState([]);
     const [picLoading, setPicLoading] = useState(false);
 
@@ -56,7 +56,10 @@ const UploadPicture = ({id}) => {
                 // console.log('inside data', data)
                 setErrors([data]);
             }
-        setPic('')
+
+
+        //This has to be her otherwise the uploaded pic section will not go away
+        setPic(null);
         setPicLoading(false)
             // const res = await fetch('/api/pictures', {
         //     method: 'POST',
@@ -81,12 +84,13 @@ const UploadPicture = ({id}) => {
         // console.log('target!!!', e.target.files[0])
 
         setPic(file);
+        setTitle(file?.name)
     }
 
         return (
             <form onSubmit={handleSubmit}>
                 <label htmlFor="fileupload" className="new-file-upload">
-                    <i className="fa-solid fa-cloud-arrow-up"></i>
+                    <i className="fa-solid fa-cloud-arrow-up">  Upload Pic </i>
                 </label>
 
                 <ul className="errors">
