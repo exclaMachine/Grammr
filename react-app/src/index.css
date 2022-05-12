@@ -30,21 +30,22 @@ textarea {
     padding: 10px;
 }
 
-
-.hidden {
-    visibility: hidden;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-}
-
-.not-hidden {
+.individual-pic:hover .trash-can {
+    /* background-color: red; */
     visibility: visible;
     position: absolute;
     bottom: 0;
     right: 0;
     z-index: 2;
 }
+
+.trash-can {
+    visibility: hidden;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
 
 .pictureContainer > div > img{
     /* border: red solid 5px; */
