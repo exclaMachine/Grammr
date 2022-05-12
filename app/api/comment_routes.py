@@ -8,7 +8,7 @@ comment_routes = Blueprint('comments', __name__)
 
 @comment_routes.route('/new', methods=["POST"])
 @login_required
-def post_picture():
+def post_comment():
 
     user_id=current_user.id
     comment = request.json['comment']
@@ -19,6 +19,12 @@ def post_picture():
         comment=comment,
         picture_id=picture_id
     )
+
+    if len(comment) == 0:
+        return {'errors': "Comment must be at least one character"}
+
+    if len(comment) > 255:
+        return {'errors': "Comment cannot be longer than 255 characters"}
 
     db.session.add(new_comment)
     db.session.commit()
