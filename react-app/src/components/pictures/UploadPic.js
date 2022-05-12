@@ -17,7 +17,7 @@ const UploadPicture = ({id}) => {
     const [pic, setPic] = useState(null);
     const [title, setTitle] = useState('');
     const [errors, setErrors] = useState([]);
-    // const [picLoading, setPicLoading] = useState(false);
+    const [picLoading, setPicLoading] = useState(false);
 
 
 
@@ -47,7 +47,7 @@ const UploadPicture = ({id}) => {
         //      }
         // console.log('formdata', formData)
 
-        // setPicLoading(true);
+        setPicLoading(true);
         setErrors([])
         // setPic('')
         const data = await dispatch(postPictureThunk(formData))
@@ -57,6 +57,7 @@ const UploadPicture = ({id}) => {
                 setErrors([data]);
             }
         setPic('')
+        setPicLoading(false)
             // const res = await fetch('/api/pictures', {
         //     method: 'POST',
         //     body: formData
@@ -120,7 +121,6 @@ const UploadPicture = ({id}) => {
                     className='uploadedPic'
                     alt='your pic'
                     src={URL.createObjectURL(pic)}
-
                     >
 
                     </img>
@@ -131,7 +131,7 @@ const UploadPicture = ({id}) => {
                 </>
                 )}
 
-                {/* {(picLoading)&& <p>Loading...</p>} */}
+                {(picLoading)&& <p>Loading...</p>}
             </form>
         )
 
