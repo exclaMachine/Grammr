@@ -53,10 +53,8 @@ const UploadPicture = ({id}) => {
         const data = await dispatch(postPictureThunk(formData))
         //
             if (data) {
-                // console.log('inside data', data)
                 setErrors([data]);
             }
-
 
         //This has to be her otherwise the uploaded pic section will not go away
         setPic(null);
@@ -81,8 +79,6 @@ const UploadPicture = ({id}) => {
 
     const updatePic = (e) => {
         const file = e.target.files[0];
-        // console.log('target!!!', e.target.files[0])
-
         setPic(file);
         setTitle(file?.name)
     }
@@ -94,7 +90,10 @@ const UploadPicture = ({id}) => {
                 </label>
 
                 <ul className="errors">
-                    {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+                    {/* {errors.map((error, idx) => <li key={idx}>{error}</li>)} */}
+                    {title?.length > 20 && (
+                        <div>Title must be less than 21 characters</div>
+                    )}
                 </ul>
 
                 <input
@@ -105,11 +104,6 @@ const UploadPicture = ({id}) => {
                 />
                 {pic && (
                 <>
-                    {/* <div
-                    id="fileselected">
-                        {pic.name}
-                    </div> */}
-
                     <div>
                         <input
                         type="text"
