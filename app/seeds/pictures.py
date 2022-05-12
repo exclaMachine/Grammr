@@ -96,6 +96,21 @@ pict_dict = [
         "created": today.strftime("%B %d, %Y"),
         "updated": today.strftime("%B %d, %Y")
     },
+    {
+        "id": 3,
+        "cont": "Parentheses",
+        "img": "https://i0.wp.com/awsymbols.com/wp-content/uploads/2021/01/85C08874-1C48-4250-B1C5-301F41F18D5E.jpeg?w=800&ssl=1",
+        "created": today.strftime("%B %d, %Y"),
+        "updated": today.strftime("%B %d, %Y")
+    },
+    {
+        "id": 3,
+        "cont": "Homonymphs",
+        "img": "https://i0.wp.com/awsymbols.com/wp-content/uploads/2021/04/632DF6DB-9C6E-449E-BE9B-92D6A55A540C.jpeg?w=800&ssl=1",
+        "created": today.strftime("%B %d, %Y"),
+        "updated": today.strftime("%B %d, %Y")
+    },
+
 
 ]
 
