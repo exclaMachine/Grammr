@@ -6,6 +6,7 @@ import { useSelector} from 'react-redux';
 import './navBar.css'
 import FooterLinks from './Footer';
 import ProfileButton from './buttons/DropdownLogout';
+import SearchBar from './Searchbar';
 
 
 const NavBar = () => {
@@ -62,6 +63,9 @@ const NavBar = () => {
               <NavLink className="navBar" to='/albums' exact={true} activeClassName='active'>
                 Albums
               </NavLink>
+            </div>
+            <div>
+              <SearchBar/>
             </div>
               {/* <LogoutButton /> */}
               <ProfileButton/>
