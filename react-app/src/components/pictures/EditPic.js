@@ -79,7 +79,9 @@ const EditPicture = ({id}) => {
 
     let enterStrike = (e) => {
         document.addEventListener('keypress', e => {
+            e.stopPropagation();
             if (e.key === 'Enter') {
+
                 return handleEdit(e)
             }
         })
