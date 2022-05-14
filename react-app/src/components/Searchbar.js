@@ -1,6 +1,5 @@
-import React, { useEffect, useState} from 'react'
+import React, { useState} from 'react'
 import { useSelector, useDispatch} from 'react-redux';
-import { getAllPicturesThunk } from '../store/picture';
 //search bar should search for picture titles and then return single pic
 
 const SearchBar = () => {
@@ -22,13 +21,11 @@ const SearchBar = () => {
 
 
     const foundPic = pictures.find((pic) => {
-            return pic.content === searchInput
+            return pic.content.toLowerCase() === searchInput.toLowerCase()
         })
 
 
-    // useEffect(() => {
-    //     dispatch(getAllPicturesThunk())
-    // }, [dispatch])
+
 
 
 
