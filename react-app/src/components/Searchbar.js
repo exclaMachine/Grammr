@@ -1,17 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom';
-import { useSelector, useDispatch} from 'react-redux';
+import { useSelector} from 'react-redux';
 import { getAllPicturesThunk } from '../store/picture';
 //search bar should search for picture titles and then return single pic
 
 const SearchBar = () => {
-    const dispatch = useDispatch();
     const history = useHistory();
     const pictureObj = useSelector(state => state.pictureReducer)
-
-    useEffect(() => {
-        dispatch(getAllPicturesThunk())
-    }, [dispatch])
 
     let pictures = Object.values(pictureObj)
     console.log('pics for search', pictures)
@@ -19,8 +14,6 @@ const SearchBar = () => {
     const [searchInput, setSearchInput] = useState('');
 
     console.log('search', searchInput)
-
-
 
     let foundPic = pictures.find((pic) => {
         return pic.content.toLowerCase() === searchInput.toLowerCase()
@@ -49,6 +42,12 @@ const SearchBar = () => {
 
     return (
         <>
+        {/* removes the search bar if it goes to a single pic. temp fix for now */}
+        {/* it still gets removed if right after you go to albums */}
+        {pictures.length < 2 && (
+            <div></div>
+        )}
+        {pictures.length > 1 && (
         <form onSubmit={handleSearch}>
             <input
             type='text'
@@ -56,9 +55,12 @@ const SearchBar = () => {
             value={searchInput}
             />
 
-            <h1>{foundPic?.id}</h1>
+            {/* <h1>{foundPic?.id}</h1> */}
+            <span>
             <button type='submit'>Search</button>
+            </span>
         </form>
+        )}
         </>
     )
 }
