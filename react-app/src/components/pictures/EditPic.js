@@ -119,4 +119,4 @@ const EditPicture = ({id}) => {
     )
 }
 
-export default EditPicture
+export default EditPicture;
