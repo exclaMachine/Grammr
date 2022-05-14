@@ -26,6 +26,9 @@ const SearchBar = () => {
             history.push(`/pictures/${foundPic.id}`)
             setSearchInput('')
         }
+        if (foundPic?.id === undefined) {
+            history.push('/noresults')
+        }
 
     }
 

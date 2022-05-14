@@ -59,6 +59,9 @@ function App() {
         <ProtectedRoute path='/albums' exact={true}>
           <AlbumsPage/>
         </ProtectedRoute>
+        <ProtectedRoute path='/noresults' exact={true}>
+            <h1>Oops! There are no matches. Try to broaden your search.</h1>
+        </ProtectedRoute>
         <Route path=''>
           <div className='four-oh-four'>
             <h1>404 - Does this page exist?</h1>
