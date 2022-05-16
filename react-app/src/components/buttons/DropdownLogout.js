@@ -32,7 +32,7 @@ function ProfileButton() {
 
   return (
     <>
-      <button onClick={openMenu}>
+      <button className='hello-button' onClick={openMenu}>
           Hello, {sessionUser.username}
         {/* <i className="fas fa-user-circle" /> */}
       </button>

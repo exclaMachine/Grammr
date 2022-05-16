@@ -55,23 +55,28 @@ const SearchBar = () => {
             <></>
         )}
         {pictures.length > 1 && (
-        <form onSubmit={handleSearch}>
+        // <form onSubmit={handleSearch}>
+        <>
             <input
-            type='text'
+            placeholder='Find a picture'
+            type='search'
             onChange={(e) => setSearchInput(e.target.value)}
             value={searchInput}
             />
 
-            {searchInput.length > 0 && foundPictures.map(pic => (
-                <a href={`/pictures/${pic.id}`}>{pic.content}
-            </a>
-            ))}
-
+            <div className='search-container'>
+                <div className='search-result'>
+                {searchInput.length > 0 && foundPictures.map(pic => (
+                        <a className='search-item' href={`/pictures/${pic.id}`}>{pic.content}</a>
+                        ))}
+                        </div>
+            </div>
              {/* <h1>{foundPic?.id}</h1> */}
-            <span>
+            {/* <span>
             <button type='submit'>Search</button>
-            </span>
-        </form>
+        </span> */}
+        {/* </form> */}
+        </>
         )}
         </>
     )
