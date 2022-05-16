@@ -15,6 +15,10 @@ const SearchBar = () => {
 
     console.log('search', searchInput)
 
+    let foundPictures = pictures.filter((pic) => {
+        return pic.content.toLowerCase().includes(searchInput.toLowerCase())
+    })
+
     let foundPic = pictures.find((pic) => {
         return pic.content.toLowerCase() === searchInput.toLowerCase()
     })
@@ -48,7 +52,7 @@ const SearchBar = () => {
         {/* removes the search bar if it goes to a single pic. temp fix for now */}
         {/* it still gets removed if right after you go to albums */}
         {pictures.length < 2 && (
-            <div></div>
+            <></>
         )}
         {pictures.length > 1 && (
         <form onSubmit={handleSearch}>
@@ -58,7 +62,12 @@ const SearchBar = () => {
             value={searchInput}
             />
 
-            {/* <h1>{foundPic?.id}</h1> */}
+            {searchInput.length > 0 && foundPictures.map(pic => (
+                <a href={`/pictures/${pic.id}`}>{pic.content}
+            </a>
+            ))}
+
+             {/* <h1>{foundPic?.id}</h1> */}
             <span>
             <button type='submit'>Search</button>
             </span>
