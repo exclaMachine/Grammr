@@ -58,6 +58,7 @@ const SearchBar = () => {
         // <form onSubmit={handleSearch}>
         <>
             <input
+            className='search-input'
             placeholder='Find a picture'
             type='search'
             onChange={(e) => setSearchInput(e.target.value)}
