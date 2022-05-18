@@ -138,13 +138,13 @@ def update(id):
 @picture_routes.route('/<int:id>/comments', methods=['GET'])
 def get_comments(id):
     comments = Comment.query.filter(Comment.picture_id == id)
-    print('\n\ncomm\n\n', id)
+    # print('\n\ncomm\n\n', id)
     return {comment.id: comment.to_dict() for comment in comments}
 
 @picture_routes.route('/user/<int:id>', methods=['GET'])
 def get_users_pictures(id):
-    usersPictures = Picture.query.filter(Picture.user_id == User.id)
-
-    print('\n\n\nonly a few\n\n\n', usersPictures)
+    usersPictures = Picture.query.filter(Picture.user_id == id)
+    # print('\n\n\nid\n\n\n\n', id)
+    # print('\n\n\nonly a few\n\n\n', usersPictures)
 
     return {picture.id: picture.to_dict() for picture in usersPictures}
