@@ -6,7 +6,7 @@ import { getUserPicturesThunk } from '../../store/picture';
 import './pictures.css'
 // import EditPicModal from '../modals/EditPicModal'
 
-const PicturesPage = () => {
+const UsersPicturesPage = () => {
     const dispatch = useDispatch()
 
     const { id } = useParams();
@@ -18,6 +18,24 @@ const PicturesPage = () => {
     let pictures = Object.values(pictureObj)
     console.log('usePics', pictures)
 
+    const [users, setUsers] = useState([]);
+
+
+    useEffect(() => {
+        async function fetchData() {
+        const response = await fetch('/api/users/');
+        const responseData = await response.json();
+        setUsers(responseData.users);
+        }
+        fetchData();
+    }, []);
+
+
+    // let userArr = Object.values(users)
+    let currentUserArr = users.filter(user => user?.id === +id)
+    // console.log('curruser', currentUser)
+
+    let currUser = currentUserArr[0]
     // let usersPictures = pictures.filter(picture => picture?.user_id === sessionUser?.id).reverse()
 
     // const Hide = () => {
@@ -35,14 +53,14 @@ const PicturesPage = () => {
     return (
         <>
         <div className='pic-grid'>
-            <h1>{sessionUser?.username}'s Pictures</h1>
-            {usersPictures.length < 1 && (
+            <h1>{currUser?.username}'s Pictures</h1>
+            {pictures.length < 1 && (
             <h2>This user doesn't have any pictures!</h2>
             )}
             <div className='picturesContainer'>
                  <div>
                      <div className='pic-list'>
-                         {usersPictures.map(({ id, content, image}) => (
+                         {pictures.map(({ id, content, image}) => (
                              <div className="individual-pic" key={id}>
                                  {/* <h1>{content}</h1> */}
                                      <NavLink className="navBar" to={`/pictures/${id}`} exact={true} activeClassName='active'>
@@ -62,4 +80,4 @@ const PicturesPage = () => {
     )
 }
 
-export default PicturesPage;
+export default UsersPicturesPage;

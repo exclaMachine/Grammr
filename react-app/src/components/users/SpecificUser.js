@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
+
 
 function SpecificUser({id}) {
   const [user, setUser] = useState({});
@@ -23,7 +25,9 @@ function SpecificUser({id}) {
     <>
 
       <div className='userName'>
-        <strong>{user.username}</strong>
+        <NavLink to={`/pictures/user/${id}`} exact={true}>
+          {user.username}
+        </NavLink>
       </div>
 
     </>

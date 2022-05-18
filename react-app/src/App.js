@@ -9,6 +9,7 @@ import SplashPage from './components/Splashpage';
 import AlbumsPage from './components/albums/Albums';
 import PicturePage from './components/pictures/SinglePic';
 import FooterLinks from './components/Footer';
+import UsersPicturesPage from './components/pictures/UsersPics';
 
 
 import ProtectedRoute from './components/auth/ProtectedRoute';
@@ -58,6 +59,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/albums' exact={true}>
           <AlbumsPage/>
+        </ProtectedRoute>
+        <ProtectedRoute path='/pictures/user/:id' exact={true}>
+          <UsersPicturesPage/>
         </ProtectedRoute>
         <ProtectedRoute path='/noresults' exact={true}>
             <h1>Oops! There are no matches. Try to broaden your search.</h1>
