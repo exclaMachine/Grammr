@@ -53,11 +53,11 @@ const LoginForm = () => {
       <h3>Log in to Grammr</h3>
       <p>A place to post images about grammar and punctuation!?</p>
 
-        <div className="errors">
+        <ul className="errors">
           {errors.map((error, ind) => (
-            <div key={ind}>{error}</div>
+            <li key={ind}>{error}</li>
           ))}
-        </div>
+        </ul>
         <div>
           {/* <label htmlFor='email'>Email</label> */}
           <br></br>

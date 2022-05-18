@@ -131,9 +131,8 @@ def update(id):
 
     db.session.commit()
 
-    return {
-        'updated_pic': foundPic.to_dict()
-    }
+    return foundPic.to_dict()
+
 
 #comments route
 @picture_routes.route('/<int:id>/comments', methods=['GET'])

@@ -101,8 +101,8 @@ export const editPictureThunk = (id, data) => async dispatch => {
         if (updatedPic.errors) {
             return updatedPic.errors
         }
-        dispatch(editPicture(id, updatedPic.updated_pic))
-        return updatedPic.updated_pic
+        dispatch(editPicture(id, updatedPic))
+        return updatedPic
     }
 }
 
