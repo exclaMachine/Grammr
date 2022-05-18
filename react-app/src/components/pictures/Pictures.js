@@ -36,7 +36,7 @@ const PicturesPage = () => {
         <>
         <UploadPicture/>
         <div className='pic-grid'>
-            <h1>{sessionUser?.username}'s Pictures</h1>
+            <h1>Your Pictures</h1>
             {usersPictures.length < 1 && (
             <h2>You need pictures! Start uploading some!</h2>
             )}
