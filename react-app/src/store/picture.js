@@ -3,6 +3,8 @@ const SINGLE_PICTURE = 'picture/SINGLE_PICTURE'
 const POST_PICTURE = 'picture/POST_PICTURES'
 const DELETE_PICTURE = 'picture/DELETE_PICTURE'
 const EDIT_PICTURE = 'picture/EDIT_PICTURE'
+const GET_USER_PICTURES = 'picture/GET_USER_PICTURES'
+
 
 export const getAllPictures = (pictures) => {
     return {
@@ -15,6 +17,13 @@ export const getPicture = (picture) => {
     return {
         type: SINGLE_PICTURE,
         payload: picture
+    }
+}
+export const getUserPictures = (id, pictures) => {
+    return {
+        type: GET_USER_PICTURES,
+        id,
+        pictures
     }
 }
 
@@ -56,6 +65,15 @@ export const getPictureThunk = (id) => async dispatch => {
     if (res.ok) {
         const data = await res.json()
         dispatch(getPicture(data))
+    }
+}
+
+export const getUserPicturesThunk = (id) => async dispatch => {
+    const res = await fetch(`/api/pictures/user/${id}`)
+
+    if (res.ok) {
+        const data = await res.json()
+        dispatch(getUserPictures(data))
     }
 }
 
@@ -121,6 +139,11 @@ const pictureReducer = (state = initialState, action) => {
         case SINGLE_PICTURE:
             newState = {...state}
             return action.payload
+
+        case GET_USER_PICTURES:
+            newState = {...state}
+            newState = action.pictures
+            return newState;
 
         case POST_PICTURE:
             newState = {...state}
