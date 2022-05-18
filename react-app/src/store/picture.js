@@ -73,6 +73,7 @@ export const getUserPicturesThunk = (id) => async dispatch => {
 
     if (res.ok) {
         const data = await res.json()
+        console.log('usepicData', data)
         dispatch(getUserPictures(id, data))
     }
 }

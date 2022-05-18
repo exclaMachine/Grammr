@@ -145,4 +145,6 @@ def get_comments(id):
 def get_users_pictures(id):
     usersPictures = Picture.query.filter(Picture.user_id == User.id)
 
+    print('\n\n\nonly a few\n\n\n', usersPictures)
+
     return {picture.id: picture.to_dict() for picture in usersPictures}
