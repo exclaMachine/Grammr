@@ -44,7 +44,6 @@ function AlbumButton({id}) {
       <button onClick={openMenu}>
 
           Open <u>{album.title}</u>
-        {/* <i className="fas fa-user-circle" /> */}
       </button>
     )}
         {showMenu && (
