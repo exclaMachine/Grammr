@@ -1,5 +1,5 @@
 from flask import Blueprint, request
-from app.models import db, Picture, Comment
+from app.models import db, Picture, Comment, User
 from flask_login import current_user, login_required
 from app.s3_funcs import (
     upload_file_to_s3, allowed_file, get_unique_filename)
@@ -140,3 +140,9 @@ def get_comments(id):
     comments = Comment.query.filter(Comment.picture_id == id)
     print('\n\ncomm\n\n', id)
     return {comment.id: comment.to_dict() for comment in comments}
+
+@picture_routes.route('/user/<int:id>', methods=['GET'])
+def get_users_pictures(id):
+    usersPictures = Picture.query.filter(Picture.user_id == User.id)
+
+    return {picture.id: picture.to_dict() for picture in usersPictures}
