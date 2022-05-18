@@ -1,24 +1,42 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { getAllPicturesThunk } from '../../store/picture'
+import { useParams } from 'react-router-dom';
+import { getUserPicturesThunk } from '../../store/picture';
 import './pictures.css'
-import UploadPicture from './UploadPic';
-import DeletePicModal from '../modals/DeletePicModal'
 // import EditPicModal from '../modals/EditPicModal'
-import EditPicture from './EditPic';
 
-const PicturesPage = () => {
+const UsersPicturesPage = () => {
     const dispatch = useDispatch()
 
+    const { id } = useParams();
     const [isHidden, setHidden] = useState(false)
 
 
     const sessionUser = useSelector(state => state.session.user)
     const pictureObj = useSelector(state => state.pictureReducer)
     let pictures = Object.values(pictureObj)
+    console.log('usePics', pictures)
 
-    let usersPictures = pictures.filter(picture => picture?.user_id === sessionUser?.id).reverse()
+    const [users, setUsers] = useState([]);
+
+
+    useEffect(() => {
+        async function fetchData() {
+        const response = await fetch('/api/users/');
+        const responseData = await response.json();
+        setUsers(responseData.users);
+        }
+        fetchData();
+    }, []);
+
+
+    // let userArr = Object.values(users)
+    let currentUserArr = users.filter(user => user?.id === +id)
+    // console.log('curruser', currentUser)
+
+    let currUser = currentUserArr[0]
+    // let usersPictures = pictures.filter(picture => picture?.user_id === sessionUser?.id).reverse()
 
     // const Hide = () => {
     //     setHidden(true);
@@ -29,31 +47,25 @@ const PicturesPage = () => {
     // }
 
     useEffect(() => {
-        dispatch(getAllPicturesThunk())
+        dispatch(getUserPicturesThunk(+id))
     }, [dispatch])
 
     return (
         <>
-        <UploadPicture/>
         <div className='pic-grid'>
-            <h1>Your Pictures</h1>
-            {usersPictures.length < 1 && (
-            <h2>You need pictures! Start uploading some!</h2>
+            <h1>{currUser?.username}'s Pictures</h1>
+            {pictures.length < 1 && (
+            <h2>This user doesn't have any pictures!</h2>
             )}
             <div className='picturesContainer'>
                  <div>
                      <div className='pic-list'>
-                         {usersPictures.map(({ id, content, image}) => (
+                         {pictures.map(({ id, content, image}) => (
                              <div className="individual-pic" key={id}>
-                                 <EditPicture id={id}/>
-                                 {/* <EditPicModal id={id}/> */}
                                  {/* <h1>{content}</h1> */}
                                      <NavLink className="navBar" to={`/pictures/${id}`} exact={true} activeClassName='active'>
                                          <img alt='' src={image}></img>
                                      </NavLink>
-                                        <div className='trash-can'>
-                                             <DeletePicModal id={id}/>
-                                        </div>
                              </div>
                          ))}
                      </div>
@@ -68,4 +80,4 @@ const PicturesPage = () => {
     )
 }
 
-export default PicturesPage;
+export default UsersPicturesPage;
