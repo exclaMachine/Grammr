@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom';
 import { useSelector} from 'react-redux';
 import { getAllPicturesThunk } from '../store/picture';
@@ -10,14 +10,23 @@ const SearchBar = () => {
 
     const [showMenu, setShowMenu] = useState(false);
 
-    const closeMenuButton = () => {
-        setShowMenu(false);
-     }
 
     const openMenu = () => {
         if (showMenu) return;
         setShowMenu(true);
     };
+
+    useEffect(() => {
+        if (!showMenu) return;
+
+        const closeMenu = () => {
+          setShowMenu(false);
+        };
+
+        document.addEventListener('click', closeMenu);
+
+        return () => document.removeEventListener("click", closeMenu);
+      }, [showMenu]);
 
     // let foundPic = pictures.find((pic) => {
     //     return pic.content.toLowerCase() === searchInput.toLowerCase()
@@ -80,7 +89,7 @@ const SearchBar = () => {
             />
 
             {showMenu && (
-                <div onBlur={closeMenuButton} className='search-container'>
+                <div className='search-container'>
                     <div className='search-result'>
                     {searchInput.length > 0 && foundPictures.map(pic => (
                             <a className='search-item'
